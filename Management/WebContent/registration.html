@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://unpkg.com/mobi.css/dist/mobi.min.css">
+    <style>
+        .errorlist {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="flex-center">
+    <div class="container">
+        <div class="flex-center">
+            <div class="unit-1-2 unit-1-on-mobile">
+                <h1><a href="/">注册</a></h1>
+                <h3>注册</h3>
+                <form class="form" action="UserRegis" method="post">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='dVFrMz0yzWWSlEVPfHarTlh4rafuwv89wha0Bo7lUbb6b6v9tdQqqmlyWXLeLTdO' />
+                    
+                        <label for="id_username">用户名:</label>
+                        <input type="text" name="username" maxlength="150" autofocus required id="id_username" />
+                        
+                        
+                            <p class="help text-small text-muted">必填。包含字母，数字和仅有的@/./+/-/_符号。</p>
+                        
+                    
+                        <label for="id_email">电子邮件地址:</label>
+                        <input type="email" name="email" maxlength="254" id="id_email" />
+                        
+                        <label for="id_sex">性别:</label>
+                        <select name=sex>
+						<option value = "Man">Man</option>
+						<option value = "Women">Women</option>
+						</select>
+                        <!--<input type="email" name="email" maxlength="254" id="id_email" /> -->
+                    
+                        <label for="id_unit">单位:</label>
+                        <select name=unit>
+						<option value = "cs">cs</option>
+						<option value = "hh">hh</option>
+						<option value = "pp">pp</option>
+						<option value = "yy">yy</option>
+						</select>
+                        <!-- <input type="text" name="nickname" maxlength="50" id="id_nickname" />  --> 
+                        
+                        
+                    
+                        <label for="id_password1">密码:</label>
+                        <input type="password" name="password1" required id="id_password1" />
+                        
+                        
+                            <p class="help text-small text-muted"></p>
+                        
+                    
+                        <label for="id_password2">密码确认:</label>
+                        <input type="password" name="password2" required id="id_password2" />
+                        
+                        
+                            <p class="help text-small text-muted">为了校验，请输入与上面相同的密码。</p>
+                        
+                    
+                    <button type="submit" class="btn btn-primary btn-block">注册</button>
+                    <input type="hidden" name="next" value=""/>
+                </form>
+                <div class="flex-center top-gap text-small">
+                    <a href="index.html">已有账号登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

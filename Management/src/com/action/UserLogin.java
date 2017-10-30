@@ -32,7 +32,7 @@ public class UserLogin extends ActionSupport{
 	public String execute() {
 		  String ret = ERROR;
 	      Connection conn = null;
-
+	      System.out.println(username);
 	      try {
 	         String URL = "jdbc:mysql://localhost:3306/project";
 	         Class.forName("com.mysql.jdbc.Driver");
