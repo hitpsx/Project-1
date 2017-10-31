@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ok</title>
+<title>Main interface</title>
 </head>
 <body>
-   <p>欢迎<s:property value="sex"/></p>
+   <p>欢迎<s:property value="username"/></p>
 </body>
 </html>

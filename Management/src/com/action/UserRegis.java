@@ -66,7 +66,7 @@ public class UserRegis extends ActionSupport {
 	         
 	         PreparedStatement ps = conn.prepareStatement(sql);
 	         ps.setString(1, username);
-	         ps.setInt(2, 4);
+	         ps.setInt(2, 5);
 	         ps.setString(3, password1);
 	         ps.setString(4, sex);
 	         ps.setString(5, unit);
