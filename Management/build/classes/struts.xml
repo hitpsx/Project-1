@@ -9,8 +9,8 @@
             <result name="error">/index.html</result>
         </action>
          <action name="UserRegis" class="com.action.UserRegis">
-            <result name="success">/init.jsp</result>
-            <result name="error">/index.html</result>
+            <result name="success">/index.html</result>
+            <result name="error">/init.jsp</result>
         </action>
     </package>
 </struts>

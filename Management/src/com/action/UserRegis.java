@@ -1,6 +1,5 @@
 package com.action;
 
-import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -56,24 +55,26 @@ public class UserRegis extends ActionSupport {
 	
 	public String execute() {
 		 
-		  String ret = ERROR;
+		  String ret = SUCCESS;
 	      Connection conn = null;
-	      Statement stmt=null;
           System.out.println(username+" "+sex);
 	      try {
 	         String URL = "jdbc:mysql://localhost:3306/project";
 	         Class.forName("com.mysql.jdbc.Driver");
 	         conn = DriverManager.getConnection(URL, "root", "woaini123");
-	         String sql="insert into user values('"+username+"',3,'"+password1+"','"+sex+"','"+unit+"','"+email+"')";
-	         System.out.println(sql);
-	         int val=stmt.executeUpdate(sql);
+	         String sql="insert into user values(?,?,?,?,?,?)";
+	         
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ps.setString(1, username);
+	         ps.setInt(2, 4);
+	         ps.setString(3, password1);
+	         ps.setString(4, sex);
+	         ps.setString(5, unit);
+	         ps.setString(6, email);
+	         
 	         System.out.print(sql);
-	         if(val==0) {
-	        	ret = ERROR;
-	         }
-	         else {
-	        	ret= SUCCESS;
-	         }
+	         ps.executeUpdate();
+	         
 	      } catch (Exception e) {
 	         ret = ERROR;
 	      } finally {

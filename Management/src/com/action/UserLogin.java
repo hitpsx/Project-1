@@ -41,10 +41,10 @@ public class UserLogin extends ActionSupport{
 	         PreparedStatement ps = conn.prepareStatement(sql);
 	         ps.setString(1, username);
 	         ps.setString(2, password);
+	         
 	         ResultSet rs = ps.executeQuery();
 	         while (rs.next()) {
 	        	sex = rs.getString(1) +" ";
-	        	System.out.println(sex);
 	            ret = SUCCESS;
 	         }
 	      } catch (Exception e) {
