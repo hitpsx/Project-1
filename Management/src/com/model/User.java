@@ -41,16 +41,15 @@ public class User {
 	}
 	
 	public void set(
-			String username,
+			String userid,
 			String password,
-			String email,
-			int ID,
 			String sex,
-			String unit) {
+			String unit,
+			String email) {
 		this.userid= userid;
 		this.password = password;
-		this.email = email;
 		this.sex = sex;
 		this.unit = unit;
+		this.email = email;
 	}
 }

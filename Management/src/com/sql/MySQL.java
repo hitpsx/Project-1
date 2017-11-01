@@ -5,6 +5,8 @@ import java.util.Vector;
 
 import com.model.*;
 
+import com.model.User;
+
 public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
 	private final String url = "jdbc:mysql://localhost:3306/project";
@@ -47,6 +49,19 @@ public class MySQL {
 		return user;
 	}
 	
+	public void insertUser(User user) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO user (userid, password, sex, unit, email) VALUES " +
+					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\");",
+							user.getUserid(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail());
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public void close() {
 		try {

@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.opensymphony.xwork2.ActionSupport;
 
+import com.model.User;
+import com.sql.MySQL;
+
 public class UserRegis extends ActionSupport {
 	private String username;
 	private String password1;
@@ -54,37 +57,13 @@ public class UserRegis extends ActionSupport {
 	}
 	
 	public String execute() {
-		 
-		  String ret = SUCCESS;
-	      Connection conn = null;
-          System.out.println(username+" "+sex);
-	      try {
-	         String URL = "jdbc:mysql://localhost:3306/project";
-	         Class.forName("com.mysql.jdbc.Driver");
-	         conn = DriverManager.getConnection(URL, "root", "woaini123");
-	         String sql="insert into user values(?,?,?,?,?,?)";
-	         
-	         PreparedStatement ps = conn.prepareStatement(sql);
-	         ps.setString(1, username);
-	         ps.setInt(2, 5);
-	         ps.setString(3, password1);
-	         ps.setString(4, sex);
-	         ps.setString(5, unit);
-	         ps.setString(6, email);
-	         
-	         System.out.print(sql);
-	         ps.executeUpdate();
-	         
-	      } catch (Exception e) {
-	         ret = ERROR;
-	      } finally {
-		         if (conn != null) {
-			            try {
-			               conn.close();
-			            } catch (Exception e) {
-			            }
-			         }
-			      }
-			      return ret;
-			}
-		}
+		MySQL sql = new MySQL();
+		User user=new User();
+		System.out.println(username+" "+password1+" "+sex+" "+unit+" "+email);
+		user.set(username, password1, sex, unit, email);
+		sql.insertUser(user);
+		sql.close();
+		return "success";
+		
+	}
+}
