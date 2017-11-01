@@ -7,6 +7,6 @@
 <title>Main interface</title>
 </head>
 <body>
-   <p>欢迎<s:property value="username"/></p>
+   <p>欢迎<s:property value="user.sex"/></p>
 </body>
 </html>

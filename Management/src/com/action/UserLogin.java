@@ -1,15 +1,15 @@
 package com.action;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import com.opensymphony.xwork2.ActionSupport;
+
+import com.model.*;
+import com.sql.*;
 
 public class UserLogin extends ActionSupport{
 	private String username;
 	private String password;
-	private String sex;
+	private User user;
 	
 	public String getUsername() {
 		return username;
@@ -23,40 +23,17 @@ public class UserLogin extends ActionSupport{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getSex() {
-		return sex;
+	public User getUser() {
+		return user;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String execute() {
-		  String ret = ERROR;
-	      Connection conn = null;
-	      System.out.println(username);
-	      try {
-	         String URL = "jdbc:mysql://localhost:3306/project";
-	         Class.forName("com.mysql.jdbc.Driver");
-	         conn = DriverManager.getConnection(URL, "root", "woaini123");
-	         String sql="select sex from user where userID =? and password =?";
-	         PreparedStatement ps = conn.prepareStatement(sql);
-	         ps.setString(1, username);
-	         ps.setString(2, password);
-	         
-	         ResultSet rs = ps.executeQuery();
-	         while (rs.next()) {
-	        	sex = rs.getString(1) +" ";
-	            ret = SUCCESS;
-	         }
-	      } catch (Exception e) {
-	         ret = ERROR;
-	      } finally {
-	         if (conn != null) {
-	            try {
-	               conn.close();
-	            } catch (Exception e) {
-	            }
-	         }
-	      }
-	      return ret;
+		MySQL sql=new MySQL();
+		user=sql.selectBook(username, password);
+		sql.close();
+		System.out.println(user.getEmail());
+		return "success";
 	}
 }
