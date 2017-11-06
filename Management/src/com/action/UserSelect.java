@@ -3,26 +3,19 @@ package com.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.model.*;
-import com.sql.*;
+import com.model.User;
+import com.sql.MySQL;
 
-public class UserLogin extends ActionSupport{
+public class UserSelect extends ActionSupport{
 	private String username;
-	private String password;
 	private User user;
-	
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -31,8 +24,10 @@ public class UserLogin extends ActionSupport{
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
-		user=sql.selectBook(username, password);
+		System.out.println(username+"2");
+		user=sql.selectBook(username,"woaini123");
 		sql.close();
+		System.out.println(user.getUserid());
 		return "success";
 	}
 }

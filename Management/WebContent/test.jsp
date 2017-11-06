@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Main interface</title>
+<title>Insert title here</title>
 </head>
 <body>
-   <p>
-	<s:a action="UserSelect">
-	 <s:param name="username"> <s:property value="user.userid"/> </s:param>
-	 <s:property value="user.userid"/>
-	</s:a ></p>
+   <p><s:property value="user.userid"/></p>
 </body>
 </html>
