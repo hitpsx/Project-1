@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <p><s:property value="user.userid"/></p>
+   <p><s:property value="Cp.EquName"/></p>
 </body>
 </html>

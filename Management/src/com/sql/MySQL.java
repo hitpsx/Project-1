@@ -48,7 +48,27 @@ public class MySQL {
 		}
 		return user;
 	}
-	
+	public Cs selectEquName(String EquName) {
+		Cs Cp=null;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM cs WHERE EquName = '%s'", EquName);
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				Cp=new Cs();
+				Cp.setEquNumber(res.getInt("EquNumber"));
+				Cp.setEquName(res.getString("EquName"));
+				Cp.setModelSpe(res.getString("ModelSpe"));
+				Cp.setdate(res.getString("date"));
+				Cp.setEquSta(res.getString("EquSta"));
+				Cp.setEquClass(res.getString("Equclass"));
+				Cp.setEquUnit(res.getString("EquUnit"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return Cp;
+	}
 	public void insertUser(User user) {
 		try {
 			stm = con.createStatement();

@@ -16,6 +16,10 @@
             <result name="success">/profile.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
+    	 <action name="CsSelect" class="com.action.CsSelect" method="execute">
+            <result name="success">/gallery.jsp</result>
+            <result name="error">/init.jsp</result>
+    	</action>
     </package>
 </struts>
 

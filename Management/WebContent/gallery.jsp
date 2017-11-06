@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Minimal an Admin Panel Category Flat Bootstrap Responsive Website Template | Profile :: w3layouts</title>
+<title>Minimal an Admin Panel Category Flat Bootstrap Responsive Website Template | Gallery :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div id="wrapper">
-      <!----->
+        <!----->
         <nav class="navbar-default navbar-static-top" role="navigation">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -141,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		              </ul>
 		            </li>
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.userid"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
+		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret">Rackham<i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
 		                <li><a href="profile.html"><i class="fa fa-user"></i>Edit Profile</a></li>
 		                <li><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox</a></li>
@@ -219,37 +219,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  	<!--banner-->	
 		    <div class="banner">
 		    	<h2>
-				<a href="index.html">Home</a>
-				<i class="fa fa-angle-right"></i>
-				<span>Profile</span>
+			<a href="index.html">Home</a>
+			<i class="fa fa-angle-right"></i>
+				<span>Gallery</span>
 				</h2>
 		    </div>
-		<!--//banner-->
- 	 <!--gallery-->
- 	 <div class=" profile">
-
-		<div class="profile-bottom">
+	<!--//banner-->
+	<div class="gallery">
+	 <form class="form" action="CsSelect" method="post">
+                <div class="input-group input-group-in">
+                    <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+                </div><!-- Input Group -->
+     </form>
+     	<div class="profile-bottom">
 			<h3><i class="fa fa-user"></i>Profile</h3>
 			<div class="profile-bottom-top">
 			<div class="col-md-4 profile-bottom-img">
 				<img src="images/pr.jpg" alt="">
 			</div>
-			<div class="col-md-8 profile-text">
+     <div class="col-md-8 profile-text">
 				<h6>Jack Dorsey</h6>
 				<table>
-				<tr><td>Username</td>  
+				<tr><td>EquName</td>  
 				<td>:</td>  
-				<td><s:property value="user.userid"/></td></tr>
+				<td><s:property value="Cp.EquName"/></td></tr>
 				
 				<tr>
-				<td>Sex</td>
+				<td>EquNumber</td>
 				<td> :</td>
-				<td> <s:property value="user.sex"/></td>
+				<td> <s:property value="Cp.EquNumber"/></td>
 				</tr>
 				<tr>
-				<td>Unit</td>
+				<td>EquUnit</td>
 				<td> :</td>
-				<td> <s:property value="user.unit"/></td>
+				<td> <s:property value="Cp.EquUnit"/></td>
 				</tr>
 				<tr>
 				<td>Authority </td>
@@ -258,20 +264,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>
 				</table>
 			</div>
-			<div class="clearfix"></div>
+     <div class="clearfix"></div>
 			</div>
-			
-	<!--//gallery-->
-		<!---->
-<div class="copy">
-           
-		</div>
-		</div>
-		<div class="clearfix"> </div>
-       </div>
-     
 <!---->
-
+<link rel="stylesheet" href="css/swipebox.css">
+	<script src="js/jquery.swipebox.min.js"></script> 
+	    <script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+</script>
 <!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
@@ -279,3 +281,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>
+
