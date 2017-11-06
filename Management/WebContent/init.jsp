@@ -10,7 +10,6 @@
    <p>
 	<s:a action="UserSelect">
 	 <s:param name="username"> <s:property value="user.userid"/> </s:param>
-	 <s:property value="user.userid"/>
 	</s:a ></p>
 </body>
 </html>
