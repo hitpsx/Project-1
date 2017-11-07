@@ -1,12 +1,10 @@
 package com.action;
 
-
+import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
-
-import com.model.User;
 import com.sql.MySQL;
 
-public class UserSelect extends ActionSupport{
+public class UserGally extends ActionSupport{
 	private String username;
 	private User user;
 	public String getUsername() {
@@ -22,8 +20,10 @@ public class UserSelect extends ActionSupport{
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
 	public String execute() {
 		MySQL sql=new MySQL();
+		System.out.println(username+"2");
 		user=sql.selectBook(username,"woaini123");
 		sql.close();
 		return "success";
