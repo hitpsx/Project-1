@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Gallery</title>
+<title>Select Equipment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -227,11 +227,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <form class="form" action="CsSelect" method="post">
                 <div class="input-group input-group-in">
                     <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
-                    <s:a action="CsSelect"><s:param name="username"> <s:property value="user.userid"/>
-                    </s:param>
-                   <span class="input-group-btn">
+                    <input type="hidden" name=username value=<s:property value="user.userid"/> />
+                    <span class="input-group-btn">
                         <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                    </span></s:a>
+                    </span>
+                   
                 </div><!-- Input Group -->
       </form>
 

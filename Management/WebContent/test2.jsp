@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <s:property value="user.userid"/>
-   <%
-      String str="userid";
-   %>
-   <a href = "test2.jsp?str=<%=str %>">Go</a>
+<%
+      String str=request.getParameter("str");
+%>
+ <%=str %>
 </body>
 </html>
