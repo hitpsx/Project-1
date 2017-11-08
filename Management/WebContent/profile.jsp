@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Minimal an Admin Panel Category Flat Bootstrap Responsive Website Template | Profile :: w3layouts</title>
+<title>Profile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -60,15 +60,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                <h1> <a class="navbar-brand" href="index.html">Minimal</a></h1>         
 			   </div>
 			 <div class=" border-bottom">
-        	<div class="full-left">
-        	  <section class="full-top">
-				<button id="toggle"><i class="fa fa-arrows-alt"></i></button>	
-			</section>
-			<form class=" navbar-left-right">
-              <input type="text"  value="Search..." onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search...';}">
-              <input type="submit" value="" class="fa fa-search">
-            </form>
-            <div class="clearfix"> </div>
+        	   <div class="full-left">
+        	<script type="text/javascript">  
+					 function startTime(){  
+					  var today=new Date()  
+					  var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");  
+					  var month=today.getMonth()+1  
+					  var date=today.getDate()  
+					  var day=today.getDay()  
+					  var h=today.getHours()  
+					  var m=today.getMinutes()  
+					  var s=today.getSeconds()  
+					  // add a zero in front of numbers<10  
+					  h=checkTime(h)  
+					  m=checkTime(m)  
+					  s=checkTime(s)  
+					  document.getElementById('time').innerHTML=month+"月"+date+"日  "+week[day]+"  "+h+":"+m+":"+s+" "  
+					  t=setTimeout('startTime()',500)  
+					 }  
+					  
+					 function checkTime(i){  
+					 if (i<10)   
+					   {i="0" + i}  
+					   return i  
+					 }  
+				</script> 
+				<body onload="startTime()">  
+                <div id="time"></div>
+                </div>
            </div>
      
        
@@ -77,76 +96,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="drop-men" >
 		        <ul class=" nav_1">
-		           
-		    		<li class="dropdown at-drop">
-		              <a href="#" class="dropdown-toggle dropdown-at " data-toggle="dropdown"><i class="fa fa-globe"></i> <span class="number">5</span></a>
-		              <ul class="dropdown-menu menu1 " role="menu">
-		                <li><a href="#">
-		               
-		                	<div class="user-new">
-		                	<p>New user registered</p>
-		                	<span>40 seconds ago</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-user-plus"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                	</a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>Someone special liked this</p>
-		                	<span>3 minutes ago</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-heart"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>John cancelled the event</p>
-		                	<span>4 hours ago</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-times"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>The server is status is stable</p>
-		                	<span>yesterday at 08:30am</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-info"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>New comments waiting approval</p>
-		                	<span>Last Week</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-rss"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#" class="view">View all messages</a></li>
-		              </ul>
-		            </li>
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.userid"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
 		                <li><a href="profile.html"><i class="fa fa-user"></i>Edit Profile</a></li>
-		                <li><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox</a></li>
-		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
-		                <li><a href="inbox.html"><i class="fa fa-clipboard"></i>Tasks</a></li>
+		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>>
 		              </ul>
 		            </li>
 		           
@@ -180,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                     <li>
-                        <a href="gallery.html" class=" hvr-bounce-to-right"><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span> </a>
+                         <s:a action="UserGally"><s:param name="username"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
                     </li>
                      <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-desktop nav_icon"></i> <span class="nav-label">Pages</span><span class="fa arrow"></span></a>

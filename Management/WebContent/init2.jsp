@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Minimal an Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -101,13 +101,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   </div>
 			 <div class=" border-bottom">
         	<div class="full-left">
-        	  <section class="full-top">
-				<button id="toggle"><i class="fa fa-arrows-alt"></i></button>	
-			</section>
-			<form class=" navbar-left-right">
-              <input type="text"  value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
-              <input type="submit" value="" class="fa fa-search">
-            </form>
+               <script type="text/javascript">    
+					 function startTime(){    
+					  var today=new Date()    
+					  var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六"); 
+					  var month=today.getMonth()+1    
+					  var date=today.getDate()    
+					  var day=today.getDay()    
+					  var h=today.getHours()    
+					  var m=today.getMinutes()    
+					  var s=today.getSeconds()    
+					  // add a zero in front of numbers<10    
+					  h=checkTime(h)    
+					  m=checkTime(m)    
+					  s=checkTime(s)    
+					  document.getElementById('time').innerHTML=month+"月"+date+"日  "+week[day]+"  "+h+":"+m+":"+s+" "    
+					  t=setTimeout('startTime()',500)    
+					 }    
+					    
+					 function checkTime(i){    
+					 if (i<10)     
+					   {i="0" + i}    
+					   return i    
+					 }    
+					</script>    
+					    
+					<body onload="startTime()">    
+					    
+					<span id="time" class="nav-label"></span>
             <div class="clearfix"> </div>
            </div>
      
@@ -117,69 +138,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="drop-men" >
 		        <ul class=" nav_1">
-		           
-		    		<li class="dropdown at-drop">
-		              <a href="#" class="dropdown-toggle dropdown-at " data-toggle="dropdown"><i class="fa fa-globe"></i> <span class="number">5</span></a>
-		              <ul class="dropdown-menu menu1 " role="menu">
-		                <li><a href="#">
-		               
-		                	<div class="user-new">
-		                	<p>New user registered</p>
-		                	<span>40 seconds ago</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-user-plus"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                	</a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>Someone special liked this</p>
-		                	<span>3 minutes ago</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-heart"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>John cancelled the event</p>
-		                	<span>4 hours ago</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-times"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>The server is status is stable</p>
-		                	<span>yesterday at 08:30am</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-info"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#">
-		                	<div class="user-new">
-		                	<p>New comments waiting approval</p>
-		                	<span>Last Week</span>
-		                	</div>
-		                	<div class="user-new-left">
-		                
-		                	<i class="fa fa-rss"></i>
-		                	</div>
-		                	<div class="clearfix"> </div>
-		                </a></li>
-		                <li><a href="#" class="view">View all messages</a></li>
-		              </ul>
-		            </li>
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.userid"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
@@ -265,184 +223,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    </div>
 		<!--//banner-->
 		<!--content-->
-		<div class="content-top">
-			
-			
-			<div class="col-md-4 ">
-				<div class="content-top-1">
-				<div class="col-md-6 top-content">
-					<h5>Tasks</h5>
-					<label>8761</label>
-				</div>
-				<div class="col-md-6 top-content1">	   
-					<div id="demo-pie-1" class="pie-title-center" data-percent="25"> <span class="pie-value"></span> </div>
-				</div>
-				 <div class="clearfix"> </div>
-				</div>
-				<div class="content-top-1">
-				<div class="col-md-6 top-content">
-					<h5>Points</h5>
-					<label>6295</label>
-				</div>
-				<div class="col-md-6 top-content1">	   
-					<div id="demo-pie-2" class="pie-title-center" data-percent="50"> <span class="pie-value"></span> </div>
-				</div>
-				 <div class="clearfix"> </div>
-				</div>
-				<div class="content-top-1">
-				<div class="col-md-6 top-content">
-					<h5>Cards</h5>
-					<label>3401</label>
-				</div>
-				<div class="col-md-6 top-content1">	   
-					<div id="demo-pie-3" class="pie-title-center" data-percent="75"> <span class="pie-value"></span> </div>
-				</div>
-				 <div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-8 content-top-2">
-				<!---start-chart---->
-				<!----->
-				<div class="content-graph">
-				<div class="content-color">
-					<div class="content-ch"><p><i></i>Chrome </p><span>100%</span>
-					<div class="clearfix"> </div>
-					</div>
-					<div class="content-ch1"><p><i></i>Safari</p><span> 50%</span>
-					<div class="clearfix"> </div>
-					</div>
-				</div>
-				<!--graph-->
-		<link rel="stylesheet" href="css/graph.css">
-		<!--//graph-->
-							<script src="js/jquery.flot.js"></script>
-									<script>
-									$(document).ready(function () {
-									
-										// Graph Data ##############################################
-										var graphData = [{
-												// Visits
-												data: [ [6, 1300], [7, 1600], [8, 1900], [9, 2100], [10, 2500], [11, 2200], [12, 2000], [13, 1950], [14, 1900], [15, 2000] ],
-												color: '#999999'
-											}, {
-												// Returning Visits
-												data: [ [6, 500], [7, 600], [8, 550], [9, 600], [10, 800], [11, 900], [12, 800], [13, 850], [14, 830], [15, 1000] ],
-												color: '#999999',
-												points: { radius: 4, fillColor: '#7f8c8d' }
-											}
-										];
-									
-										// Lines Graph #############################################
-										$.plot($('#graph-lines'), graphData, {
-											series: {
-												points: {
-													show: true,
-													radius: 5
-												},
-												lines: {
-													show: true
-												},
-												shadowSize: 0
-											},
-											grid: {
-												color: '#7f8c8d',
-												borderColor: 'transparent',
-												borderWidth: 20,
-												hoverable: true
-											},
-											xaxis: {
-												tickColor: 'transparent',
-												tickDecimals: 2
-											},
-											yaxis: {
-												tickSize: 1000
-											}
-										});
-									
-										// Bars Graph ##############################################
-										$.plot($('#graph-bars'), graphData, {
-											series: {
-												bars: {
-													show: true,
-													barWidth: .9,
-													align: 'center'
-												},
-												shadowSize: 0
-											},
-											grid: {
-												color: '#7f8c8d',
-												borderColor: 'transparent',
-												borderWidth: 20,
-												hoverable: true
-											},
-											xaxis: {
-												tickColor: 'transparent',
-												tickDecimals: 2
-											},
-											yaxis: {
-												tickSize: 1000
-											}
-										});
-									
-										// Graph Toggle ############################################
-										$('#graph-bars').hide();
-									
-										$('#lines').on('click', function (e) {
-											$('#bars').removeClass('active');
-											$('#graph-bars').fadeOut();
-											$(this).addClass('active');
-											$('#graph-lines').fadeIn();
-											e.preventDefault();
-										});
-									
-										$('#bars').on('click', function (e) {
-											$('#lines').removeClass('active');
-											$('#graph-lines').fadeOut();
-											$(this).addClass('active');
-											$('#graph-bars').fadeIn().removeClass('hidden');
-											e.preventDefault();
-										});
-									
-										// Tooltip #################################################
-										function showTooltip(x, y, contents) {
-											$('<div id="tooltip">' + contents + '</div>').css({
-												top: y - 16,
-												left: x + 20
-											}).appendTo('body').fadeIn();
-										}
-									
-										var previousPoint = null;
-									
-										$('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
-											if (item) {
-												if (previousPoint != item.dataIndex) {
-													previousPoint = item.dataIndex;
-													$('#tooltip').remove();
-													var x = item.datapoint[0],
-														y = item.datapoint[1];
-														showTooltip(item.pageX, item.pageY, y + ' visitors at ' + x + '.00h');
-												}
-											} else {
-												$('#tooltip').remove();
-												previousPoint = null;
-											}
-										});
-									
-									});
-									</script>
-				<div class="graph-container">
-									
-									<div id="graph-lines"> </div>
-									<div id="graph-bars"> </div>
-								</div>
-	
-		</div>
-		</div>
-		<div class="clearfix"> </div>
-		</div>
-		<!---->
-	
-  
+				<link rel="stylesheet" href="css/graph.css">
+		<!--//graph--> 
 		<div class="content-mid">
 			
 			<div class="col-md-5">
@@ -559,15 +341,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			<div class="post-bottom">
-				<div class="post-bottom-1">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<p>15k <label>Likes</label></p>
-				</div>
-				<div class="post-bottom-2">
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<p>20M <label>Followers</label></p>
-				</div>
-				<div class="clearfix"> </div>
+			    <script type="text/javascript">  
+					 function startTime(){  
+					  var today=new Date()  
+					  var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");  
+					  var month=today.getMonth()+1  
+					  var date=today.getDate()  
+					  var day=today.getDay()  
+					  var h=today.getHours()  
+					  var m=today.getMinutes()  
+					  var s=today.getSeconds()  
+					  // add a zero in front of numbers<10  
+					  h=checkTime(h)  
+					  m=checkTime(m)  
+					  s=checkTime(s)  
+					  document.getElementById('time').innerHTML=month+"月"+date+"日  "+week[day]+"  "+h+":"+m+":"+s+" "  
+					  t=setTimeout('startTime()',500)  
+					 }  
+					  
+					 function checkTime(i){  
+					 if (i<10)   
+					   {i="0" + i}  
+					   return i  
+					 }  
+				</script> 
+				<body onload="startTime()">  
+                <div id="time"></div>  
 			</div>
 				
 			</div>
@@ -734,13 +533,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	 
 		<!---->
-<div class="copy">
-            <p> &copy; 2016 Minimal. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-	    </div>
-		</div>
-		<div class="clearfix"> </div>
-       </div>
-     </div>
 <!---->
 <!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
@@ -749,3 +541,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/bootstrap.min.js"> </script>
 </body>
 </html>
+
