@@ -31,8 +31,9 @@ public class UserLogin extends ActionSupport{
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
+		System.out.print(username);
 		user=sql.selectBook(username, password);
-		sql.close();
+		sql.close();;
 		return "success";
 	}
 }

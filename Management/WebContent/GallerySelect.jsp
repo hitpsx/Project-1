@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
-        	  <<script type="text/javascript">  
+        	  <script type="text/javascript">  
 					 function startTime(){  
 					  var today=new Date()  
 					  var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");  
@@ -85,9 +85,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   return i  
 					 }  
 				</script> 
-				<body onload="startTime()">  
-                <div id="time"></div>
-               </div>  
+				<body onload="startTime()">
+                 <div id="time"></div>
+	              </div>  
            </div>
      
        
@@ -97,9 +97,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    <div class="drop-men" >
 		        <ul class=" nav_1">		              
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"> <s:property value="user.userid"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
+		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"> <s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><s:a action="UserSelect"><s:param name="username"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		                <li><s:a action="UserSelect"><s:param name="username"> <s:property value="user.username"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                     <li>
-                         <s:a action="UserGally"><s:param name="username"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
+                         <s:a action="UserGally"><s:param name="username"> <s:property value="user.username"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
                     </li>
                      <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-desktop nav_icon"></i> <span class="nav-label">Pages</span><span class="fa arrow"></span></a>

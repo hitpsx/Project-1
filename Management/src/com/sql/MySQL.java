@@ -27,16 +27,31 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
-	
-	public User selectBook(String userID,String password) {
+	public int Number() {
+		int p=0;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT count(*) number FROM user");
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				p=res.getInt("number");
+			}
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+	public User selectBook(String username,String password) {
 		User user = null;
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM user WHERE userID = '%s' and password = '%s' ;", userID,password);
+			String sql = String.format("SELECT * FROM user WHERE username = '%s' and password = '%s' ;", username,password);
 			res = stm.executeQuery(sql);
 			if (res.next()) {
 				user = new User();
-				user.setUserid(res.getString("Userid"));
+				user.setUsername(res.getString("Username"));
+				user.setUserid(res.getInt("Userid"));
 				user.setSex(res.getString("Sex"));
 				user.setUnit(res.getString("Unit"));
 				user.setEmail(res.getString("Email"));
@@ -48,6 +63,7 @@ public class MySQL {
 		}
 		return user;
 	}
+	
 	public Cs selectEquName(String EquName) {
 		Cs Cp=null;
 		try {
@@ -69,12 +85,13 @@ public class MySQL {
 		}
 		return Cp;
 	}
+	
 	public void insertUser(User user) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO user (userid, password, sex, unit, email) VALUES " +
-					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\");",
-							user.getUserid(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail());
+			String sql = "INSERT INTO user (username, password, sex, unit, email, userid) VALUES " +
+					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d);",
+							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail(),user.getUserid());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {

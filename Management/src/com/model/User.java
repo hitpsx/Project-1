@@ -1,17 +1,26 @@
 package com.model;
 
 public class User {
-	private String userid;
+	private String username;
 	private String password;
 	private String email;
 	private String unit;
 	private String sex;
+	private int userid;
 	
-	public String getUserid() {
+	public int getUserid() {
 		return userid;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	
+	public void setUserid(int userid) {
+		this.userid=userid;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -41,12 +50,14 @@ public class User {
 	}
 	
 	public void set(
-			String userid,
+			String username,
+			int userid,
 			String password,
 			String sex,
 			String unit,
 			String email) {
-		this.userid= userid;
+		this.username= username;
+		this.userid=userid;
 		this.password = password;
 		this.sex = sex;
 		this.unit = unit;

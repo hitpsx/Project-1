@@ -58,9 +58,9 @@ public class UserRegis extends ActionSupport {
 	
 	public String execute() {
 		MySQL sql = new MySQL();
+		int id=sql.Number();
 		User user=new User();
-		System.out.println(username+" "+password1+" "+sex+" "+unit+" "+email);
-		user.set(username, password1, sex, unit, email);
+		user.set(username,id,password1, sex, unit, email);
 		sql.insertUser(user);
 		sql.close();
 		return "success";

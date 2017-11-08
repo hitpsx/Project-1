@@ -97,9 +97,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    <div class="drop-men" >
 		        <ul class=" nav_1">
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.userid"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
+		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><a href="profile.html"><i class="fa fa-user"></i>Edit Profile</a></li>
+		                <li><a href="profile.html"><i class="fa fa-"></i>Edit Profile</a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>>
 		              </ul>
 		            </li>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                     <li>
-                         <s:a action="UserGally"><s:param name="username"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
+                         <s:a action="UserGally"><s:param name="username"> <s:property value="user.username"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
                     </li>
                      <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-desktop nav_icon"></i> <span class="nav-label">Pages</span><span class="fa arrow"></span></a>
@@ -193,18 +193,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table>
 				<tr><td>Username</td>  
 				<td>:</td>  
-				<td><s:property value="user.userid"/></td></tr>
+				<td><s:property value="user.username"/></td></tr>
+				
+				<tr>
+				<td>ID</td>
+				<td> :</td>
+				<td> <s:property value="user.userid"/></td>
+				</tr>
 				
 				<tr>
 				<td>Sex</td>
 				<td> :</td>
 				<td> <s:property value="user.sex"/></td>
 				</tr>
+				
 				<tr>
 				<td>Unit</td>
 				<td> :</td>
 				<td> <s:property value="user.unit"/></td>
 				</tr>
+				
 				<tr>
 				<td>Authority </td>
 				<td>:</td>
