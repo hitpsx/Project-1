@@ -7,13 +7,14 @@ import com.model.User;
 import com.sql.MySQL;
 
 public class UserSelect extends ActionSupport{
-	private String username;
+	private int userid;
 	private User user;
-	public String getUsername() {
-		return username;
+	
+	public int getUserid() {
+		return userid;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	
 	public User getUser() {
@@ -24,7 +25,7 @@ public class UserSelect extends ActionSupport{
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
-		user=sql.selectBook(username,"woaini123");
+		user=sql.userInfor(userid);
 		sql.close();
 		return "success";
 	}

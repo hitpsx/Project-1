@@ -42,7 +42,28 @@ public class MySQL {
 		}
 		return p;
 	}
-	public User selectBook(String username,String password) {
+	public User userInfor(int userid) {
+		User user = null;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM user WHERE userid = %d;", userid);
+			res = stm.executeQuery(sql);
+			if (res.next()) {
+				user = new User();
+				user.setUsername(res.getString("Username"));
+				user.setUserid(res.getInt("Userid"));
+				user.setSex(res.getString("Sex"));
+				user.setUnit(res.getString("Unit"));
+				user.setEmail(res.getString("Email"));
+				user.setPassword(res.getString("Password"));
+			}
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+	public User Account(String username,String password) {
 		User user = null;
 		try {
 			stm = con.createStatement();

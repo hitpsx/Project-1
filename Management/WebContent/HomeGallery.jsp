@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                 <li><s:a action="UserSelect"><s:param name="username"> <s:property value="user.username"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		                 <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                     <li>
-                         <s:a action="UserGally"><s:param name="username"> <s:property value="user.username"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
+                         <s:a action="UserGally"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Gallery</span></s:a>
                     </li>
                      <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-desktop nav_icon"></i> <span class="nav-label">Pages</span><span class="fa arrow"></span></a>
@@ -183,7 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <form class="form" action="CsSelect" method="post">
                 <div class="input-group input-group-in">
                     <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
-                    <input type="hidden" name=username value=<s:property value="user.username"/> />
+                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
                     <span class="input-group-btn">
                         <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
                     </span>

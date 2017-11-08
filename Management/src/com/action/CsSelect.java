@@ -5,16 +5,16 @@ import com.sql.MySQL;
 import com.model.*;
 
 public class CsSelect extends ActionSupport{
-	private String username;
+	private int userid;
 	private String EquName;
 	private Cs Cp;
 	private User user;
 	
-	public String getUsername() {
-		return username;
+	public int getUserid() {
+		return userid;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	public User getUser() {
 		return user;
@@ -37,8 +37,7 @@ public class CsSelect extends ActionSupport{
 	
 	public String execute() {
 		MySQL sql=new MySQL();
-		System.out.println(username);
-		user=sql.selectBook(username,"woaini123");
+		user=sql.userInfor(userid);
 		Cp=sql.selectEquName(EquName);
 		sql.close();
 		return "success";
