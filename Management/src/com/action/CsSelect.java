@@ -8,6 +8,9 @@ public class CsSelect extends ActionSupport{
 	private int userid;
 	private String EquName;
 	private Cs Cp;
+	/*private AI Ap;
+	private BigData Bp;
+	private Welding Wp;*/
 	private User user;
 	
 	public int getUserid() {
@@ -16,18 +19,21 @@ public class CsSelect extends ActionSupport{
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
+	
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
 	public String getEquName() {
 		return EquName;
 	}
 	public void setEquName(String EquName) {
 		this.EquName = EquName;
 	}
+	
 	public Cs getCp() {
 		return Cp;
 	}
@@ -35,10 +41,33 @@ public class CsSelect extends ActionSupport{
 		this.Cp = Cp;
 	}
 	
+	
+	/*public BigData getBp() {
+		return Bp;
+	}
+	public void setBp(BigData Bp) {
+		this.Bp = Bp;
+	}
+	
+	public AI getAp() {
+		return Ap;
+	}
+	public void setAp(AI Ap) {
+		this.Ap = Ap;
+	}
+	public Welding getWelding() {
+		return Wp;
+	}
+	public void setWelding(Welding Wp) {
+		this.Wp = Wp;
+	}*/ 
+
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
+		System.out.print(EquName);
 		Cp=sql.selectEquName(EquName);
+		System.out.print(Cp.getEquName());
 		sql.close();
 		return "success";
 	}

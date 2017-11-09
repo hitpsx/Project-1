@@ -84,7 +84,21 @@ public class MySQL {
 		}
 		return user;
 	}
-	
+	public String userUnit(int userid) {
+		String unit="";
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT unit FROM user where userid = %d",userid);
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				unit=res.getString("Unit");
+			}
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return unit;
+	}
 	public Cs selectEquName(String EquName) {
 		Cs Cp=null;
 		try {
