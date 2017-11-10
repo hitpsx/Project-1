@@ -196,16 +196,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td> :</td>
 				<td> <s:property value="Cp.EquNumber"/></td>
 				</tr>
+				
 				<tr>
 				<td>EquUnit</td>
 				<td> :</td>
 				<td> <s:property value="Cp.EquUnit"/></td>
 				</tr>
+				
 				<tr>
-				<td>Authority </td>
+				<td>EquClass</td>
 				<td>:</td>
-				<td> ordinary</td>
+				<td><s:property value="Cp.EquClass"/></td>
 				</tr>
+				
+				<tr>
+				<td>ModelSpe</td>
+				<td>:</td>
+				<td><s:property value="Cp.ModelSpe"/></td>
+				</tr>
+				
+				<tr>
+				<td>date</td>
+				<td>:</td>
+				<td><s:property value="Cp.EquDate"/></td>
+				</tr>
+				
+				
+				
 				</table>
 			</div>
      <div class="clearfix"></div>

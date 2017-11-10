@@ -110,7 +110,7 @@ public class MySQL {
 				Cp.setEquNumber(res.getInt("EquNumber"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setdate(res.getString("date"));
+				Cp.setEquDate(res.getDate("EquDate"));
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("Equclass"));
 				Cp.setEquUnit(res.getString("EquUnit"));

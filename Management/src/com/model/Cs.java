@@ -1,11 +1,13 @@
 package com.model;
 
+import java.sql.Date;
+
 public class Cs {
 	private int EquNumber;
 	private String EquName;
 	private String EquQua;
 	private String ModelSpe;
-	private String date;
+	private Date EquDate;
 	
 	private String EquSta;
 	private String EquClass;
@@ -49,11 +51,11 @@ public class Cs {
 		this.EquName = EquName;
 	}
 	
-	public String getdate() {
-		return date;
+	public Date getEquDate() {
+		return EquDate;
 	}
-	public void setdate(String date) {
-		this.date = date;
+	public void setEquDate(Date EquDate) {
+		this.EquDate = EquDate;
 	}
 	
 	public String getEquQua() {
@@ -75,7 +77,7 @@ public class Cs {
 			String EquName,
 			String EquQua,
 			String ModelSpe,
-			String date,
+			Date EquDate,
 			
 			String EquSta,
 			String EquClass,
@@ -84,7 +86,7 @@ public class Cs {
 		this.EquName= EquName;
 		this.EquQua= EquQua;
 		this.ModelSpe= ModelSpe;
-		this.date= date;
+		this.EquDate= EquDate;
 		this.EquSta= EquSta;
 		this.EquClass = EquClass;
 		this.EquUnit = EquUnit;

@@ -65,9 +65,8 @@ public class CsSelect extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		System.out.print(EquName);
 		Cp=sql.selectEquName(EquName);
-		System.out.print(Cp.getEquName());
+		System.out.print(Cp.getEquDate());
 		sql.close();
 		return "success";
 	}

@@ -330,32 +330,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			<div class="post-bottom">
-			    <script type="text/javascript">  
-					 function startTime(){  
-					  var today=new Date()  
-					  var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");  
-					  var month=today.getMonth()+1  
-					  var date=today.getDate()  
-					  var day=today.getDay()  
-					  var h=today.getHours()  
-					  var m=today.getMinutes()  
-					  var s=today.getSeconds()  
-					  // add a zero in front of numbers<10  
-					  h=checkTime(h)  
-					  m=checkTime(m)  
-					  s=checkTime(s)  
-					  document.getElementById('time').innerHTML=month+"月"+date+"日  "+week[day]+"  "+h+":"+m+":"+s+" "  
-					  t=setTimeout('startTime()',500)  
-					 }  
-					  
-					 function checkTime(i){  
-					 if (i<10)   
-					   {i="0" + i}  
-					   return i  
-					 }  
-				</script> 
-				<body onload="startTime()">  
-                <div id="time"></div>  
+				</div>  
 			</div>
 				
 			</div>
@@ -371,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span>37°</span>
 							<div class="clearfix"></div>
 							</div>
-				<script>
+				       <script>
 							 var icons = new Skycons({"color": "#1ABC9C"}),
 								  list  = [
 									"clear-night", "partly-cloudy-day",
@@ -392,8 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</p>
 						</div>
 						<div class="weather-top-right">
-							<p><i class="fa fa-map-marker"></i>lorem ipsum</p>
-							<label>lorem ipsum</label>
+							<p><i class="fa fa-map-marker"></i>Harbin</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
