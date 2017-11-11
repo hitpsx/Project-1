@@ -12,6 +12,22 @@
             color: red;
         }
     </style>
+	<script language="javascript" type="text/javascript"> 
+	function check()
+	{
+		var password1 = document.getElementById("id_password1").value;
+		var password2 = document.getElementById("id_password2").value;
+		//alert(password1);
+		//alert(password2);
+		if (password1 !=password2 )
+		{
+			alert("对不起!重复密码不等于登录密码");
+			return false;
+		}
+		return true; 
+	}
+	window.onload = check;
+	</script> 
 </head>
 <body>
 <div class="flex-center">
@@ -24,14 +40,14 @@
                     <input type='hidden' name='csrfmiddlewaretoken' value='dVFrMz0yzWWSlEVPfHarTlh4rafuwv89wha0Bo7lUbb6b6v9tdQqqmlyWXLeLTdO' />
                     
                         <label for="id_username">用户名:</label>
-                        <input type="text" name="username" maxlength="150" autofocus required id="id_username" />
+                        <input type="text" name="username" maxlength="150" autofocus required id="id_username" placeholder="用户名包含字母，数字和仅有的@/./+/-/_符号" required/>
                         
                         
                             <p class="help text-small text-muted">必填。包含字母，数字和仅有的@/./+/-/_符号。</p>
                         
                     
                         <label for="id_email">电子邮件地址:</label>
-                        <input type="email" name="email" maxlength="254" id="id_email" autocomplete="off"/>
+                        <input type="email" name="email" maxlength="254" id="id_email" autocomplete="off" placeholder="请输入正确的邮箱地址" required/>
                         
                         <label for="id_sex">性别:</label>
                         <select name=sex>
@@ -52,20 +68,20 @@
                         
                     
                         <label for="id_password1">密码:</label>
-                        <input type="password" name="password1" required id="id_password1" />
+                        <input type="password" name="password1" required id="id_password1" placeholder="密码必须是数字与字母组合" pattern="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" required/>
+
                         
+                            <p class="help text-small text-muted">密码必须是数字与字母组合</p>
                         
-                            <p class="help text-small text-muted"></p>
-                        
-                    
+                    	<!-- <form action="" method="post" name="my_f1" onsubmit="return check(this);"> -->
                         <label for="id_password2">密码确认:</label>
-                        <input type="password" name="password2" required id="id_password2" />
+                        <input type="password" name="password2" required id="id_password2" placeholder="请输入与上面相同的密码" pattern="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" required/>
                         
-                        
+
                             <p class="help text-small text-muted">为了校验，请输入与上面相同的密码。</p>
                         
                     
-                    <button type="submit" class="btn btn-primary btn-block">注册</button>
+                    <button type="submit" class="btn btn-primary btn-block"  onClick="return check()">注册</button>
                     <input type="hidden" name="next" value="两次密码不一致"/>
                 </form>
                 <div class="flex-center top-gap text-small">
