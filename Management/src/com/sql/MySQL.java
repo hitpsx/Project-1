@@ -11,7 +11,7 @@ public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
 	private final String url = "jdbc:mysql://localhost:3306/project";
 	private final String user = "root";
-	private final String password = "woaini123";
+	private final String password = "MYSQL";
 	
 	private Connection con = null;
 	private Statement stm = null;
