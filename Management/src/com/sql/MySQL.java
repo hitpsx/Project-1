@@ -136,6 +136,28 @@ public class MySQL {
 		return Cp;
 	}
 	
+	public Cs selectEquNumber(int EquNumber,String unit) {
+		Cs Cp=null;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM cs WHERE EquNumber = %d and EquUnit = '%s' ", EquNumber,unit);
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				Cp=new Cs();
+				Cp.setEquNumber(res.getInt("EquNumber"));
+				Cp.setEquName(res.getString("EquName"));
+				Cp.setModelSpe(res.getString("ModelSpe"));
+				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquSta(res.getString("EquSta"));
+				Cp.setEquClass(res.getString("Equclass"));
+				Cp.setEquUnit(res.getString("EquUnit"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return Cp;
+	}
+	
 
 
 	public void close() {

@@ -62,22 +62,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class=" border-bottom">
 			  <div class="full-left">
         	  <script type="text/javascript">  
-					 function startTime(){  
-					  var today=new Date()  
-					  var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");  
-					  var month=today.getMonth()+1  
-					  var date=today.getDate()  
-					  var day=today.getDay()  
-					  var h=today.getHours()  
-					  var m=today.getMinutes()  
-					  var s=today.getSeconds()  
-					  // add a zero in front of numbers<10  
-					  h=checkTime(h)  
-					  m=checkTime(m)  
-					  s=checkTime(s)  
-					  document.getElementById('time').innerHTML=month+"月"+date+"日  "+week[day]+"  "+h+":"+m+":"+s+" "  
-					  t=setTimeout('startTime()',500)  
-					 }  
+        	  function startTime(){  
+				  var today=new Date()  
+				  var week=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+				  var monthh=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+				  var month=today.getMonth()+1  
+				  var date=today.getDate()  
+				  var day=today.getDay()  
+				  var h=today.getHours()  
+				  var m=today.getMinutes()  
+				  var s=today.getSeconds()  
+				  // add a zero in front of numbers<10  
+				  h=checkTime(h)  
+				  m=checkTime(m)  
+				  s=checkTime(s)  
+				  document.getElementById('time').innerHTML=monthh[month]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
+				  t=setTimeout('startTime()',500)  
+				 }  
 					  
 					 function checkTime(i){  
 					 if (i<10)   
@@ -226,14 +227,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<tr>
 				<td>
-				<form class="text-sub" action="Home"  method="post">
+				<form class="text-sub" action="Lend"  method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
 				<input type="submit" value="Lend">
 				</form>
 				</td>
 				<td>:</td>
 				<td>
-				<form class="text-sub" action="Home" method="post">
+				<form class="text-sub" action="Lend" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				<input type="submit" value="Retir">
 				</form></td>
