@@ -179,17 +179,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div><!-- Input Group -->
      </form>
      	<div class="profile-bottom">
-			<h3><i class="fa fa-user"></i>Profile</h3>
+			<h3><i class="fa fa-user"></i>Information</h3>
 			<div class="profile-bottom-top">
-			<div class="col-md-4 profile-bottom-img">
+			<div class="col-md-4 profile -bottom-img">
 				<img src="images/pr.jpg" alt="">
 			</div>
      <div class="col-md-8 profile-text">
-				<h6>Jack Dorsey</h6>
+				<h6><s:property value="Cp.EquName"/></h6>
 				<table>
-				<tr><td>EquName</td>  
-				<td>:</td>  
-				<td><s:property value="Cp.EquName"/></td></tr>
 				
 				<tr>
 				<td>EquNumber</td>
@@ -221,9 +218,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td><s:property value="Cp.EquDate"/></td>
 				</tr>
 				
+				<tr>
+				<td>status</td>
+				<td>:</td>
+				<td><s:property value="Cp.EquSta"/></td>
+				</tr>
 				
+				<tr>
+				<td>
+				<form class="text-sub" action="Home"  method="post">
+				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				<input type="submit" value="Lend">
+				</form>
+				</td>
+				<td>:</td>
+				<td>
+				<form class="text-sub" action="Home" method="post">
+				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				<input type="submit" value="Retir">
+				</form></td>
+				</tr>
 				
 				</table>
+	
 			</div>
      <div class="clearfix"></div>
 			</div>

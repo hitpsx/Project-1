@@ -8,6 +8,10 @@
             <result name="success">/init2.jsp</result>
             <result name="error">/index.html</result>
         </action>
+        <action name="Home" class="com.action.Home" method="execute">
+            <result name="success">/init2.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
         <action name="UserRegis" class="com.action.UserRegis" method="execute">
             <result name="success">/index.html</result>
             <result name="error">/init.jsp</result>

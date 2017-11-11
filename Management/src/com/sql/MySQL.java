@@ -1,11 +1,11 @@
 package com.sql;
 
 import java.sql.*;
-import java.util.Vector;
 
 import com.model.*;
 
 import com.model.User;
+
 
 public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
@@ -99,11 +99,26 @@ public class MySQL {
 		}
 		return unit;
 	}
-	public Cs selectEquName(String EquName) {
+	
+	public void insertUser(User user) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO user (username, password, sex, unit, email, userid) VALUES " +
+					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d);",
+							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail(),user.getUserid());
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Cs selectEquName(String EquName,String unit) {
 		Cs Cp=null;
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs WHERE EquName = '%s'", EquName);
+			String sql = String.format("SELECT * FROM cs WHERE EquName = '%s' and EquUnit = '%s' ", EquName,unit);
 			res = stm.executeQuery(sql);
 			if(res.next()) {
 				Cp=new Cs();
@@ -121,19 +136,7 @@ public class MySQL {
 		return Cp;
 	}
 	
-	public void insertUser(User user) {
-		try {
-			stm = con.createStatement();
-			String sql = "INSERT INTO user (username, password, sex, unit, email, userid) VALUES " +
-					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d);",
-							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail(),user.getUserid());
-			stm.executeUpdate(sql);
-			stm.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 
 	public void close() {
 		try {
