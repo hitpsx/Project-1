@@ -11,7 +11,7 @@ public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
 	private final String url = "jdbc:mysql://localhost:3306/project";
 	private final String user = "root";
-	private final String password = "MYSQL";
+	private final String password = "woaini123";
 	
 	private Connection con = null;
 	private Statement stm = null;
@@ -158,7 +158,35 @@ public class MySQL {
 		return Cp;
 	}
 	
-
+	public int Getlendid() {
+		int p=0;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT count(*) number FROM lend");
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				p=res.getInt("number");
+			}
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+	
+	public void insertLend(Lend lend) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO lend (lendid, Equname, LendUnit, maintext, application) VALUES " +
+					String.format("(%d, \"%s\",\"%s\", \"%s\",\"%s\");"
+							,lend.getLendid(), lend.getLendEqu(), lend.getLendUnit(), lend.getMaintext(), lend.getApplication());
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public void close() {
 		try {

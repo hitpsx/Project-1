@@ -28,9 +28,13 @@
             <result name="success">/GallerySelect.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
-    	<action name="Lend" class="com.action.Lend" method="execute">
+    	<action name="LendButton" class="com.action.LendButton" method="execute">
             <result name="success">/Lend.jsp</result>
             <result name="error">/init.jsp</result>
+    	</action>
+    	<action name="LendManage" class="com.action.LendManage" method="execute">
+            <result name="success">/init2.jsp</result>
+            <result name="error">/404.html</result>
     	</action>
     </package>
 </struts>

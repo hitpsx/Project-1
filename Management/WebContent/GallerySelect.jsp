@@ -227,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<tr>
 				<td>
-				<form class="text-sub" action="Lend"  method="post">
+				<form class="text-sub" action="LendButton"  method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
 				<input type="submit" value="Lend">
@@ -235,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</td>
 				<td>:</td>
 				<td>
-				<form class="text-sub" action="Lend" method="post">
+				<form class="text-sub" action="LendButton" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				<input type="submit" value="Retir">
 				</form></td>

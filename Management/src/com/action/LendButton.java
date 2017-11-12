@@ -4,7 +4,7 @@ import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class Lend extends ActionSupport{
+public class LendButton extends ActionSupport{
 	
 	private int userid;
 	private User user;
@@ -42,8 +42,10 @@ public class Lend extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
+		System.out.println(unit);
 		Cp=sql.selectEquNumber(EquNumber, unit);
 		sql.close();
 		return "success";
 	}
+	
 }

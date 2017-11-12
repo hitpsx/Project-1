@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE HTML>
 <html>
@@ -174,9 +173,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 
 			<div class="blank-page">
-				
-	        	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-	        		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+			<form class="form" action="LendManage" method="post">
+				<br><label for="id_LendUnit">所借单位:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
+				<br><label for="id_main">申请主题:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
+				<br><label for="id_LendEqu">设备名称:</label><input type="text" name="LendEqu" autofocus maxlength="254" required id="id_LendEqu"/></br>
+				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="输入你的申请，这会提交给admin审核，通过后会给予信息提醒"></textarea></br>
+				<br><input type="submit" value="post" class="text-sub"></br>
+			</form>
 	        </div>
 	       </div>
 	

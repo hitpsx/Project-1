@@ -33,7 +33,7 @@ public class UserLogin extends ActionSupport{
 		MySQL sql=new MySQL();
 		System.out.print(username);
 		user=sql.Account(username, password);
-		sql.close();
+		sql.close();;
 		return "success";
 	}
 }
