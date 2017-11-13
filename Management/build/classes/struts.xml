@@ -44,6 +44,10 @@
             <result name="success">/init2.jsp</result>
             <result name="error">/404.html</result>
     	</action>
+    	<action name="Lendinfor" class="com.action.Lendinfor" method="execute">
+            <result name="success">/Lendinformation.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
     </package>
 </struts>
 

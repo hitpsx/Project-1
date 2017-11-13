@@ -67,12 +67,15 @@ public class LendManage extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
+		
 		Lendin lend=new Lendin();
 		int id=sql.Getlendid();
-		String unitlend="cs";
-		lend.set(id,LendEqu,LendUnit,maintext,application,unitlend);
-		sql.insertLend(lend);
+		String unitlend=sql.userUnit(userid);
 		sql.updateCsSta("待确认借出",LendNumber);
+		lend.set(id,LendNumber,LendEqu,LendUnit,maintext,application,unitlend,"待确认借出");
+		sql.insertLend(lend);
+		
+		
 		sql.close();
 		return "success";
 	}

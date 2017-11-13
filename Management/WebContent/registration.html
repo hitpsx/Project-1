@@ -27,13 +27,20 @@
 	}
 	window.onload = check;
 	</script> 
+	<style type="text/css">      
+     body{      
+        background-image: url(images/bg5.jpg);
+        background-size:cover; 
+        margin-top:100px; 
+     }      
+ 	</style>   
 </head>
-<body>
+<body style="background-color: #FFC1C1">
+<h1 color="#1C86EE" style="text-align:center;font-size:50px"><font face="STXingkai" color="#1C86EE"  >科研设备管理系统</font></h1>
 <div class="flex-center">
     <div class="container">
         <div class="flex-center">
             <div class="unit-1-2 unit-1-on-mobile">
-                <h1><a href="/">注册</a></h1>
                 <h3>注册</h3>
                 <form class="form" action="UserRegis" method="post">
                     <input type='hidden' name='csrfmiddlewaretoken' value='dVFrMz0yzWWSlEVPfHarTlh4rafuwv89wha0Bo7lUbb6b6v9tdQqqmlyWXLeLTdO' />
@@ -70,14 +77,14 @@
                         <input type="password" name="password1" required id="id_password1" placeholder="密码必须是数字与字母组合" pattern="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" required/>
 
                         
-                            <p class="help text-small text-muted">密码必须是数字与字母组合</p>
+                            <p class="help text-small text-muted" style="color:red">密码必须是数字与字母组合</p>
                         
                     	<!-- <form action="" method="post" name="my_f1" onsubmit="return check(this);"> -->
                         <label for="id_password2">密码确认:</label>
                         <input type="password" name="password2" required id="id_password2" placeholder="请输入与上面相同的密码" pattern="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" required/>
                         
 
-                            <p class="help text-small text-muted">为了校验，请输入与上面相同的密码。</p>
+                            <p class="help text-small text-muted" style="color:red">为了校验，请输入与上面相同的密码。</p>
                         
                     
                     <button type="submit" class="btn btn-primary btn-block"  onClick="return check()">注册</button>

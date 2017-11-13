@@ -44,7 +44,6 @@ public class CsSelect extends ActionSupport{
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
 		Cp=sql.selectEquName(EquName,unit);
-		System.out.print(Cp.getEquSta());
 		sql.close();
 		return "success";
 	}

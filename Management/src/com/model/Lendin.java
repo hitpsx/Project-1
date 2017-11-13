@@ -2,11 +2,13 @@ package com.model;
 
 public class Lendin {
 	private int Lendid;
+	private int LendNumber;
 	private String LendEqu;
 	private String LendUnit;
 	private String maintext;
 	private String application;
 	private String unitlend;
+	private String Sta;
 	
 	public int getLendid() {
 		return Lendid;
@@ -15,6 +17,12 @@ public class Lendin {
 		this.Lendid=Lendid;
 	}
 	
+	public int getLendNumber() {
+		return LendNumber;
+	}
+	public void setLendNumber(int LendNumber) {
+		this.LendNumber=LendNumber;
+	}
 	public String getLendEqu() {
 		return LendEqu;
 	}
@@ -23,6 +31,13 @@ public class Lendin {
 		this.LendEqu=LendEqu;
 	}
 	
+	public String getSta() {
+		return Sta;
+	}
+	
+	public void setSta(String Sta) {
+		this.Sta=Sta;
+	}
 	
 	public String getLendUnit() {
 		return LendUnit;
@@ -57,16 +72,20 @@ public class Lendin {
 	
 	public void set(
 			int Lendid,
+			int LendNumber,
 			String LendEqu,
 			String LendUnit,
 			String maintext,			
 			String application,
-			String unitlend) {
+			String unitlend,
+			String Sta) {
 		this.Lendid= Lendid;
+		this.LendNumber=LendNumber;
 		this.LendEqu=LendEqu;
 		this.LendUnit=LendUnit;
 		this.maintext= maintext;
 		this.application= application;
 		this.unitlend=unitlend;
+		this.Sta=Sta;
 	}
 }

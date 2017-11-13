@@ -63,6 +63,7 @@ public class MySQL {
 		}
 		return user;
 	}
+	
 	public User Account(String username,String password) {
 		User user = null;
 		try {
@@ -84,6 +85,7 @@ public class MySQL {
 		}
 		return user;
 	}
+	
 	public String userUnit(int userid) {
 		String unit="";
 		try {
@@ -199,9 +201,9 @@ public class MySQL {
 	public void insertLend(Lendin lend) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO lendin (lendid, Equname, LendUnit, maintext, application,unitlend) VALUES " +
-					String.format("(%d, \"%s\",\"%s\", \"%s\",\"%s\",\"%s\");"
-							,lend.getLendid(), lend.getLendEqu(), lend.getLendUnit(), lend.getMaintext(), lend.getApplication(),lend.getunitlend());
+			String sql = "INSERT INTO lendin (lendid,LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta) VALUES " +
+					String.format("(%d,%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\");"
+							,lend.getLendid(), lend.getLendNumber(),lend.getLendEqu(), lend.getLendUnit(), lend.getMaintext(), lend.getApplication(),lend.getunitlend(),lend.getSta());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -209,7 +211,28 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public Lendin getlendin() {
+		Lendin Cp=null;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM lendin");
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				Cp=new Lendin();
+				Cp.setMaintext(res.getString("Maintext"));
+				Cp.setLendid(res.getInt("lendid"));
+				Cp.setLendEqu(res.getString("Equname"));
+				Cp.setLendNumber(res.getInt("LendNumber"));
+				Cp.setLendUnit(res.getString("Lendunit"));
+				Cp.setunitlend(res.getString("unitlend"));
+				Cp.setSta(res.getString("Sta"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return Cp;
+	}
 	public void close() {
 		try {
 			if (con != null) con.close();
