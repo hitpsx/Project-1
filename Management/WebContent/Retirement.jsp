@@ -1,16 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Select Result</title>
+<title>Lend</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
@@ -48,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div id="wrapper">
-        <!----->
+       <!----->
         <nav class="navbar-default navbar-static-top" role="navigation">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -96,11 +95,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="drop-men" >
-		        <ul class=" nav_1">		              
+		        <ul class=" nav_1">	     
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"> <s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
+		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		              <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
@@ -111,9 +110,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        
      </div>
 	  
-		     <div class="navbar-default sidebar" role="navigation">
+		    <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">				                           
+                <ul class="nav" id="side-menu">			                           
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Equipment Class</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -161,105 +160,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <div class="content-main">
  
  	<!--banner-->	
-		    <div class="banner">
+		     <div class="banner">
 		    	<h2>
-			<a href="index.html">Home</a>
-			<i class="fa fa-angle-right"></i>
-				<span>Gallery</span>
+				<a href="index.html">Home</a>
+				<i class="fa fa-angle-right"></i>
+				<span>Blank</span>
 				</h2>
 		    </div>
-	<!--//banner-->
-	<div class="gallery">
-	 <form class="form" action="CsSelect" method="post">
-                <div class="input-group input-group-in">
-                    <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
-                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                </div><!-- Input Group -->
-     </form>
-     	<div class="profile-bottom">
-			<h3><i class="fa fa-user"></i>Information</h3>
-			<div class="profile-bottom-top">
-			<div class="col-md-4 profile -bottom-img">
-				<img src="images/pr.jpg" alt="">
-			</div>
-     <div class="col-md-8 profile-text">
-				<h6><s:property value="Cp.EquName"/></h6>
-				<table>
-				
-				<tr>
-				<td>EquNumber</td>
-				<td> :</td>
-				<td> <s:property value="Cp.EquNumber"/></td>
-				</tr>
-				
-				<tr>
-				<td>EquUnit</td>
-				<td> :</td>
-				<td> <s:property value="Cp.EquUnit"/></td>
-				</tr>
-				
-				<tr>
-				<td>EquClass</td>
-				<td>:</td>
-				<td><s:property value="Cp.EquClass"/></td>
-				</tr>
-				
-				<tr>
-				<td>ModelSpe</td>
-				<td>:</td>
-				<td><s:property value="Cp.ModelSpe"/></td>
-				</tr>
-				
-				<tr>
-				<td>date</td>
-				<td>:</td>
-				<td><s:property value="Cp.EquDate"/></td>
-				</tr>
-				
-				<tr>
-				<td>status</td>
-				<td>:</td>
-				<td><s:property value="Cp.EquSta"/></td>
-				</tr>
-				
-				<tr>
-				<td>
-				<form class="text-sub" action="LendButton"  method="post">
-				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
-				<input type="submit" value="Lend">
-				</form>
-				</td>
-				<td>:</td>
-				<td>
-				<form class="text-sub" action="RetirButton" method="post">
-				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
-				<input type="submit" value="Retir">
-				</form></td>
-				</tr>
-				
-				</table>
+		<!--//banner-->
+ 	 <!--faq-->
+ 	<div class="blank">
 	
-			</div>
-     <div class="clearfix"></div>
-			</div>
+
+			<div class="blank-page">
+			<form class="form" action="RetireManage" method="post">
+				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				<input type="hidden" name=LendEqu value=<s:property value="Cp.EquName"/> />
+				<input type="hidden" name=LendNumber value=<s:property value="Cp.EquNumber"/> />
+				
+				<br><label for="id_LendEqu">设备名称:</label><s:property value="Cp.EquName"/></br>
+				<br><label for="id_Lendnumber">设备编号:</label><s:property value="Cp.EquNumber"/></br>
+																
+				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请，管理员核实后会通知"></textarea></br>
+				<br><input type="submit" value="post" class="text-sub"></br>
+			</form>
+	        </div>
+	       </div>
+	
+	<!--//faq-->
+		<!---->
+     
 <!---->
-<link rel="stylesheet" href="css/swipebox.css">
-	<script src="js/jquery.swipebox.min.js"></script> 
-	    <script type="text/javascript">
-			jQuery(function($) {
-				$(".swipebox").swipebox();
-			});
-</script>
 <!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
-
 </body>
 </html>
 

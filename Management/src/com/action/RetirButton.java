@@ -1,13 +1,13 @@
 package com.action;
 
-import com.model.*;
-import com.opensymphony.xwork2.ActionSupport;
+import com.model.Cs;
+import com.model.User;
 import com.sql.MySQL;
 
-public class LendButton extends ActionSupport{
-	
+public class RetirButton {
 	private int userid;
 	private User user;
+	
 	private Cs Cp;
 	private int EquNumber;
 	

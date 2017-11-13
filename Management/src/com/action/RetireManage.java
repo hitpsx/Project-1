@@ -1,18 +1,15 @@
 package com.action;
 
-import com.model.*;
-import com.opensymphony.xwork2.ActionSupport;
+import com.model.Lendin;
+import com.model.User;
 import com.sql.MySQL;
 
-public class LendManage extends ActionSupport{
+public class RetireManage {
 	private int userid;
 	private User user;
 	private String LendEqu;
 	private int LendNumber;
-	private String LendUnit;
-	private String maintext;
 	private String application;
-	
 	
 	public int getUserid() {
 		return userid;
@@ -32,13 +29,6 @@ public class LendManage extends ActionSupport{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	public String getLendUnit() {
-		return LendUnit;
-	}
-	public void setLendUnit(String LendUnit) {
-		this.LendUnit=LendUnit;
-	}
 	public String getLendEqu() {
 		return LendEqu;
 	}
@@ -47,8 +37,6 @@ public class LendManage extends ActionSupport{
 		this.LendEqu=LendEqu;
 	}
 	
-	
-	
 	public String getApplication() {
 		return application;
 	}
@@ -56,25 +44,13 @@ public class LendManage extends ActionSupport{
 		this.application=application;
 	}
 	
-	
-	public String getMaintext() {
-		return  maintext;
-	}
-	public void setMaintext(String maintext) {
-		this.maintext=maintext;
-	}
-	
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		Lendin lend=new Lendin();
-		int id=sql.Getlendid();
-		String unitlend="cs";
-		lend.set(id,LendEqu,LendUnit,maintext,application,unitlend);
-		sql.insertLend(lend);
-		sql.updateCsSta("待确认借出",LendNumber);
+		System.out.println(LendNumber);
+		sql.updateCsSta("待报废确认", LendNumber);
+		sql.updateCsApplication(application, LendNumber);
 		sql.close();
 		return "success";
 	}
-
 }

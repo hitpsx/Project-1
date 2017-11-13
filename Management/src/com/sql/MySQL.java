@@ -174,6 +174,28 @@ public class MySQL {
 		return p;
 	}
 	
+	public void updateCsSta(String sta,int id) {
+		try {
+			stm = con.createStatement();
+			String sql = String.format("update cs set Equsta='%s' where EquNumber=%d",sta,id);
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateCsApplication(String sta,int id) {
+		try {
+			stm = con.createStatement();
+			String sql = String.format("update cs set extra='%s' where EquNumber=%d",sta,id);
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void insertLend(Lendin lend) {
 		try {
 			stm = con.createStatement();
