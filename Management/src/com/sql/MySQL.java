@@ -162,7 +162,7 @@ public class MySQL {
 		int p=0;
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT count(*) number FROM lend");
+			String sql = String.format("SELECT count(*) number FROM lendin");
 			res = stm.executeQuery(sql);
 			if(res.next()) {
 				p=res.getInt("number");
@@ -174,12 +174,12 @@ public class MySQL {
 		return p;
 	}
 	
-	public void insertLend(Lend lend) {
+	public void insertLend(Lendin lend) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO lend (lendid, Equname, LendUnit, maintext, application) VALUES " +
-					String.format("(%d, \"%s\",\"%s\", \"%s\",\"%s\");"
-							,lend.getLendid(), lend.getLendEqu(), lend.getLendUnit(), lend.getMaintext(), lend.getApplication());
+			String sql = "INSERT INTO lendin (lendid, Equname, LendUnit, maintext, application,unitlend) VALUES " +
+					String.format("(%d, \"%s\",\"%s\", \"%s\",\"%s\",\"%s\");"
+							,lend.getLendid(), lend.getLendEqu(), lend.getLendUnit(), lend.getMaintext(), lend.getApplication(),lend.getunitlend());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {

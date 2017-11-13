@@ -5,7 +5,7 @@
     <include file="struts-default.xml"/>
     <package name="com.action" extends="struts-default">
         <action name="UserLogin" class="com.action.UserLogin" method="execute">
-            <result name="success">/init2.jsp</result>
+            <result name="success">/test.jsp</result>
             <result name="error">/index.html</result>
         </action>
         <action name="Home" class="com.action.Home" method="execute">

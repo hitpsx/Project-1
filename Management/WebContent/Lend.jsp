@@ -174,6 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="blank-page">
 			<form class="form" action="LendManage" method="post">
+				<input type="hidden" name=userid value=<s:property value="user.userid"/> /> 
 				<br><label for="id_LendUnit">所借单位:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
 				<br><label for="id_main">申请主题:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
 				<br><label for="id_LendEqu">设备名称:</label><input type="text" name="LendEqu" autofocus maxlength="254" required id="id_LendEqu"/></br>

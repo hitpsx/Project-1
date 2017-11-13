@@ -61,10 +61,10 @@ public class LendManage extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		Lend lend=new Lend();
+		Lendin lend=new Lendin();
 		int id=sql.Getlendid();
-		System.out.println(LendUnit);
-		lend.set(id,LendEqu,LendUnit,maintext,application);
+		String unitlend="cs";
+		lend.set(id,LendEqu,LendUnit,maintext,application,unitlend);
 		sql.insertLend(lend);
 		sql.close();
 		return "success";
