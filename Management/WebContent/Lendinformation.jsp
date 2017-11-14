@@ -202,9 +202,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<tr>
 						<th>Title</th><th>EquName</th><th>EquID</th><th>LendUnit</th><th>Sta</th>
 					</tr>
+					<s:iterator value="lend" var="Lend">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="lend.maintext"/></td><td><s:property value="lend.LendEqu"/></td><td><s:property value="lend.Lendid"/></td><td><s:property value="lend.LendUnit"/></td><td><s:property value="lend.Sta"/></td>
+						<td><s:property value="#Lend.maintext"/></td><td><s:property value="#Lend.LendEqu"/></td><td><s:property value="#Lend.Lendid"/></td><td><s:property value="#Lend.LendUnit"/></td><td><s:property value="#Lend.Sta"/></td>
 					</tr>
+					</s:iterator>
 					</table>
 			</form>
 	        </div>

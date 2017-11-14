@@ -139,27 +139,6 @@ public class MySQL {
 		return ret;
 	}
 	
-	public Cs selectEquName(String EquName,String unit) {
-		Cs Cp=null;
-		try {
-			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs WHERE EquName = '%s' and EquUnit = '%s' ", EquName,unit);
-			res = stm.executeQuery(sql);
-			if(res.next()) {
-				Cp=new Cs();
-				Cp.setEquNumber(res.getInt("EquNumber"));
-				Cp.setEquName(res.getString("EquName"));
-				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
-				Cp.setEquSta(res.getString("EquSta"));
-				Cp.setEquClass(res.getString("Equclass"));
-				Cp.setEquUnit(res.getString("EquUnit"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return Cp;
-	}
 	
 	public Cs selectEquNumber(int EquNumber,String unit) {
 		Cs Cp=null;
@@ -233,6 +212,29 @@ public class MySQL {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public Vector<Lendin> getlendins() {
+		Vector<Lendin> ret=new Vector<Lendin>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM lendin");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Lendin Cp=new Lendin();
+				Cp.setMaintext(res.getString("Maintext"));
+				Cp.setLendid(res.getInt("lendid"));
+				Cp.setLendEqu(res.getString("Equname"));
+				Cp.setLendNumber(res.getInt("LendNumber"));
+				Cp.setLendUnit(res.getString("Lendunit"));
+				Cp.setunitlend(res.getString("unitlend"));
+				Cp.setSta(res.getString("Sta"));
+				ret.add(Cp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 	
 	public Lendin getlendin() {

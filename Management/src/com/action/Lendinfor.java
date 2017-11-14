@@ -3,18 +3,19 @@ package com.action;
 import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
+import java.util.Vector;
 
 public class Lendinfor extends ActionSupport{	
 		private int userid;
 		private User user;
-		private Lendin lend;
+		private Vector<Lendin> lend;
 		
 	
 		
-		public Lendin getLend() {
+		public Vector<Lendin> getLend() {
 			return lend;
 		}
-		public void setLend(Lendin lend) {
+		public void setLend(Vector<Lendin> lend) {
 			this.lend=lend;
 		}
 		
@@ -36,8 +37,7 @@ public class Lendinfor extends ActionSupport{
 		public String execute() {
 			MySQL sql=new MySQL();
 			user=sql.userInfor(userid);
-			lend=sql.getlendin();
-
+			lend=sql.getlendins();
 			sql.close();
 			return "success";
 		}
