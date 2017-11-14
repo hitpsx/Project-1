@@ -12,7 +12,14 @@ public class Cs {
 	private String EquSta;
 	private String EquClass;
 	private String EquUnit;
-
+	private String extra;
+	
+	public String getExtra() {
+		return extra;
+	}
+	public void setExtra(String extra) {
+		this.extra=extra;
+	}
 	public String getEquSta() {
 		return EquSta;
 	}

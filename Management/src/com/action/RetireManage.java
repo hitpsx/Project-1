@@ -1,10 +1,11 @@
-package com.action;
+ package com.action;
 
 import com.model.Lendin;
 import com.model.User;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class RetireManage {
+public class RetireManage extends ActionSupport{
 	private int userid;
 	private User user;
 	private String LendEqu;

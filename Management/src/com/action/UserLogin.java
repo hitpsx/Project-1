@@ -31,7 +31,6 @@ public class UserLogin extends ActionSupport{
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
-		System.out.print(username);
 		user=sql.Account(username, password);
 		sql.close();;
 		return "success";

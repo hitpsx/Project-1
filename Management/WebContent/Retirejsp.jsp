@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Lend</title>
+<title>Retirement</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Minimal</a></h1>      
+               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>      
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -187,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Lend  information</span>
+				<span>Retirement  information</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -200,11 +200,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
-						<th>Title</th><th>EquName</th><th>EquID</th><th>LendUnit</th><th>Sta</th>
+						<th>EquNumber</th>
+						<th>EquName</th>
+						
+						<th>ModelSpe</th>
+						<th>EquDate</th>
+						
+						<th>Sta</th>
+						<th>EquUnit</th>
+						
+						<th>Equclass</th>
+						<th>application</th>
 					</tr>
-					<s:iterator value="lend" var="Lend">
+					<s:iterator value="Cp" var="Lend">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="#Lend.maintext"/></td><td><s:property value="#Lend.LendEqu"/></td><td><s:property value="#Lend.Lendid"/></td><td><s:property value="#Lend.LendUnit"/></td><td><s:property value="#Lend.Sta"/></td>
+						<td><s:property value="#Lend.EquNumber"/></td>
+						<td><s:property value="#Lend.EquName"/></td>
+						
+						<td><s:property value="#Lend.ModelSpe"/></td>
+						<td><s:property value="#Lend.EquDate"/></td>
+						
+						<td><s:property value="#Lend.EquSta"/></td>
+						<td><s:property value="#Lend.EquUnit"/></td>
+						<td><s:property value="#Lend.EquClass"/></td>
+						
+						
+						<td><s:property value="#Lend.extra"/></td>
 					</tr>
 					</s:iterator>
 					</table>

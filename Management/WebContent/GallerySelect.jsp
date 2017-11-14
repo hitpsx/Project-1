@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                      <li>
-                        <a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span> </a>
+                        <s:a action="Retire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
                     </li>
                     
                    
@@ -229,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>
 				<form class="text-sub" action="LendButton"  method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="#cs.EquNumber"/> />
 				<input type="submit" value="Lend">
 				</form>
 				</td>
@@ -237,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>
 				<form class="text-sub" action="RetirButton" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="#cs.EquNumber"/> />
 				<input type="submit" value="Retir">
 				</form></td>
 				</tr>

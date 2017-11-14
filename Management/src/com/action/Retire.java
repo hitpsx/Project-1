@@ -1,16 +1,15 @@
 package com.action;
 
-import com.model.Cs;
-import com.model.User;
+import java.util.Vector;
+
+import com.model.*;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class RetirButton {
+public class Retire extends ActionSupport{
 	private int userid;
 	private User user;
-	
-	private Cs Cp;
-	private int EquNumber;
-	
+	private Vector<Cs> Cp;
 	public int getUserid() {
 		return userid;
 	}
@@ -24,28 +23,20 @@ public class RetirButton {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	public int getEquNumber() {
-		return EquNumber;
-	}
-	public void setEquNumber(int EquNumber) {
-		this.EquNumber = EquNumber;
-	}
-	
-	public Cs getCp() {
+
+	public Vector<Cs> getCp() {
 		return Cp;
 	}
-	public void setCp(Cs Cp) {
+	public void setCp(Vector<Cs> Cp) {
 		this.Cp = Cp;
+		
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		System.out.println(EquNumber);
 		String unit=sql.userUnit(userid);
-		Cp=sql.selectEquNumber(EquNumber, unit);
+		Cp=sql.selectRetir("±¨·Ï", unit);
 		sql.close();
 		return "success";
 	}
-	
 }
