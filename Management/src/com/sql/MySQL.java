@@ -138,7 +138,31 @@ public class MySQL {
 		}
 		return ret;
 	}
-	
+	public Vector<Cs> selectEqu() {
+		Vector<Cs> ret=new Vector<Cs>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM cs");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Cs Cp=new Cs();
+				Cp.setEquNumber(res.getInt("EquNumber"));
+				Cp.setEquQua(res.getString("EquQua"));
+				Cp.setEquName(res.getString("EquName"));
+				Cp.setModelSpe(res.getString("ModelSpe"));
+				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquSta(res.getString("EquSta"));
+				Cp.setEquClass(res.getString("Equclass"));
+				Cp.setEquUnit(res.getString("EquUnit"));
+				Cp.setExtra(res.getString("extra"));
+				ret.add(Cp);
+			}
+			stm.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
 	public Vector<Cs> selectRetir(String sta,String unit) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {

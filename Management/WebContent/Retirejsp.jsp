@@ -148,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   </ul>
                     </li>
 					 <li>
-                        <a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Equipment Manage</span> </a>
+					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Equipment Manage</span></s:a>
                     </li>
                     
                     <li>
