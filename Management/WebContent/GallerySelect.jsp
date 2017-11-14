@@ -186,43 +186,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/pr.jpg" alt="">
 			</div>
      <div class="col-md-8 profile-text">
-				<h6><s:property value="Cp.EquName"/></h6>
+				<s:iterator value="Cp" var="cs">
+				<h6><s:property value="#cs.EquName"/></h6>
 				<table>
 				
 				<tr>
 				<td>EquNumber</td>
 				<td> :</td>
-				<td> <s:property value="Cp.EquNumber"/></td>
+				<td> <s:property value="#cs.EquNumber"/></td>
 				</tr>
 				
 				<tr>
 				<td>EquUnit</td>
 				<td> :</td>
-				<td> <s:property value="Cp.EquUnit"/></td>
+				<td> <s:property value="#cs.EquUnit"/></td>
 				</tr>
 				
 				<tr>
 				<td>EquClass</td>
 				<td>:</td>
-				<td><s:property value="Cp.EquClass"/></td>
+				<td><s:property value="#cs.EquClass"/></td>
 				</tr>
 				
 				<tr>
 				<td>ModelSpe</td>
 				<td>:</td>
-				<td><s:property value="Cp.ModelSpe"/></td>
+				<td><s:property value="#cs.ModelSpe"/></td>
 				</tr>
 				
 				<tr>
 				<td>date</td>
 				<td>:</td>
-				<td><s:property value="Cp.EquDate"/></td>
+				<td><s:property value="#cs.EquDate"/></td>
 				</tr>
 				
 				<tr>
 				<td>status</td>
 				<td>:</td>
-				<td><s:property value="Cp.EquSta"/></td>
+				<td><s:property value="#cs.EquSta"/></td>
 				</tr>
 				
 				<tr>
@@ -243,6 +244,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>
 				
 				</table>
+		</s:iterator>
 	
 			</div>
      <div class="clearfix"></div>
@@ -262,4 +264,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>
-

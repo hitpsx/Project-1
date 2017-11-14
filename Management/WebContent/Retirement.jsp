@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="index.html">Minimal</a></h1>         
+              <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Minimal</a></h1>     
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  	<!--banner-->	
 		     <div class="banner">
 		    	<h2>
-				<a href="index.html">Home</a>
+				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
 				<span>Retirment</span>
 				</h2>

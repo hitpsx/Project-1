@@ -1,10 +1,10 @@
 package com.sql;
 
 import java.sql.*;
+import java.util.Vector;
 
 import com.model.*;
 
-import com.model.User;
 
 
 public class MySQL {
@@ -114,6 +114,29 @@ public class MySQL {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public Vector<Cs> selectEquNames(String EquName,String unit) {
+		Vector<Cs> ret=new Vector<Cs>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM cs WHERE EquName = '%s' and EquUnit = '%s' ", EquName,unit);
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Cs Cp=new Cs();
+				Cp.setEquNumber(res.getInt("EquNumber"));
+				Cp.setEquName(res.getString("EquName"));
+				Cp.setModelSpe(res.getString("ModelSpe"));
+				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquSta(res.getString("EquSta"));
+				Cp.setEquClass(res.getString("Equclass"));
+				Cp.setEquUnit(res.getString("EquUnit"));
+				ret.add(Cp);
+			}
+			stm.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 	
 	public Cs selectEquName(String EquName,String unit) {

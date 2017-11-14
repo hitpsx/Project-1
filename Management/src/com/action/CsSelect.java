@@ -3,11 +3,12 @@ package com.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 import com.model.*;
+import java.util.Vector;
 
 public class CsSelect extends ActionSupport{
 	private int userid;
 	private String EquName;
-	private Cs Cp;
+	private Vector<Cs> Cp;
 	private User user;
 	
 	public int getUserid() {
@@ -31,10 +32,10 @@ public class CsSelect extends ActionSupport{
 		this.EquName = EquName;
 	}
 	
-	public Cs getCp() {
+	public Vector<Cs> getCp() {
 		return Cp;
 	}
-	public void setCp(Cs Cp) {
+	public void setCp(Vector<Cs> Cp) {
 		this.Cp = Cp;
 	}
 	
@@ -43,7 +44,7 @@ public class CsSelect extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
-		Cp=sql.selectEquName(EquName,unit);
+		Cp=sql.selectEquNames(EquName,unit);
 		sql.close();
 		return "success";
 	}
