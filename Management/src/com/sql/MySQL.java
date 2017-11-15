@@ -79,6 +79,10 @@ public class MySQL {
 				user.setEmail(res.getString("Email"));
 				user.setPassword(res.getString("Password"));
 			}
+			else {
+				stm.close();
+				return user;
+			}
 			stm.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -152,7 +156,7 @@ public class MySQL {
 				Cp.setModelSpe(res.getString("ModelSpe"));
 				Cp.setEquDate(res.getDate("EquDate"));
 				Cp.setEquSta(res.getString("EquSta"));
-				Cp.setEquClass(res.getString("Equclass"));
+				Cp.setEquClass(res.getString("EquClass"));
 				Cp.setEquUnit(res.getString("EquUnit"));
 				Cp.setExtra(res.getString("extra"));
 				ret.add(Cp);
@@ -167,7 +171,7 @@ public class MySQL {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs WHERE Equsta like \"%%%s%%\" and EquUnit = '%s' ", sta,unit);
+			String sql = String.format("SELECT * FROM cs WHERE EquSta like \"%%%s%%\" and EquUnit = '%s' ", sta,unit);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -200,6 +204,7 @@ public class MySQL {
 				Cp.setEquNumber(res.getInt("EquNumber"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
+				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquDate(res.getDate("EquDate"));
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("Equclass"));
@@ -286,6 +291,17 @@ public class MySQL {
 		return ret;
 	}
 	
+	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, String EquClass,String unit) {
+		try {
+			stm = con.createStatement();
+			String sql = String.format("update cs set EquName='%s' , EquQua ='%s'  , EquClass ='%s'where EquNumber=%d",EquName,EquQua,EquClass,EquNumber);
+			//res = stm.executeQuery(sql);
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public Lendin getlendin() {
 		Lendin Cp=null;
 		try {

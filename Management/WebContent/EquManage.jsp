@@ -158,8 +158,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend in</span></s:a></li>
-                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend out</a></li>
+                            <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
@@ -233,10 +233,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Lend.EquSta"/></td>
 						<td><s:property value="#Lend.EquUnit"/></td>
 						<td><s:property value="#Lend.EquClass"/></td>
-						<a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a>
 						<td>
-						    <a href="RetirButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">删除</a>
-						    <a href="LendButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">借出</a>
+						    <a href="RetirButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Delete</a>
+						    <a href="LendButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Lend</a>
+						    <a href="CsUpdate?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Update</a>
+						    
 						</td>
 
 					</tr>

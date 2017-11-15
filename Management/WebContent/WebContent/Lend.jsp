@@ -3,14 +3,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Select Equipment</title>
+<title>Lend</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
@@ -48,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div id="wrapper">
-        <!----->
+       <!----->
         <nav class="navbar-default navbar-static-top" role="navigation">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -57,37 +56,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>        
+               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Minimal</a></h1>   
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
-	        	<script type="text/javascript">  
-	        	function startTime(){  
-					  var today=new Date()  
-					  var week=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-					  var monthh=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-					  var month=today.getMonth()+1  
-					  var date=today.getDate()  
-					  var day=today.getDay()  
-					  var h=today.getHours()  
-					  var m=today.getMinutes()  
-					  var s=today.getSeconds()  
-					  // add a zero in front of numbers<10  
-					  h=checkTime(h)  
-					  m=checkTime(m)  
-					  s=checkTime(s)  
-					  document.getElementById('time').innerHTML=monthh[month]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
-					  t=setTimeout('startTime()',500)  
+        	  <script type="text/javascript">  
+        	  function startTime(){  
+				  var today=new Date()  
+				  var week=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+				  var monthh=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+				  var month=today.getMonth()+1  
+				  var date=today.getDate()  
+				  var day=today.getDay()  
+				  var h=today.getHours()  
+				  var m=today.getMinutes()  
+				  var s=today.getSeconds()  
+				  // add a zero in front of numbers<10  
+				  h=checkTime(h)  
+				  m=checkTime(m)  
+				  s=checkTime(s)  
+				  document.getElementById('time').innerHTML=monthh[month]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
+				  t=setTimeout('startTime()',500)  
+				 }  
+					  
+					 function checkTime(i){  
+					 if (i<10)   
+					   {i="0" + i}  
+					   return i  
 					 }  
-						 function checkTime(i){  
-						 if (i<10)   
-						   {i="0" + i}  
-						   return i  
-						 }  
-					</script> 
-					<body onload="startTime()">  
-	                <div id="time"></div>
-	               </div>
+				</script> 
+				<body onload="startTime()">
+                 <div id="time"></div>
+	              </div>  
            </div>
      
        
@@ -95,11 +95,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="drop-men" >
-		        <ul class=" nav_1">
+		        <ul class=" nav_1">	     
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                 <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		              <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  
 		    <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">				                           
+                <ul class="nav" id="side-menu">			                           
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Equipment Class</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   </ul>
                     </li>
 					 <li>
-					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Equipment Manage</span></s:a>
+                        <a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Equipment Manage</span> </a>
                     </li>
                     
                     <li>
@@ -135,13 +135,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
-                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
+                            <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend in</span></s:a></li>
+                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend out</a></li>
                         </ul>
                     </li>
                     
                      <li>
-                        <s:a action="Retire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
+                        <a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span> </a>
                     </li>
                     
                    
@@ -160,40 +160,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <div class="content-main">
  
  	<!--banner-->	
-		    <div class="banner">
+		     <div class="banner">
 		    	<h2>
-			<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
-			<i class="fa fa-angle-right"></i>
-				<span>Select</span>
+				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
+				<i class="fa fa-angle-right"></i>
+				<span>Blank</span>
 				</h2>
 		    </div>
-	<!--//banner-->
-	<div class="gallery">
-	 <form class="form" action="CsSelect" method="post">
-                <div class="input-group input-group-in">
-                    <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
-                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                   
-                </div><!-- Input Group -->
-      </form>
+		<!--//banner-->
+ 	 <!--faq-->
+ 	<div class="blank">
+	
 
+			<div class="blank-page">
+			<form class="form" action="LendManage" method="post">
+				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				<input type="hidden" name=LendEqu value=<s:property value="Cp.EquName"/> />
+				<input type="hidden" name=LendNumber value=<s:property value="Cp.EquNumber"/> />
+				
+				<br><label for="id_LendEqu">设备名称:</label><s:property value="Cp.EquName"/></br>
+				<br><label for="id_Lendnumber">设备编号:</label><s:property value="Cp.EquNumber"/></br>
+				
+				<br><label for="id_LendUnit">所借单位:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
+				<br><label for="id_main">申请主题:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
+				
+				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="输入你的申请，这会提交给admin审核，通过后会给予信息提醒"></textarea></br>
+				<br><input type="submit" value="post" class="text-sub"></br>
+			</form>
+	        </div>
+	       </div>
+	
+	<!--//faq-->
+		<!---->
      
 <!---->
-<link rel="stylesheet" href="css/swipebox.css">
-	<script src="js/jquery.swipebox.min.js"></script> 
-	    <script type="text/javascript">
-			jQuery(function($) {
-				$(".swipebox").swipebox();
-			});
-</script>
 <!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
-
 </body>
 </html>
 
