@@ -79,7 +79,7 @@ public class UpdateCs {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
-		sql.UpdateCs(EquNumber,EquName,EquQua,ModelSpe,EquClass,unit);
+		sql.UpdateCs(EquNumber,EquName,EquQua,ModelSpe,EquDate,EquClass,unit);
 		sql.close();
 		return "success";
 	}

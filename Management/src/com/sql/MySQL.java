@@ -291,10 +291,10 @@ public class MySQL {
 		return ret;
 	}
 	
-	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, String EquClass,String unit) {
+	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, Date EquDate,String EquClass,String unit) {
 		try {
 			stm = con.createStatement();
-			String sql = String.format("update cs set EquName='%s' , EquQua ='%s'  , EquClass ='%s'where EquNumber=%d",EquName,EquQua,EquClass,EquNumber);
+			String sql = String.format("update cs set EquName='%s' , EquQua ='%s'  , ModelSpe='%s', EquDate='%s',EquClass ='%s'where EquNumber=%d and EquUnit ='%s' ",EquName,EquQua,ModelSpe,EquDate,EquClass,EquNumber,unit);
 			//res = stm.executeQuery(sql);
 			stm.executeUpdate(sql);
 			stm.close();
