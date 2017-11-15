@@ -193,7 +193,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!--//banner-->
  	 <!--faq-->
  	<div class="blank">
-	
+		 	<form class="form" action="CsSelect" method="post">
+		                <div class="input-group input-group-in">
+		                    <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
+		                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
+		                    <span class="input-group-btn">
+		                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+		                    </span>
+		                </div><!-- Input Group -->
+		     </form>
 
 			<div class="blank-page">
 			<form class="form" action="" method="post">
@@ -225,8 +233,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Lend.EquSta"/></td>
 						<td><s:property value="#Lend.EquUnit"/></td>
 						<td><s:property value="#Lend.EquClass"/></td>
-						<td><input type="submit" value="修改信息">
-						    <input type="submit" value="删除设备">
+						<a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a>
+						<td>
+						    <a href="RetirButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">删除</a>
+						    <a href="LendButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">借出</a>
 						</td>
 
 					</tr>

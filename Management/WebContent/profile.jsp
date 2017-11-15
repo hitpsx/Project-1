@@ -179,12 +179,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/pr.jpg" alt="">
 			</div>
 			<div class="col-md-8 profile-text">
-				<h6>Jack Dorsey</h6>
+				<h6><s:property value="user.username"/></h6>
 				<table>
-				<tr><td>Username</td>  
-				<td>:</td>  
-				<td><s:property value="user.username"/></td></tr>
-				
+								
 				<tr>
 				<td>ID</td>
 				<td> :</td>
@@ -203,10 +200,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td> <s:property value="user.unit"/></td>
 				</tr>
 				
-				<tr>
-				<td>Authority </td>
-				<td>:</td>
-				<td> ordinary</td>
+				<tr><td>Email</td>  
+				<td> :</td>  
+				<td><s:property value="user.email"/></td>
 				</tr>
 				</table>
 			</div>
