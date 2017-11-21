@@ -142,23 +142,46 @@ public class MySQL {
 		}
 		return ret;
 	}
-	public Vector<Cs> selectEqu() {
+	public Vector<Cs> selectEqu(int page) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs");
+			String sql = String.format("SELECT * FROM cs limit %d,1",page);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
+				
 				Cp.setEquNumber(res.getInt("EquNumber"));
 				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
 				Cp.setEquDate(res.getDate("EquDate"));
+				
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("EquClass"));
 				Cp.setEquUnit(res.getString("EquUnit"));
+				Cp.setManufacturer(res.getString("Manufacturer"));
+				Cp.setSupplier(res.getString("Supplier"));
+				
+				Cp.setSpecifications(res.getString("Specifications"));
+				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setInspector(res.getString("Inspector"));
+				Cp.setQuality(res.getString("Quality"));
+				Cp.setMaintainer(res.getString("Maintainer"));
+				
+				Cp.setInventoryPosition(res.getString("InventoryPosition"));
+				Cp.setPresentPosition(res.getString("PresentPosition"));
+				Cp.setUnitPrice(res.getString("UnitPrice"));
+				Cp.setTotalPrice(res.getString("TotalPrice"));
+				Cp.setBatch(res.getString("Batch"));
+				
+				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
+				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
+				Cp.setHandler(res.getString("Handler"));
+				Cp.setLender(res.getString("Lender"));
 				Cp.setExtra(res.getString("extra"));
+				
+				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
 				ret.add(Cp);
 			}
 			stm.close();

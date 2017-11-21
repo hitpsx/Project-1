@@ -9,8 +9,16 @@ import com.sql.MySQL;
 public class EquManage extends ActionSupport{
 	private int userid;
 	private User user;
+	private int page;
 	private Vector<Cs> Cp;
 	
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	public Vector<Cs> getCp() {
 		return Cp;
 	}
@@ -35,7 +43,8 @@ public class EquManage extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		Cp=sql.selectEqu();
+		System.out.println(page);
+		Cp=sql.selectEqu(page);
 		sql.close();
 		return "success";
 	}

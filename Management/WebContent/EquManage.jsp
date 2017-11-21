@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -13,6 +14,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/jquery.min.js"> </script>
 <script src="js/bootstrap.min.js"> </script>
   
@@ -204,6 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		     </form>
 
 			<div class="blank-page">
+			
 			<form class="form" action="" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
@@ -239,10 +244,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    <a href="CsUpdate?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Update</a>
 						    
 						</td>
-
 					</tr>
 					</s:iterator>
+
 					</table>
+
+					<ul class="pagination">
+				    <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
+				     <% for(int i=0;i<10;i++){ %>
+				       <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
+				    <%}%>
+				    <li><a href="#">&raquo;</a></li>
+				    </ul> 
+				    
+					
 			</form>
 	        </div>
 	       </div>
