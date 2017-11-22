@@ -1,22 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Retirement</title>
+<title>Select Result</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Home Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
-<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
-<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/jquery.min.js"> </script>
 <script src="js/bootstrap.min.js"> </script>
   
@@ -213,10 +210,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
+						<th>Manage</th>
 						<th>EquNumber</th>
 						<th>EquName</th>
 						
-						<th>EquQua</th>
 						<th>ModelSpe</th>
 						<th>EquDate</th>
 						
@@ -224,44 +221,80 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>EquUnit</th>
 						
 						<th>Equclass</th>
-						<th>Manage</th>
+						<th>Manufacturer</th>
+						
+						<th>Supplier</th>
+						<th>Specifications</th>
+						
+						<th>OrderDate</th>
+						<th>Inspector</th>
+						<th>Quality</th>
+						
+						<th>MaintenanceDate</th>
+						<th>Maintainer</th>
+						
+						<th>InventoryPosition</th>
+						<th>PresentPosition</th>
+						<th>UnitPrice</th>
+						<th>TotalPrice</th>
+						
+						<th>Batch</th>
+						<th>Lender</th>
+						
 					</tr>
 					<s:iterator value="Cp" var="Lend">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="#Lend.EquNumber"/></td>
-						<td><s:property value="#Lend.EquName"/></td>
-						
-						<td><s:property value="#Lend.EquQua"/></td>
-						<td><s:property value="#Lend.ModelSpe"/></td>
-						<td><s:property value="#Lend.EquDate"/></td>
-						
-						<td><s:property value="#Lend.EquSta"/></td>
-						<td><s:property value="#Lend.EquUnit"/></td>
-						<td><s:property value="#Lend.EquClass"/></td>
 						<td>
 						    <a href="RetirButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Delete</a>
 						    <a href="LendButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Lend</a>
 						    <a href="CsUpdate?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Update</a>
 						    
 						</td>
+						<td><s:property value="#Lend.EquNumber"/></td>
+						<td><s:property value="#Lend.EquName"/></td>
+						
+						<td><s:property value="#Lend.ModelSpe"/></td>
+						<td><s:property value="#Lend.EquDate"/></td>						
+						<td><s:property value="#Lend.EquSta"/></td>
+						
+						<td><s:property value="#Lend.EquUnit"/></td>
+						<td><s:property value="#Lend.EquClass"/></td>
+						<td><s:property value="#Lend.Manufacturer"/></td>
+						
+						<td><s:property value="#Lend.Supplier"/></td>
+						<td><s:property value="#Lend.Specifications"/></td>						
+						<td><s:property value="#Lend.OrderDate"/></td>
+						
+						<td><s:property value="#Lend.Inspector"/></td>
+						<td><s:property value="#Lend.Quality"/></td>						
+						<td><s:property value="#Lend.MaintenanceDate"/></td>
+						
+						<td><s:property value="#Lend.Maintainer"/></td>
+						<td><s:property value="#Lend.InventoryPosition"/></td>						
+						<td><s:property value="#Lend.PresentPosition"/></td>
+						
+						<td><s:property value="#Lend.UnitPrice"/></td>
+						<td><s:property value="#Lend.TotalPrice"/></td>						
+						<td><s:property value="#Lend.Batch"/></td>
+						
+						<td><s:property value="#Lend.Lender"/></td>
 					</tr>
 					</s:iterator>
 
 					</table>
-
-					<ul class="pagination">
-				    <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
-				     <% for(int i=0;i<10;i++){ %>
-				       <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
-				    <%}%>
-				    <li><a href="#">&raquo;</a></li>
-				    </ul> 
-				    
-					
 			</form>
 	        </div>
+        	<ul class="pagination">
+			    <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
+			     <% for(int i=0;i<10;i++){ %>
+			       <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
+			    <%}%>
+			    <li><a href="#">&raquo;</a></li>
+			</ul> 				
 	       </div>
-	
+	</div>
+	</div>
+	</div>
 	<!--//faq-->
 		<!---->
      
