@@ -4,7 +4,7 @@ import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class UserGally extends ActionSupport{
+public class SelectHome extends ActionSupport{
 	private int userid;
 	private User user;
 	

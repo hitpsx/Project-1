@@ -19,6 +19,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Mainly scripts -->
 <script src="js/jquery.metisMenu.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script>
+<style type="text/css">
+	table.hovertable {
+		font-family: verdana,arial,sans-serif;
+		font-size:11px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #999999;
+		border-collapse: collapse;
+	}
+	table.hovertable th {
+		background-color:#c3dde0;
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #a9c6c9;
+	}
+	table.hovertable tr {
+		background-color:#d4e3e5;
+	}
+	table.hovertable td {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #a9c6c9;
+}
+</style>
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
 <script src="js/custom.js"></script>
@@ -41,9 +67,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 		</script>
-
-
-
 </head>
 <body>
 <div id="wrapper">
@@ -56,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>   
+               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>      
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -113,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">			                           
-                    <li>
+                   <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Equipment Class</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="404.html" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>2017<span class="fa arrow"></span></a>
@@ -189,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                             <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
                             <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
@@ -218,7 +241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Blank</span>
+				<span>Lend  information</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -227,19 +250,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 
 			<div class="blank-page">
-			<form class="form" action="LendManage" method="post">
+			<form class="form" action="" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=LendEqu value=<s:property value="Cp.EquName"/> />
-				<input type="hidden" name=LendNumber value=<s:property value="Cp.EquNumber"/> />
-				
-				<br><label for="id_LendEqu">设备名称:</label><s:property value="Cp.EquName"/></br>
-				<br><label for="id_Lendnumber">设备编号:</label><s:property value="Cp.EquNumber"/></br>
-				
-				<br><label for="id_LendUnit">所借单位:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
-				<br><label for="id_main">申请主题:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
-				
-				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="输入你的申请，这会提交给admin审核，通过后会给予信息提醒"></textarea></br>
-				<br><input type="submit" value="提交" class="text-sub"></br>
+				 <table class="hovertable">
+					<tr>
+						<th>Title</th><th>EquName</th><th>EquID</th><th>LendUnit</th><th>Sta</th>
+					</tr>
+					<s:iterator value="lend" var="Lend">
+					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+						<td><s:property value="#Lend.maintext"/></td><td><s:property value="#Lend.LendEqu"/></td><td><s:property value="#Lend.Lendid"/></td><td><s:property value="#Lend.LendUnit"/></td><td><s:property value="#Lend.Sta"/></td>
+					</tr>
+					</s:iterator>
+					</table>
 			</form>
 	        </div>
 	       </div>

@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>   
+              <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>     
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -177,19 +177,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					   </ul>
                     </li>
-					<li>
-					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
-					 
+					 <li>
+					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Equipment Manage</span></s:a>
                     </li>
                     
                     <li>
-                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">EquManage</span></s:a>
+                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Select</span></s:a>
                     </li>
                              
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                             <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
                             <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
@@ -218,7 +217,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Blank</span>
+				<span>Retirment</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -227,19 +226,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 
 			<div class="blank-page">
-			<form class="form" action="LendManage" method="post">
+			<form class="form" action="RetireManage" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				<input type="hidden" name=LendEqu value=<s:property value="Cp.EquName"/> />
 				<input type="hidden" name=LendNumber value=<s:property value="Cp.EquNumber"/> />
 				
 				<br><label for="id_LendEqu">设备名称:</label><s:property value="Cp.EquName"/></br>
 				<br><label for="id_Lendnumber">设备编号:</label><s:property value="Cp.EquNumber"/></br>
-				
-				<br><label for="id_LendUnit">所借单位:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
-				<br><label for="id_main">申请主题:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
-				
-				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="输入你的申请，这会提交给admin审核，通过后会给予信息提醒"></textarea></br>
-				<br><input type="submit" value="提交" class="text-sub"></br>
+																
+				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请，管理员核实后会通知"></textarea></br>
+				<br><input type="submit" value="提交"></br>
 			</form>
 	        </div>
 	       </div>

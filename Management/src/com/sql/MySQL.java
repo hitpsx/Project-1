@@ -2,7 +2,6 @@ package com.sql;
 
 import java.sql.*;
 import java.util.Vector;
-
 import com.model.*;
 
 
@@ -190,6 +189,59 @@ public class MySQL {
 		}
 		return ret;
 	}
+	
+	
+	
+	public Vector<Cs> selectyear(String year,String unit,String EquClass) {
+		Vector<Cs> ret=new Vector<Cs>();
+		try {
+			stm = con.createStatement();						
+			String year2=year+"-12-31";
+			year=year+"-01-01";
+			String sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquUnit = '%s' and EquClass = '%s'",year,year2,unit,EquClass);
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Cs Cp=new Cs();
+				
+				Cp.setEquNumber(res.getInt("EquNumber"));
+				Cp.setEquQua(res.getString("EquQua"));
+				Cp.setEquName(res.getString("EquName"));
+				Cp.setModelSpe(res.getString("ModelSpe"));
+				Cp.setEquDate(res.getDate("EquDate"));
+				
+				Cp.setEquSta(res.getString("EquSta"));
+				Cp.setEquClass(res.getString("EquClass"));
+				Cp.setEquUnit(res.getString("EquUnit"));
+				Cp.setManufacturer(res.getString("Manufacturer"));
+				Cp.setSupplier(res.getString("Supplier"));
+				
+				Cp.setSpecifications(res.getString("Specifications"));
+				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setInspector(res.getString("Inspector"));
+				Cp.setQuality(res.getString("Quality"));
+				Cp.setMaintainer(res.getString("Maintainer"));
+				
+				Cp.setInventoryPosition(res.getString("InventoryPosition"));
+				Cp.setPresentPosition(res.getString("PresentPosition"));
+				Cp.setUnitPrice(res.getString("UnitPrice"));
+				Cp.setTotalPrice(res.getString("TotalPrice"));
+				Cp.setBatch(res.getString("Batch"));
+				
+				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
+				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
+				Cp.setHandler(res.getString("Handler"));
+				Cp.setLender(res.getString("Lender"));
+				Cp.setExtra(res.getString("extra"));
+				
+				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
+				ret.add(Cp);
+			}
+			stm.close();
+		  }catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return ret;
+	}
 	public Vector<Cs> selectRetir(String sta,String unit) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
@@ -313,7 +365,6 @@ public class MySQL {
 		}
 		return ret;
 	}
-	
 	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, Date EquDate,String EquClass,String unit) {
 		try {
 			stm = con.createStatement();
