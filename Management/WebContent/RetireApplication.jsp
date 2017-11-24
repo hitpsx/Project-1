@@ -3,19 +3,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Lend</title>
+<title>Select Equipment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"> </script>
 <script src="js/bootstrap.min.js"> </script>
-  
+<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <!-- Mainly scripts -->
 <script src="js/jquery.metisMenu.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script>
@@ -30,20 +32,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			if (!screenfull.enabled) {
 				return false;
 			}
-
-			
-
 			$('#toggle').click(function () {
 				screenfull.toggle($('#container')[0]);
 			});
-			
-
-			
+			$( "#datepicker" ).datepicker();
 		});
 		</script>
-
-
-
 </head>
 <body>
 <div id="wrapper">
@@ -125,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2017&EquClass=Office equipment" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Office equipment</a></li>
 	                            </ul>
                             </li>
-                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2016</a>
+                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2016<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2016&EquClass=Micro-Computer" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Micro-Computer</a></li>
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2016&EquClass=Switch" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Switch</a></li>
@@ -135,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                         </ul>
                             </li>
 			
-							<li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2015</a>
+							<li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2015<span class="fa arrow"></span></a>
 							 <ul class="nav nav-second-level">
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2015&EquClass=Micro-Computer" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Micro-Computer</a></li>
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2015&EquClass=Switch" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Switch</a></li>
@@ -145,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                         </ul>
 							</li>
 							
-							<li><a href="404.html" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>2014</a>
+							<li><a href="404.html" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>2014<span class="fa arrow"></span></a>
 							 <ul class="nav nav-second-level">
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2014&EquClass=Micro-Computer" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Micro-Computer</a></li>
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2014&EquClass=Switch" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Switch</a></li>
@@ -155,7 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                         </ul>
 							</li>
                             
-                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2013</a>
+                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2013<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2013&EquClass=Micro-Computer" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Micro-Computer</a></li>
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2013&EquClass=Switch" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Switch</a></li>
@@ -165,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                         </ul>
                             </li>
 			
-							<li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2012</a>
+							<li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-area-chart nav_icon"></i>2012<span class="fa arrow"></span></a>
 							 <ul class="nav nav-second-level">
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2012&EquClass=Micro-Computer" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Micro-Computer</a></li>
 	                                   <li><a href="ComputerHome?userid=<s:property value="user.userid"/>&year=2012&EquClass=Switch" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Switch</a></li>
@@ -223,19 +217,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!--//banner-->
  	 <!--faq-->
  	<div class="blank">
-	
-
 			<div class="blank-page">
 			<form class="form" action="RetireManage" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				<input type="hidden" name=LendEqu value=<s:property value="Cp.EquName"/> />
 				<input type="hidden" name=LendNumber value=<s:property value="Cp.EquNumber"/> />
 				
-				<br><label for="id_LendEqu">设备名称:</label><s:property value="Cp.EquName"/></br>
-				<br><label for="id_Lendnumber">设备编号:</label><s:property value="Cp.EquNumber"/></br>
-																
-				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请，管理员核实后会通知"></textarea></br>
-				<br><input type="submit" value="提交"></br>
+				<br> <label for="id_LendEqu">EquName:     </label>
+				     <s:property value="Cp.EquName"/>
+				<br><label for="id_Lendnumber">EquNumber:</label>
+				     <s:property value="Cp.EquNumber"/>
+				
+				<br><label for="id_RetirePeople">Applicant:</label>
+				    <input type="text" name="RetirePeople" autofocus maxlength="254" required id="id_RetirePeople"/>
+				    
+				<br><label for="id_Date">Date:</label>
+					<input type="text" id="datepicker" name="RetirDate" required id="id_RetireDate">				
+				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请，管理员核实后会通知"></textarea>
+				<br><input type="submit" value="提交">
 			</form>
 	        </div>
 	       </div>
@@ -249,5 +248,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 </body>
+
 </html>
 
