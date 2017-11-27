@@ -276,14 +276,39 @@ public class MySQL {
 			res = stm.executeQuery(sql);
 			if(res.next()) {
 				Cp=new Cs();
+				
+				
 				Cp.setEquNumber(res.getInt("EquNumber"));
+				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquDate(res.getDate("EquDate"));
+				
 				Cp.setEquSta(res.getString("EquSta"));
-				Cp.setEquClass(res.getString("Equclass"));
+				Cp.setEquClass(res.getString("EquClass"));
 				Cp.setEquUnit(res.getString("EquUnit"));
+				Cp.setManufacturer(res.getString("Manufacturer"));
+				Cp.setSupplier(res.getString("Supplier"));
+				
+				Cp.setSpecifications(res.getString("Specifications"));
+				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setInspector(res.getString("Inspector"));
+				Cp.setQuality(res.getString("Quality"));
+				Cp.setMaintainer(res.getString("Maintainer"));
+				
+				Cp.setInventoryPosition(res.getString("InventoryPosition"));
+				Cp.setPresentPosition(res.getString("PresentPosition"));
+				Cp.setUnitPrice(res.getString("UnitPrice"));
+				Cp.setTotalPrice(res.getString("TotalPrice"));
+				Cp.setBatch(res.getString("Batch"));
+				
+				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
+				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
+				Cp.setHandler(res.getString("Handler"));
+				Cp.setLender(res.getString("Lender"));
+				Cp.setExtra(res.getString("extra"));
+				
+				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -332,9 +357,26 @@ public class MySQL {
 	public void insertLend(Lendin lend) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO lendin (lendid,LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta) VALUES " +
-					String.format("(%d,%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\");"
-							,lend.getLendid(), lend.getLendNumber(),lend.getLendEqu(), lend.getLendUnit(), lend.getMaintext(), lend.getApplication(),lend.getunitlend(),lend.getSta());
+			String sql = "INSERT INTO lendin (lendid,LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta,ApplicationDate,Applicant) VALUES " +
+					String.format("(%d,%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
+							,lend.getLendid(), lend.getLendNumber(),lend.getEquName(), lend.getLendUnit()
+							, lend.getMaintext(), lend.getApplication(),lend.getunitlend(),lend.getSta()
+							,lend.getApplicationDate(),lend.getApplicant());
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void insertRetire(Retirement re) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO retire(EquNumber,EquName,EquDate, ApplicationDate, Applicant, RetireDate"
+					+ ",Approver,EquUnit,EquClass,InventoryPosition,UnitPrice,Handler,EquSta,Application) VALUES " +
+					String.format("(%d,\"%s\",\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
+							,re.getEquNumber(),re.getEquName(),re.getEquDate(),re.getApplicationDate(),re.getApplicant(),re.getRetireDate()
+							,re.getApprover(),re.getEquUnit(),re.getEquClass(),re.getInventoryPosition(),re.getUnitPrice(),re.getHandler(),re.getEquSta(),re.getApplication());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -343,27 +385,59 @@ public class MySQL {
 		}
 	}
 	
-	public Vector<Lendin> getlendins() {
+	public Vector<Lendin> getlendins(String sta,String unit) {
 		Vector<Lendin> ret=new Vector<Lendin>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM lendin");
+			String sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s'",sta,unit);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
 				Cp.setMaintext(res.getString("Maintext"));
 				Cp.setLendid(res.getInt("lendid"));
-				Cp.setLendEqu(res.getString("Equname"));
+				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
 				Cp.setLendUnit(res.getString("Lendunit"));
 				Cp.setunitlend(res.getString("unitlend"));
 				Cp.setSta(res.getString("Sta"));
+				Cp.setApplicant(res.getString("Applicant"));
+				Cp.setApplicationDate(res.getString("ApplicationDate"));
 				ret.add(Cp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return ret;
+	}
+	public Vector<Retirement> selectRetir(String unit) {
+		Vector<Retirement> reh=new Vector<Retirement>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM retire where EquUnit = '%s'",unit);
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Retirement Re=new Retirement();
+				
+				Re.setEquNumber(res.getInt("EquNumber"));
+				Re.setEquName(res.getString("EquName"));
+				Re.setEquDate(res.getDate("EquDate"));
+				Re.setApplication(res.getString("Application"));
+				Re.setApplicant(res.getString("Applicant"));
+				Re.setRetireDate(res.getString("RetireDate"));
+				Re.setApprover(res.getString("Approver"));
+				Re.setEquUnit(res.getString("EquUnit"));
+				Re.setEquClass(res.getString("EquClass"));
+				Re.setInventoryPosition(res.getString("InventoryPosition"));
+				Re.setUnitPrice(res.getString("UnitPrice"));
+				Re.setHandler(res.getString("Handler"));
+				Re.setEquSta(res.getString("EquSta"));
+				Re.setApplicationDate(res.getString("ApplicationDate"));
+				reh.add(Re);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reh;
 	}
 	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, Date EquDate,String EquClass,String unit) {
 		try {
@@ -386,7 +460,7 @@ public class MySQL {
 				Cp=new Lendin();
 				Cp.setMaintext(res.getString("Maintext"));
 				Cp.setLendid(res.getInt("lendid"));
-				Cp.setLendEqu(res.getString("Equname"));
+				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
 				Cp.setLendUnit(res.getString("Lendunit"));
 				Cp.setunitlend(res.getString("unitlend"));

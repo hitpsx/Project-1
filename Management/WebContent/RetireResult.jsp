@@ -257,29 +257,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>EquNumber</th>
 						<th>EquName</th>
 						
-						<th>ModelSpe</th>
 						<th>EquDate</th>
+						<th>Applicant</th>
 						
 						<th>Sta</th>
 						<th>EquUnit</th>
 						
 						<th>Equclass</th>
 						<th>application</th>
+						
+						<th>InventoryPosition</th>
+						<th>UnitPrice</th>
+						
+						<th>ApplicationDate</th>
+						
 					</tr>
-					<s:iterator value="Cp" var="Lend">
+					<s:iterator value="Re" var="re">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="#Lend.EquNumber"/></td>
-						<td><s:property value="#Lend.EquName"/></td>
+						<td><s:property value="#re.EquNumber"/></td>
+						<td><s:property value="#re.EquName"/></td>
 						
-						<td><s:property value="#Lend.ModelSpe"/></td>
-						<td><s:property value="#Lend.EquDate"/></td>
+						<td><s:property value="#re.EquDate"/></td>
+						<td><s:property value="#re.Applicant"/></td>
 						
-						<td><s:property value="#Lend.EquSta"/></td>
-						<td><s:property value="#Lend.EquUnit"/></td>
-						<td><s:property value="#Lend.EquClass"/></td>
+						<td><s:property value="#re.EquSta"/></td>
+						<td><s:property value="#re.EquUnit"/></td>
+						<td><s:property value="#re.EquClass"/></td>
 						
+						<td><s:property value="#re.application"/></td>
+						<td><s:property value="#re.InventoryPosition"/></td>
 						
-						<td><s:property value="#Lend.extra"/></td>
+						<td><s:property value="#re.UnitPrice"/></td>
+						<td><s:property value="#re.ApplicationDate"/></td>
+						
 					</tr>
 					</s:iterator>
 					</table>

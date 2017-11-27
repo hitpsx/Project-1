@@ -191,7 +191,6 @@ public class Cs {
     public void setUnitPrice(String UnitPrice) {
         this.UnitPrice = UnitPrice;
     }
-
     public String getTotalPrice() {
         return TotalPrice;
     }

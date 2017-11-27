@@ -7,13 +7,27 @@ import com.sql.MySQL;
 public class LendManage extends ActionSupport{
 	private int userid;
 	private User user;
-	private String LendEqu;
+	private String EquName;
 	private int LendNumber;
 	private String LendUnit;
 	private String maintext;
 	private String application;
+	private String ApplicationDate;
+	private String Applicant;
 	
+	public  String getApplicant() {
+		return Applicant;
+	}
+	public  void setApplicant(String Applicant) {
+		this.Applicant=Applicant;
+	}
 	
+	public  String getApplicationDate() {
+		return ApplicationDate;
+	}
+	public void setApplicationDate(String ApplicationDate) {
+		this.ApplicationDate=ApplicationDate;
+	}	
 	public int getUserid() {
 		return userid;
 	}
@@ -39,12 +53,12 @@ public class LendManage extends ActionSupport{
 	public void setLendUnit(String LendUnit) {
 		this.LendUnit=LendUnit;
 	}
-	public String getLendEqu() {
-		return LendEqu;
+	public String getEquName() {
+		return EquName;
 	}
 	
-	public void setLendEqu(String LendEqu) {
-		this.LendEqu=LendEqu;
+	public void setEquName(String EquName) {
+		this.EquName=EquName;
 	}
 	
 	
@@ -66,16 +80,13 @@ public class LendManage extends ActionSupport{
 	
 	public String execute() {
 		MySQL sql=new MySQL();
-		user=sql.userInfor(userid);
-		
+		user=sql.userInfor(userid);	
 		Lendin lend=new Lendin();
 		int id=sql.Getlendid();
 		String unitlend=sql.userUnit(userid);
 		sql.updateCsSta("待确认借出",LendNumber);
-		lend.set(id,LendNumber,LendEqu,LendUnit,maintext,application,unitlend,"待确认借出");
+		lend.set(id,LendNumber,EquName,LendUnit,maintext,application,unitlend,"待确认借出",ApplicationDate,Applicant);
 		sql.insertLend(lend);
-		
-		
 		sql.close();
 		return "success";
 	}

@@ -254,11 +254,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
-						<th>Title</th><th>EquName</th><th>EquID</th><th>LendUnit</th><th>Sta</th>
+				        <th>ID</th><th>EquID</th>
+						<th>Title</th><th>EquName</th>
+						<th>LendUnit</th><th>Sta</th>
+						<th>Applicant</th><th>ApplicationDate</th>
 					</tr>
 					<s:iterator value="lend" var="Lend">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="#Lend.maintext"/></td><td><s:property value="#Lend.LendEqu"/></td><td><s:property value="#Lend.Lendid"/></td><td><s:property value="#Lend.LendUnit"/></td><td><s:property value="#Lend.Sta"/></td>
+						<td><s:property value="#Lend.Lendid"/></td>
+						<td><s:property value="#Lend.LendNumber"/></td>
+						<td><s:property value="#Lend.maintext"/></td>
+						<td><s:property value="#Lend.EquName"/></td>
+						<td><s:property value="#Lend.LendUnit"/></td>
+						<td><s:property value="#Lend.Sta"/></td>
+						<td><s:property value="#Lend.Applicant"/></td>
+						<td><s:property value="#Lend.ApplicationDate"/></td>
 					</tr>
 					</s:iterator>
 					</table>

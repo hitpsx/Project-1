@@ -3,12 +3,28 @@ package com.model;
 public class Lendin {
 	private int Lendid;
 	private int LendNumber;
-	private String LendEqu;
 	private String LendUnit;
+	private String EquName;
 	private String maintext;
 	private String application;
 	private String unitlend;
 	private String Sta;
+	private String ApplicationDate;
+	private String Applicant;
+	
+	public  String getApplicant() {
+		return Applicant;
+	}
+	public  void setApplicant(String Applicant) {
+		this.Applicant=Applicant;
+	}
+	
+	public  String getApplicationDate() {
+		return ApplicationDate;
+	}
+	public void setApplicationDate(String ApplicationDate) {
+		this.ApplicationDate=ApplicationDate;
+	}
 	
 	public int getLendid() {
 		return Lendid;
@@ -23,12 +39,12 @@ public class Lendin {
 	public void setLendNumber(int LendNumber) {
 		this.LendNumber=LendNumber;
 	}
-	public String getLendEqu() {
-		return LendEqu;
+	public String getEquName() {
+		return EquName;
 	}
 	
-	public void setLendEqu(String LendEqu) {
-		this.LendEqu=LendEqu;
+	public void setEquName(String EquName) {
+		this.EquName=EquName;
 	}
 	
 	public String getSta() {
@@ -69,23 +85,26 @@ public class Lendin {
 	public void setMaintext(String maintext) {
 		this.maintext=maintext;
 	}
-	
 	public void set(
 			int Lendid,
 			int LendNumber,
-			String LendEqu,
+			String EquName,
 			String LendUnit,
 			String maintext,			
 			String application,
 			String unitlend,
-			String Sta) {
+			String Sta,
+			String ApplicationDate,
+			String Applicant) {
 		this.Lendid= Lendid;
 		this.LendNumber=LendNumber;
-		this.LendEqu=LendEqu;
+		this.EquName=EquName;
 		this.LendUnit=LendUnit;
 		this.maintext= maintext;
 		this.application= application;
 		this.unitlend=unitlend;
 		this.Sta=Sta;
+		this.ApplicationDate=ApplicationDate;
+		this.Applicant=Applicant;
 	}
 }

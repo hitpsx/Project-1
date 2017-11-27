@@ -37,7 +37,8 @@ public class Lendinfor extends ActionSupport{
 		public String execute() {
 			MySQL sql=new MySQL();
 			user=sql.userInfor(userid);
-			lend=sql.getlendins();
+			String unit=sql.userUnit(userid);
+			lend=sql.getlendins("½è³ö",unit);
 			sql.close();
 			return "success";
 		}

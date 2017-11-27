@@ -228,11 +228,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<br><label for="id_Lendnumber">EquNumber:</label>
 				     <s:property value="Cp.EquNumber"/>
 				
-				<br><label for="id_RetirePeople">Applicant:</label>
-				    <input type="text" name="RetirePeople" autofocus maxlength="254" required id="id_RetirePeople"/>
+				<br><label for="id_Applicant">Applicant:</label>
+				    <input type="text" name="Applicant" autofocus maxlength="254" required id="id_Applicant"/>
 				    
-				<br><label for="id_Date">Date:</label>
-					<input type="text" id="datepicker" name="RetirDate" required id="id_RetireDate">				
+				<br><label for="id_ApplicationDate">Date:</label>
+					<input type="text" id="datepicker" name="ApplicationDate" required id="id_ApplicationDate">				
 				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请，管理员核实后会通知"></textarea>
 				<br><input type="submit" value="提交">
 			</form>

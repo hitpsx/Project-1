@@ -37,7 +37,7 @@
             <result name="error">/404.html</result>
     	</action>
     	<action name="RetirButton" class="com.action.RetirButton" method="execute">
-            <result name="success">/test2.jsp</result>
+            <result name="success">/RetireApplication.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="RetireManage" class="com.action.RetireManage" method="execute">

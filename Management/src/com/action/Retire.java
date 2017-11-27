@@ -9,7 +9,9 @@ import com.sql.MySQL;
 public class Retire extends ActionSupport{
 	private int userid;
 	private User user;
-	private Vector<Cs> Cp;
+	private Vector<Retirement> Re;
+	
+
 	public int getUserid() {
 		return userid;
 	}
@@ -24,18 +26,18 @@ public class Retire extends ActionSupport{
 		this.user = user;
 	}
 
-	public Vector<Cs> getCp() {
-		return Cp;
+	public Vector<Retirement> getRe() {
+		return Re;
 	}
-	public void setCp(Vector<Cs> Cp) {
-		this.Cp = Cp;
+	public void setCp(Vector<Retirement> Re) {
+		this.Re= Re;
 		
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
-		Cp=sql.selectRetir("±¨·Ï", unit);
+		Re=sql.selectRetir(unit);
 		sql.close();
 		return "success";
 	}
