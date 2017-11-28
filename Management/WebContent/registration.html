@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>用户注册</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!--     Fonts and icons     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+    <link href="css/bootstrap_signup.min.css" rel="stylesheet" />
+	<link href="css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="css/demo.css" rel="stylesheet" />
+	<script language="javascript" type="text/javascript"> 
+		function check()
+		{
+			var password1 = document.getElementById("id_password1").value;
+			var password2 = document.getElementById("id_password2").value;
+			//alert(password1);
+			//alert(password2);
+			if (password1 !=password2 )
+			{
+				alert("两次密码不一致!");
+				return false;
+			}
+			return true; 
+		}
+		window.onload = check;
+	</script> 
+	
+</head>
+
+<body>
+	
+	<div class="image-container set-full-height" style="background-image: url('images/wizard.jpg')">
+    <!--   Creative Tim Branding   -->
+    <a href="#">
+         <div class="logo-container">
+            <div class="logo">
+                <img src="images/new_logo.png">
+            </div>
+            <div style="height:150px;width:500px">
+              	 <h3><font face="STXingkai" color="#FF8C00">科研设备管理系统</font></h3>
+            </div>
+        </div>
+    </a>
+
+	<!--  Made With Get Shit Done Kit  -->
+		<a href="login.html" class="made-with-mk">
+			<div class="brand" style="width:100px">登录</div>
+			<div class="made-with">已有账号<strong>登录</strong></div>
+		</a>
+
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+
+                <div class="card wizard-card" data-color="orange" id="wizardProfile">
+                    <form class="form" action="UserRegis" method="post">
+                <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+                    	<div class="wizard-header">
+                        	<h3>
+                        	   <b>注册</b> 新的账号  <br>
+                        	   <small>登陆选项</small>
+                        	</h3>
+                    	</div>
+
+						<div class="wizard-navigation">
+							<ul>
+	                            <li><a href="#about" data-toggle="tab">个人信息</a></li>
+	                            <li><a href="#account" data-toggle="tab">其他信息</a></li>
+	                            <li><a href="#address" data-toggle="tab">登录密码</a></li>
+	                        </ul>
+
+						</div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane" id="about">
+                              <div class="row">
+                                  <h4 class="info-text">个人信息</h4>
+                                  <div class="col-sm-4 col-sm-offset-1">
+                                     <div class="picture-container">
+                                          <div class="picture">
+                                              <img src="images/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                              <input type="file" id="wizard-picture">
+                                          </div>
+                                          <h6>选择头像</h6>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="id_username">用户名</label>
+                                        <input name="firstname" type="text" class="form-control" placeholder="请输入用户名">
+                                        <p class="help text-small text-muted" style="text-align:center;font-size:10px">必填。包含字母，数字和仅有的@/./+/-/_符号。</p>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="id_sex">性别:</label>
+                                        <select name=sex class="form-control">
+										<option value = "Man">男</option>
+										<option value = "Women">女</option>
+										</select>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-10 col-sm-offset-1">
+                                      <div class="form-group">
+                                          <label for="id_email">电子邮件地址:</label>
+                                          <input type="email" name="email" maxlength="254" id="id_email" class="form-control" autocomplete="off" placeholder="请输入正确的邮箱地址" required/>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane" id="account">
+                               <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text">其他信息</h4>
+                                    </div>
+                                    <div class="col-sm-7 col-sm-offset-1">
+                                         <div class="form-group">
+                                            <label for="id_unit">单位:</label>
+					                        <select name=unit class="form-control">
+											<option value = "CS">cs</option>
+											<option value = "Big Data">BigData</option>
+											<option value = "Welding">Welding</option>
+											<option value = "AI">AI</option>
+											</select>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                         <div class="form-group">
+                                             <label for="id_unit">血型</label>
+					                        <select name=unit class="form-control">
+											<option value = "A">A</option>
+											<option value = "B">B</option>
+											<option value = "O">O</option>
+											<option value = "AB">AB</option>
+											</select>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                         <div class="form-group">
+                                            <label>喜好</label>
+                                            <input type="text" class="form-control">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                         <div class="form-group">
+                                            <label>国家</label><br>
+                                             <select name="country" class="form-control">
+                                                <option value="China"> 中国 </option>
+                                                <option value="America"> 美国 </option>
+                                                <option value="Japan"> 日本 </option>
+                                                <option value="France"> 法国 </option>
+                                                <option value="Germany"> 德国 </option>
+                                                <option value="Korea"> 韩国 </option>
+                                                <option value="Russia"> 俄罗斯 </option>
+                                                <option value="England"> 英国 </option>
+                                                <option value="...">...</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="address">
+                                 <h4 class="info-text">登录密码 </h4>
+                               	<div class="form-group">
+                                        <label for="id_password1">密码</label>
+                                        <input type="password" name="password1" class="form-control" required id="id_password1" placeholder="密码必须是数字与字母组合" pattern="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" required/>
+                                </div>
+                                <div class="form-group">
+                                        <label for="id_password2">密码确认</label>
+                                       <input type="password" name="password2" class="form-control" required id="id_password2" placeholder="请输入与上面相同的密码" pattern="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" required/>
+                                        
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="wizard-footer height-wizard">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='下一步'/>
+
+								<button type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' onClick="return check()">完成</button>
+								<input type="hidden" name="next" value="两次密码不一致"/>
+                            </div>
+
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='上一步' />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+        </div><!-- end row -->
+    </div> <!--  big container -->
+
+    <div class="footer">
+        <div class="container">
+             
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="js/gsdk-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="js/jquery.validate.min.js"></script>
+
+</html>
