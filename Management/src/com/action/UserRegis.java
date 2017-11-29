@@ -16,7 +16,14 @@ public class UserRegis extends ActionSupport {
 	private String email;
 	private String unit;
 	private String sex;
+	private String picture;
 	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture=picture;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -60,7 +67,7 @@ public class UserRegis extends ActionSupport {
 		MySQL sql = new MySQL();
 		int id=sql.Number();
 		User user=new User();
-		user.set(username,id,password1, sex, unit, email);
+		user.set(username,id,password1, sex, unit, email,picture);
 		sql.insertUser(user);
 		sql.close();
 		return "success";

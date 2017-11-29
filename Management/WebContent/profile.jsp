@@ -230,7 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3><i class="fa fa-user"></i>Profile</h3>
 			<div class="profile-bottom-top">
 			<div class="col-md-4 profile-bottom-img">
-				<img src="images/pr.jpg" alt="">
+				<img src=<s:property value="user.Picture"/> alt="">
 			</div>
 			<div class="col-md-8 profile-text">
 				<h6><s:property value="user.username"/></h6>

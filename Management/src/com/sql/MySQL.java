@@ -55,6 +55,7 @@ public class MySQL {
 				user.setUnit(res.getString("Unit"));
 				user.setEmail(res.getString("Email"));
 				user.setPassword(res.getString("Password"));
+				user.setPicture(res.getString("Picture"));
 			}
 			stm.close();
 		} catch (SQLException e) {
@@ -467,6 +468,25 @@ public class MySQL {
 				Cp.setSta(res.getString("Sta"));
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return Cp;
+	}
+	public test statistics(String unit) {
+		test Cp=null;
+		String color[]= {"os-Win-lbl","os-Mac-lbl","os-Other-lbl","os-test-lbl","os-test1-lbl"};
+		int i=0;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("select EquClass,count(EquClass) from cs  group by EquClass order by EquClass");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Cp=new test();
+				Cp.setColor(color[i++]);
+				Cp.setName(res.getString("EquClass"));
+				Cp.setNumber(res.getInt("count(EquClass)"));
+			}
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return Cp;

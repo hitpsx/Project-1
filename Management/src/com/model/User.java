@@ -7,6 +7,8 @@ public class User {
 	private String unit;
 	private String sex;
 	private int userid;
+	private String Picture;
+	
 	
 	public int getUserid() {
 		return userid;
@@ -15,6 +17,7 @@ public class User {
 	public void setUserid(int userid) {
 		this.userid=userid;
 	}
+	
 	
 	public String getUsername() {
 		return username;
@@ -48,19 +51,26 @@ public class User {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	
+	public String getPicture() {
+		return Picture;
+	}
+	public void setPicture(String Picture) {
+		this.Picture = Picture;
+	}
 	public void set(
 			String username,
 			int userid,
 			String password,
 			String sex,
 			String unit,
-			String email) {
+			String email,
+			String Picture) {
 		this.username= username;
 		this.userid=userid;
 		this.password = password;
 		this.sex = sex;
 		this.unit = unit;
 		this.email = email;
+		this.Picture=Picture;
 	}
 }

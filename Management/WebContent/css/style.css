@@ -1328,6 +1328,7 @@ label.control-label {
     font-size: 0.9em;
     margin: 0;
 }
+
 .form-group1 input[type="text"],.form-group1 textarea,
 .form-group1 input[type="password"],.form-group1 input[type="date"]{
 	border: 1px solid #E9E9E9;
@@ -2049,6 +2050,18 @@ tr.table-row {
 }
 #os-Mac-lbl {
     border-left: #3BB2D0 solid 1em;
+    padding-left: .5em;
+    font-size: 1em;
+    color: #777F8C;
+}
+#os-test-lbl {
+    border-left: #17202A solid 1em;
+    padding-left: .5em;
+    font-size: 1em;
+    color: #777F8C;
+}
+#os-test1-lbl {
+    border-left: #F1C40F solid 1em;
     padding-left: .5em;
     font-size: 1em;
     color: #777F8C;

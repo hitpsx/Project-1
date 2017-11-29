@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					  h=checkTime(h)  
 					  m=checkTime(m)  
 					  s=checkTime(s)  
-					  document.getElementById('time').innerHTML=monthh[month]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
+					  document.getElementById('time').innerHTML=monthh[month-1]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
 					  t=setTimeout('startTime()',500)  
 					 }  
 					    
@@ -236,11 +236,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </li>
                     
-                     <li>
+                    <li>
                         <s:a action="Retire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
                     </li>
                     
-                   
+                    <li>
+                        <a href="graph?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>Graphs</a>
+                    </li>
+                    
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -393,7 +396,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="weather-top-left">
 							<div class="degree">
 							<figure class="icons">
-								<canvas id="partly-cloudy-day" width="64" height="64">
+								<canvas id="snow" width="64" height="64">
 								</canvas>
 							</figure>
 							<span>37°</span>
