@@ -17,7 +17,14 @@ public class UserRegis extends ActionSupport {
 	private String unit;
 	private String sex;
 	private String picture;
+	private String type;
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type=type;
+	}
 	public String getPicture() {
 		return picture;
 	}
@@ -67,7 +74,9 @@ public class UserRegis extends ActionSupport {
 		MySQL sql = new MySQL();
 		int id=sql.Number();
 		User user=new User();
-		user.set(username,id,password1, sex, unit, email,picture);
+		type=sql.getType(type);
+		picture="22";
+		user.set(username,id,password1, sex, unit, email,picture,type);
 		sql.insertUser(user);
 		sql.close();
 		return "success";

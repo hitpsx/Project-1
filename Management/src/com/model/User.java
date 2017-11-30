@@ -8,6 +8,8 @@ public class User {
 	private String sex;
 	private int userid;
 	private String Picture;
+	private String type;
+	
 	
 	
 	public int getUserid() {
@@ -57,6 +59,12 @@ public class User {
 	public void setPicture(String Picture) {
 		this.Picture = Picture;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type=type;
+	}
 	public void set(
 			String username,
 			int userid,
@@ -64,7 +72,8 @@ public class User {
 			String sex,
 			String unit,
 			String email,
-			String Picture) {
+			String Picture,
+			String type) {
 		this.username= username;
 		this.userid=userid;
 		this.password = password;
@@ -72,5 +81,6 @@ public class User {
 		this.unit = unit;
 		this.email = email;
 		this.Picture=Picture;
+		this.type=type;
 	}
 }

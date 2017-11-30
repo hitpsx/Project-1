@@ -7,8 +7,8 @@ import java.util.Vector;
 
 public class CsSelect extends ActionSupport{
 	private int userid;
-	private String EquName;
-	private Vector<Cs> Cp;
+	private int EquNumber;
+	private Cs Cp;
 	private User user;
 	
 	public int getUserid() {
@@ -25,17 +25,17 @@ public class CsSelect extends ActionSupport{
 		this.user = user;
 	}
 	
-	public String getEquName() {
-		return EquName;
+	public int getEquNumber() {
+		return EquNumber;
 	}
-	public void setEquName(String EquName) {
-		this.EquName = EquName;
+	public void setEquNumber(int EquNumber) {
+		this.EquNumber = EquNumber;
 	}
 	
-	public Vector<Cs> getCp() {
+	public Cs getCp() {
 		return Cp;
 	}
-	public void setCp(Vector<Cs> Cp) {
+	public void setCp(Cs Cp) {
 		this.Cp = Cp;
 	}
 	
@@ -44,7 +44,7 @@ public class CsSelect extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
-		Cp=sql.selectEquNames(EquName,unit);
+		Cp=sql.selectEquNumber(EquNumber, unit);
 		sql.close();
 		return "success";
 	}

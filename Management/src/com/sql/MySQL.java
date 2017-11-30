@@ -41,6 +41,25 @@ public class MySQL {
 		}
 		return p;
 	}
+	public String getType(String type) {
+		String pt=null;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM invite WHERE invitateid= '%s';", type);
+			res = stm.executeQuery(sql);
+			if (res.next()) {
+				pt=res.getString("type");
+			}
+			else {
+				stm.close();
+				return pt;
+			}
+			stm.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pt;
+	}
 	public User userInfor(int userid) {
 		User user = null;
 		try {
@@ -55,6 +74,7 @@ public class MySQL {
 				user.setUnit(res.getString("Unit"));
 				user.setEmail(res.getString("Email"));
 				user.setPassword(res.getString("Password"));
+				user.setType(res.getString("type"));
 				user.setPicture(res.getString("Picture"));
 			}
 			stm.close();
@@ -78,6 +98,8 @@ public class MySQL {
 				user.setUnit(res.getString("Unit"));
 				user.setEmail(res.getString("Email"));
 				user.setPassword(res.getString("Password"));
+				user.setType(res.getString("type"));
+				user.setPicture(res.getString("Picture"));
 			}
 			else {
 				stm.close();
@@ -109,9 +131,9 @@ public class MySQL {
 	public void insertUser(User user) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO user (username, password, sex, unit, email, userid) VALUES " +
-					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d);",
-							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail(),user.getUserid());
+			String sql = "INSERT INTO user (username, password, sex, unit, email, userid, Picture, type) VALUES " +
+					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d,\"%s\",\"%s\");",
+							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail(),user.getUserid(), user.getPicture(),user.getType());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -490,6 +512,71 @@ public class MySQL {
 			e.printStackTrace();
 		}
 		return Cp;
+	}
+	public Vector<Retirement> AgreeRetire(String unit,int EquNumber) {
+		Vector<Retirement> reh=new Vector<Retirement>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("update cs set extra='%s' where EquNumber=%d and unit='%s'","±¨·Ï",EquNumber,unit);
+			stm.executeUpdate(sql);
+			sql=String.format("update retire set EquSta='%s' where EquNumber=%d","±¨·Ï",EquNumber);
+			stm.executeUpdate(sql);
+			
+			sql = String.format("SELECT * FROM retire");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Retirement Re=new Retirement();
+				
+				Re.setEquNumber(res.getInt("EquNumber"));
+				Re.setEquName(res.getString("EquName"));
+				Re.setEquDate(res.getDate("EquDate"));
+				Re.setApplication(res.getString("Application"));
+				Re.setApplicant(res.getString("Applicant"));
+				Re.setRetireDate(res.getString("RetireDate"));
+				Re.setApprover(res.getString("Approver"));
+				Re.setEquUnit(res.getString("EquUnit"));
+				Re.setEquClass(res.getString("EquClass"));
+				Re.setInventoryPosition(res.getString("InventoryPosition"));
+				Re.setUnitPrice(res.getString("UnitPrice"));
+				Re.setHandler(res.getString("Handler"));
+				Re.setEquSta(res.getString("EquSta"));
+				Re.setApplicationDate(res.getString("ApplicationDate"));
+				reh.add(Re);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reh;
+	}
+	
+	public Retirement selectRetirByID(int EquNumber) {
+		Retirement Re=null;
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM retire where EquNumber = %d",EquNumber);
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				Re=new Retirement();
+				
+				Re.setEquNumber(res.getInt("EquNumber"));
+				Re.setEquName(res.getString("EquName"));
+				Re.setEquDate(res.getDate("EquDate"));
+				Re.setApplication(res.getString("Application"));
+				Re.setApplicant(res.getString("Applicant"));
+				Re.setRetireDate(res.getString("RetireDate"));
+				Re.setApprover(res.getString("Approver"));
+				Re.setEquUnit(res.getString("EquUnit"));
+				Re.setEquClass(res.getString("EquClass"));
+				Re.setInventoryPosition(res.getString("InventoryPosition"));
+				Re.setUnitPrice(res.getString("UnitPrice"));
+				Re.setHandler(res.getString("Handler"));
+				Re.setEquSta(res.getString("EquSta"));
+				Re.setApplicationDate(res.getString("ApplicationDate"));;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return Re;
 	}
 	public void close() {
 		try {

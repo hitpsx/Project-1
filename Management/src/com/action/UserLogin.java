@@ -35,6 +35,9 @@ public class UserLogin extends ActionSupport{
 		sql.close();;
 		if(user==null)
 			return "error";
-		return "success";
+		else if(user.getType().equals("1"))
+			return "admin";
+		else
+			return "success";
 	}
 }

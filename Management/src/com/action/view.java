@@ -1,16 +1,23 @@
 package com.action;
 
-import java.util.Vector;
-
-import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
+import com.model.*;
 
-public class Retire extends ActionSupport{
+
+public class view extends ActionSupport{
 	private int userid;
+	private int EquNumber;
 	private User user;
-	private Vector<Retirement> Re;
+	private Retirement Re;
 	
+	
+	public Retirement getRe() {
+		return Re;
+	}
+	public void setCp(Retirement Re) {
+		this.Re= Re;	
+	}
 
 	public int getUserid() {
 		return userid;
@@ -25,23 +32,20 @@ public class Retire extends ActionSupport{
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public int getEquNumber() {
+		return EquNumber;
+	}
+	public void setEquNumber(int EquNumber) {
+		this.EquNumber = EquNumber;
+	}
+	
 
-	public Vector<Retirement> getRe() {
-		return Re;
-	}
-	public void setCp(Vector<Retirement> Re) {
-		this.Re= Re;
-		
-	}
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		String unit=sql.userUnit(userid);
-		Re=sql.selectRetir(unit);
+		Re=sql.selectRetirByID(EquNumber);
 		sql.close();
-		System.out.print(user.getType());
-		if(user.getType().equals("1"))
-			return "admin";
 		return "success";
 	}
 }

@@ -6,6 +6,7 @@
     <package name="com.action" extends="struts-default">
         <action name="UserLogin" class="com.action.UserLogin" method="execute">
             <result name="success">/Home.jsp</result>
+            <result name="admin">/HomeAdmin.jsp</result>
             <result name="error">/LoginError.jsp</result>
         </action>
         <action name="Home" class="com.action.Home" method="execute">
@@ -50,6 +51,7 @@
     	</action>
     	<action name="Retire" class="com.action.Retire" method="execute">
             <result name="success">/RetireResult.jsp</result>
+            <result name="admin">/RetireSelect.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="EquManage" class="com.action.EquManage" method="execute">
@@ -74,7 +76,12 @@
             <result name="success">/graphs.jsp</result>
             <result name="error">/404.html</result>
     	</action>
+    	 
     	
+    	<action name="view" class="com.action.view" method="execute">
+            <result name="success">/ViewRetire.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
     </package>
 </struts>
 

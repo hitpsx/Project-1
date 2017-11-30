@@ -1,16 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Profile</title>
+<title>Retirement admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
@@ -20,6 +19,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Mainly scripts -->
 <script src="js/jquery.metisMenu.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script>
+<style type="text/css">
+	table.hovertable {
+		font-family: verdana,arial,sans-serif;
+		font-size:11px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #999999;
+		border-collapse: collapse;
+	}
+	table.hovertable th {
+		background-color:#c3dde0;
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #a9c6c9;
+	}
+	table.hovertable tr {
+		background-color:#d4e3e5;
+	}
+	table.hovertable td {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #a9c6c9;
+}
+</style>
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
 <script src="js/custom.js"></script>
@@ -42,13 +67,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 		</script>
-
-
-
 </head>
 <body>
 <div id="wrapper">
-      <!----->
+       <!----->
         <nav class="navbar-default navbar-static-top" role="navigation">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -57,12 +79,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>         
+               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>      
 			   </div>
 			 <div class=" border-bottom">
-        	   <div class="full-left">
-        	<script type="text/javascript">  
-        	function startTime(){  
+			  <div class="full-left">
+        	  <script type="text/javascript">  
+        	  function startTime(){  
 				  var today=new Date()  
 				  var week=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
 				  var monthh=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -86,9 +108,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   return i  
 					 }  
 				</script> 
-				<body onload="startTime()">  
-                <div id="time"></div>
-                </div>
+				<body onload="startTime()">
+                 <div id="time"></div>
+	              </div>  
            </div>
      
        
@@ -96,12 +118,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="drop-men" >
-		        <ul class=" nav_1">
+		        <ul class=" nav_1">	     
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><a href="profile.html"><i class="fa fa-"></i>Edit Profile</a></li>
-		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>>
+		              <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
 		           
@@ -111,9 +133,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        
      </div>
 	  
-		     <div class="navbar-default sidebar" role="navigation">
+		    <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">				                           
+                <ul class="nav" id="side-menu">			                           
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Equipment Class</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -178,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					   </ul>
                     </li>
-					<li>
+					 <li>
 					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
 					 
                     </li>
@@ -215,74 +237,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <div class="content-main">
  
  	<!--banner-->	
-		    <div class="banner">
+		     <div class="banner">
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Profile</span>
+				<span>Retirement  information</span>
 				</h2>
 		    </div>
 		<!--//banner-->
- 	 <!--gallery-->
- 	 <div class=" profile">
+ 	 <!--faq-->
+ 	<div class="blank">
+	
 
-		<div class="profile-bottom">
-			<h3><i class="fa fa-user"></i>Profile</h3>
-			<div class="profile-bottom-top">
-			<div class="col-md-4 profile-bottom-img">
-				<img src=<s:property value="user.Picture"/> alt="">
-			</div>
-			<div class="col-md-8 profile-text">
-				<h6><s:property value="user.username"/></h6>
-				<table>
-								
-				<tr>
-				<td>ID</td>
-				<td> :</td>
-				<td> <s:property value="user.userid"/></td>
-				</tr>
-				
-				<tr>
-				<td>Sex</td>
-				<td> :</td>
-				<td> <s:property value="user.sex"/></td>
-				</tr>
-				
-				<tr>
-				<td>Unit</td>
-				<td> :</td>
-				<td> <s:property value="user.unit"/></td>
-				</tr>
-				
-				<tr><td>Email</td>  
-				<td> :</td>  
-				<td><s:property value="user.email"/></td>
-				</tr>
-				
-				<tr><td>Permission</td>  
-				<td> :</td>  
-				<td><s:property value="user.type"/></td>
-				</tr>
-				</table>
-			</div>
-			<div class="clearfix"></div>
-			</div>
-			
-	<!--//gallery-->
+			<div class="blank-page">
+			<form class="form" action="" method="post">
+			    <a>unread</a>
+			    <a>readed</a>
+				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				 <table class="hovertable">
+					<tr>
+						<th>EquNumber</th>
+						<th>EquName</th>
+						
+						<th>EquDate</th>
+						<th>Applicant</th>
+						
+						<th>Sta</th>
+						<th>EquUnit</th>
+						
+						<th>Equclass</th>
+						<th>application</th>
+						
+						<th>InventoryPosition</th>
+						<th>UnitPrice</th>
+						
+						<th>ApplicationDate</th>
+						<th>Manage</th>
+						
+					</tr>
+					<s:iterator value="Re" var="re">
+					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+						<td><s:property value="#re.EquNumber"/></td>
+						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>"><s:property value="#re.EquName"/></td></a>
+						
+						<td><s:property value="#re.EquDate"/></td>
+						<td><s:property value="#re.Applicant"/></td>
+						
+						<td><s:property value="#re.EquSta"/></td>
+						<td><s:property value="#re.EquUnit"/></td>
+						<td><s:property value="#re.EquClass"/></td>
+						
+						<td><s:property value="#re.application"/></td>
+						<td><s:property value="#re.InventoryPosition"/></td>
+						
+						<td><s:property value="#re.UnitPrice"/></td>
+						<td><s:property value="#re.ApplicationDate"/></td>
+						<td><a href="view?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>">View</a>
+					</tr>
+					</s:iterator>
+					</table>
+			</form>
+	        </div>
+	       </div>
+	
+	<!--//faq-->
 		<!---->
-<div class="copy">
-           
-		</div>
-		</div>
-		<div class="clearfix"> </div>
-       </div>
      
 <!---->
-
 <!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
-
 </body>
 </html>
+
