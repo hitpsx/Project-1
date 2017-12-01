@@ -12,6 +12,7 @@ public class Agree {
 	private User user;
 	
 	private int EquNumber;
+	private Vector<Retirement> Re;
 	
 	public int getUserid() {
 		return userid;
@@ -33,10 +34,7 @@ public class Agree {
 	public void setEquNumber(int EquNumber) {
 		this.EquNumber = EquNumber;
 	}
-	
-private Vector<Retirement> Re;
-	
-	
+		
 	public Vector<Retirement> getRe() {
 		return Re;
 	}
@@ -46,8 +44,9 @@ private Vector<Retirement> Re;
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		String unit=sql.userUnit(userid);
-		sql.AgreeRetire(EquNumber, unit);
+		sql.AgreeRetire(EquNumber,user.getUsername());
+		sql.updateCsSta("±¨·Ï", EquNumber);
+		Re=sql.selectRetirAdmin();
 		sql.close();
 		return "success";
 	}

@@ -223,7 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>
 				<form class="text-sub" action="Agree"  method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Cp.EquNumber"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="Re.EquNumber"/> />
 				<input type="submit" value="Yes">
 				</form>
 				</td>

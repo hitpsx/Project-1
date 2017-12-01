@@ -36,7 +36,7 @@ public class Retire extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		String unit=sql.userUnit(userid);
+		String unit=sql.userUnit(userid); 
 		Re=sql.selectRetir(unit);
 		sql.close();
 		System.out.print(user.getType());

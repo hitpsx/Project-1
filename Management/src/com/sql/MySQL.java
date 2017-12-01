@@ -265,31 +265,7 @@ public class MySQL {
 			}
 		return ret;
 	}
-	public Vector<Cs> selectRetir(String sta,String unit) {
-		Vector<Cs> ret=new Vector<Cs>();
-		try {
-			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs WHERE EquSta like \"%%%s%%\" and EquUnit = '%s' ", sta,unit);
-			res = stm.executeQuery(sql);
-			while(res.next()) {
-				Cs Cp=new Cs();
-				Cp.setEquNumber(res.getInt("EquNumber"));
-				Cp.setEquName(res.getString("EquName"));
-				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
-				Cp.setEquSta(res.getString("EquSta"));
-				Cp.setEquClass(res.getString("Equclass"));
-				Cp.setEquUnit(res.getString("EquUnit"));
-				Cp.setExtra(res.getString("extra"));
-				ret.add(Cp);
-			}
-			stm.close();
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return ret;
-	}
-	
+
 	
 	public Cs selectEquNumber(int EquNumber,String unit) {
 		Cs Cp=null;
@@ -359,17 +335,6 @@ public class MySQL {
 		try {
 			stm = con.createStatement();
 			String sql = String.format("update cs set Equsta='%s' where EquNumber=%d",sta,id);
-			stm.executeUpdate(sql);
-			stm.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void updateCsApplication(String sta,int id) {
-		try {
-			stm = con.createStatement();
-			String sql = String.format("update cs set extra='%s' where EquNumber=%d",sta,id);
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -462,6 +427,38 @@ public class MySQL {
 		}
 		return reh;
 	}
+	
+	public Vector<Retirement> selectRetirAdmin() {
+		Vector<Retirement> reh=new Vector<Retirement>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM retire");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Retirement Re=new Retirement();
+				
+				Re.setEquNumber(res.getInt("EquNumber"));
+				Re.setEquName(res.getString("EquName"));
+				Re.setEquDate(res.getDate("EquDate"));
+				Re.setApplication(res.getString("Application"));
+				Re.setApplicant(res.getString("Applicant"));
+				Re.setRetireDate(res.getString("RetireDate"));
+				Re.setApprover(res.getString("Approver"));
+				Re.setEquUnit(res.getString("EquUnit"));
+				Re.setEquClass(res.getString("EquClass"));
+				Re.setInventoryPosition(res.getString("InventoryPosition"));
+				Re.setUnitPrice(res.getString("UnitPrice"));
+				Re.setHandler(res.getString("Handler"));
+				Re.setEquSta(res.getString("EquSta"));
+				Re.setApplicationDate(res.getString("ApplicationDate"));
+				reh.add(Re);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reh;
+	}
+	
 	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, Date EquDate,String EquClass,String unit) {
 		try {
 			stm = con.createStatement();
@@ -513,40 +510,14 @@ public class MySQL {
 		}
 		return Cp;
 	}
-	public Vector<Retirement> AgreeRetire(String unit,int EquNumber) {
-		Vector<Retirement> reh=new Vector<Retirement>();
+	public void AgreeRetire(int EquNumber,String name) {
 		try {
-			stm = con.createStatement();
-			String sql = String.format("update cs set extra='%s' where EquNumber=%d and unit='%s'","±¨·Ï",EquNumber,unit);
+			stm = con.createStatement();			
+			String sql=String.format("update retire set EquSta='%s' ,Approver = '%s' where EquNumber=%d","±¨·Ï",name,EquNumber);
 			stm.executeUpdate(sql);
-			sql=String.format("update retire set EquSta='%s' where EquNumber=%d","±¨·Ï",EquNumber);
-			stm.executeUpdate(sql);
-			
-			sql = String.format("SELECT * FROM retire");
-			res = stm.executeQuery(sql);
-			while(res.next()) {
-				Retirement Re=new Retirement();
-				
-				Re.setEquNumber(res.getInt("EquNumber"));
-				Re.setEquName(res.getString("EquName"));
-				Re.setEquDate(res.getDate("EquDate"));
-				Re.setApplication(res.getString("Application"));
-				Re.setApplicant(res.getString("Applicant"));
-				Re.setRetireDate(res.getString("RetireDate"));
-				Re.setApprover(res.getString("Approver"));
-				Re.setEquUnit(res.getString("EquUnit"));
-				Re.setEquClass(res.getString("EquClass"));
-				Re.setInventoryPosition(res.getString("InventoryPosition"));
-				Re.setUnitPrice(res.getString("UnitPrice"));
-				Re.setHandler(res.getString("Handler"));
-				Re.setEquSta(res.getString("EquSta"));
-				Re.setApplicationDate(res.getString("ApplicationDate"));
-				reh.add(Re);
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return reh;
 	}
 	
 	public Retirement selectRetirByID(int EquNumber) {
