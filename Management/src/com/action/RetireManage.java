@@ -64,8 +64,8 @@ public class RetireManage extends ActionSupport{
 		Retirement re=new Retirement();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
-		Cs cp=sql.selectEquNumber(LendNumber,unit);
 		sql.updateCsSta("´ý±¨·ÏÈ·ÈÏ", LendNumber);
+		Cs cp=sql.selectEquNumber(LendNumber,unit);
 		re.set(cp.getEquNumber(),cp.getEquName(),cp.getEquDate(),ApplicationDate,Applicant," ","",unit,cp.getEquClass(),cp.getInventoryPosition(),cp.getUnitPrice()
 				,cp.getHandler(),cp.getEquSta(),application);
 		sql.insertRetire(re);

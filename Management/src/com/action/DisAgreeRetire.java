@@ -1,15 +1,18 @@
 package com.action;
 
-import com.model.*;
-import com.opensymphony.xwork2.ActionSupport;
+import java.util.Vector;
+
+import com.model.Cs;
+import com.model.Retirement;
+import com.model.User;
 import com.sql.MySQL;
 
-public class Lend extends ActionSupport{
-	
+public class DisAgreeRetire {
 	private int userid;
 	private User user;
-	private Cs Cp;
+	
 	private int EquNumber;
+	private Vector<Retirement> Re;
 	
 	public int getUserid() {
 		return userid;
@@ -31,18 +34,19 @@ public class Lend extends ActionSupport{
 	public void setEquNumber(int EquNumber) {
 		this.EquNumber = EquNumber;
 	}
-	
-	public Cs getCp() {
-		return Cp;
+		
+	public Vector<Retirement> getRe() {
+		return Re;
 	}
-	public void setCp(Cs Cp) {
-		this.Cp = Cp;
+	public void setCp(Vector<Retirement> Re) {
+		this.Re= Re;	
 	}
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		String unit=sql.userUnit(userid);
-		Cp=sql.selectEquNumber(EquNumber, unit);
+		sql.AgreeRetire("审批未通过",EquNumber,user.getUsername());
+		sql.updateCsSta("审批未通过", EquNumber);
+		Re=sql.selectRetirAdmin(0);
 		sql.close();
 		return "success";
 	}

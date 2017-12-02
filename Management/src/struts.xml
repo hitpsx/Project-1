@@ -17,7 +17,7 @@
             <result name="success">/index.html</result>
             <result name="error">/init.jsp</result>
         </action>
-        <action name="UserSelect" class="com.action.UserSelect" method="execute">
+        <action name="Profile" class="com.action.Profile" method="execute">
             <result name="success">/profile.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
@@ -26,11 +26,11 @@
             <result name="error">/init.jsp</result>
     	</action>
     	 <action name="CsSelect" class="com.action.CsSelect" method="execute">
-            <result name="success">/GallerySelect.jsp</result>
+            <result name="success">/EquInformation.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
     	<action name="LendButton" class="com.action.LendButton" method="execute">
-            <result name="success">/Lend.jsp</result>
+            <result name="success">/UserLendApplication.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
     	<action name="LendManage" class="com.action.LendManage" method="execute">
@@ -38,28 +38,28 @@
             <result name="error">/404.html</result>
     	</action>
     	<action name="RetirButton" class="com.action.RetirButton" method="execute">
-            <result name="success">/RetireApplication.jsp</result>
+            <result name="success">/UserRetireApplication.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="RetireManage" class="com.action.RetireManage" method="execute">
             <result name="success">/Home.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="Lendinfor" class="com.action.Lendinfor" method="execute">
-            <result name="success">/LendinApplication.jsp</result>
+    	<action name="HomeLend" class="com.action.HomeLend" method="execute">
+            <result name="success">/UserLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="Retire" class="com.action.Retire" method="execute">
-            <result name="success">/RetireResult.jsp</result>
-            <result name="admin">/RetireSelect.jsp</result>
+    	<action name="HomeRetire" class="com.action.HomeRetire" method="execute">
+            <result name="success">/UserRetireResult.jsp</result>
+            <result name="admin">/AdminRetireResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="EquManage" class="com.action.EquManage" method="execute">
-            <result name="success">/SelectMain.jsp</result>
+    	<action name="HomeSelect" class="com.action.HomeSelect" method="execute">
+            <result name="success">/UserSelectResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="CsUpdate" class="com.action.CsUpdate" method="execute">
-            <result name="success">/UpdateCs.jsp</result>
+            <result name="success">/UserUpdateCs.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="UpdateCs" class="com.action.UpdateCs" method="execute">
@@ -68,7 +68,7 @@
     	</action>
     	
     	<action name="ComputerHome" class="com.action.ComputerHome" method="execute">
-            <result name="success">/SelectMain.jsp</result>
+            <result name="success">/UserSelectResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
@@ -85,6 +85,16 @@
     	
     	<action name="Agree" class="com.action.Agree" method="execute">
             <result name="success">/AgreeRetire.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="DisAgreeRetire" class="com.action.DisAgreeRetire" method="execute">
+            <result name="success">/AgreeRetire.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="AdminRead" class="com.action.AdminRead" method="execute">
+            <result name="success">/AdminRetireResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     </package>

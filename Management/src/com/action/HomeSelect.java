@@ -1,15 +1,31 @@
 package com.action;
 
+import java.util.Vector;
 
+import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
-
-import com.model.User;
 import com.sql.MySQL;
 
-public class UserSelect extends ActionSupport{
+public class HomeSelect extends ActionSupport{
 	private int userid;
 	private User user;
+	private int page;
+	private Vector<Cs> Cp;
 	
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
+	public Vector<Cs> getCp() {
+		return Cp;
+	}
+	public void setCp(Vector<Cs> Cp) {
+		this.Cp = Cp;
+		
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -23,9 +39,12 @@ public class UserSelect extends ActionSupport{
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
+		System.out.println(page);
+		Cp=sql.selectEqu(page);
 		sql.close();
 		return "success";
 	}

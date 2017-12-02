@@ -428,11 +428,17 @@ public class MySQL {
 		return reh;
 	}
 	
-	public Vector<Retirement> selectRetirAdmin() {
+	public Vector<Retirement> selectRetirAdmin(int type) {
 		Vector<Retirement> reh=new Vector<Retirement>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM retire");
+			String sql=null;
+			if(type==0)
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\"","ÉóÅú");
+			else if(type==1)
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\"","´ý");
+			else
+				sql = String.format("SELECT * FROM retire");
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Retirement Re=new Retirement();
@@ -510,10 +516,10 @@ public class MySQL {
 		}
 		return Cp;
 	}
-	public void AgreeRetire(int EquNumber,String name) {
+	public void AgreeRetire(String asd,int EquNumber,String name) {
 		try {
 			stm = con.createStatement();			
-			String sql=String.format("update retire set EquSta='%s' ,Approver = '%s' where EquNumber=%d","±¨·Ï",name,EquNumber);
+			String sql=String.format("update retire set EquSta='%s' ,Approver = '%s' where EquNumber=%d",asd,name,EquNumber);
 			stm.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();

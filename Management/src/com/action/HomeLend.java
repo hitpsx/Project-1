@@ -5,7 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 import java.util.Vector;
 
-public class Lendinfor extends ActionSupport{	
+public class HomeLend extends ActionSupport{	
 		private int userid;
 		private User user;
 		private Vector<Lendin> lend;

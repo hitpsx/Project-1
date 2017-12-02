@@ -5,9 +5,10 @@ import java.util.Vector;
 import com.model.Cs;
 import com.model.Retirement;
 import com.model.User;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class Agree {
+public class Agree extends ActionSupport{
 	private int userid;
 	private User user;
 	
@@ -44,9 +45,9 @@ public class Agree {
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		sql.AgreeRetire(EquNumber,user.getUsername());
-		sql.updateCsSta("报废", EquNumber);
-		Re=sql.selectRetirAdmin();
+		sql.AgreeRetire("审批通过,已报废",EquNumber,user.getUsername());
+		sql.updateCsSta("审批通过,已报废", EquNumber);
+		Re=sql.selectRetirAdmin(0);
 		sql.close();
 		return "success";
 	}

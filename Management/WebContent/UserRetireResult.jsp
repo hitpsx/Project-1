@@ -1,16 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Select Result</title>
+<title>Retirement</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Home Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
@@ -123,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		              <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		              <li><s:a action="Profile"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
@@ -202,23 +201,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   </ul>
                     </li>
 					 <li>
-					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
+					    <s:a action="HomeSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
+					 
                     </li>
                     
                     <li>
-                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Equipment Manage</span></s:a>
+                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">EquManage</span></s:a>
                     </li>
                              
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                             <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
                             <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
                      <li>
-                        <s:a action="Retire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
+                        <s:a action="HomeRetire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
                     </li>
                     
                    
@@ -241,113 +241,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Equipment  information</span>
+				<span>Retirement  information</span>
 				</h2>
 		    </div>
 		<!--//banner-->
  	 <!--faq-->
  	<div class="blank">
-		 	<form class="form" action="CsSelect" method="post">
-		                <div class="input-group input-group-in">
-		                    <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
-		                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
-		                    <span class="input-group-btn">
-		                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-		                    </span>
-		                </div><!-- Input Group -->
-		     </form>
+	
 
 			<div class="blank-page">
-			
 			<form class="form" action="" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
-						<th>Manage</th>
 						<th>EquNumber</th>
 						<th>EquName</th>
 						
-						<th>ModelSpe</th>
 						<th>EquDate</th>
+						<th>Applicant</th>
 						
 						<th>Sta</th>
 						<th>EquUnit</th>
 						
 						<th>Equclass</th>
-						<th>Manufacturer</th>
-						
-						<th>Supplier</th>
-						<th>Specifications</th>
-						
-						<th>OrderDate</th>
-						<th>Inspector</th>
-						<th>Quality</th>
-						
-						<th>MaintenanceDate</th>
-						<th>Maintainer</th>
+						<th>application</th>
 						
 						<th>InventoryPosition</th>
-						<th>PresentPosition</th>
 						<th>UnitPrice</th>
-						<th>TotalPrice</th>
 						
-						<th>Batch</th>
-						<th>Lender</th>
+						<th>ApplicationDate</th>
 						
 					</tr>
-					<s:iterator value="Cp" var="Lend">
+					<s:iterator value="Re" var="re">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td>
-						    <a href="RetirButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Delete</a>
-						    <a href="LendButton?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Lend</a>
-						    <a href="CsUpdate?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.EquNumber"/>">Update</a>
-						    
-						</td>
-						<td><s:property value="#Lend.EquNumber"/></td>
-						<td><s:property value="#Lend.EquName"/></td>
+						<td><s:property value="#re.EquNumber"/></td>
+						<td><s:property value="#re.EquName"/></td>
 						
-						<td><s:property value="#Lend.ModelSpe"/></td>
-						<td><s:property value="#Lend.EquDate"/></td>						
-						<td><s:property value="#Lend.EquSta"/></td>
+						<td><s:property value="#re.EquDate"/></td>
+						<td><s:property value="#re.Applicant"/></td>
 						
-						<td><s:property value="#Lend.EquUnit"/></td>
-						<td><s:property value="#Lend.EquClass"/></td>
-						<td><s:property value="#Lend.Manufacturer"/></td>
+						<td><s:property value="#re.EquSta"/></td>
+						<td><s:property value="#re.EquUnit"/></td>
+						<td><s:property value="#re.EquClass"/></td>
 						
-						<td><s:property value="#Lend.Supplier"/></td>
-						<td><s:property value="#Lend.Specifications"/></td>						
-						<td><s:property value="#Lend.OrderDate"/></td>
+						<td><s:property value="#re.application"/></td>
+						<td><s:property value="#re.InventoryPosition"/></td>
 						
-						<td><s:property value="#Lend.Inspector"/></td>
-						<td><s:property value="#Lend.Quality"/></td>						
-						<td><s:property value="#Lend.MaintenanceDate"/></td>
+						<td><s:property value="#re.UnitPrice"/></td>
+						<td><s:property value="#re.ApplicationDate"/></td>
 						
-						<td><s:property value="#Lend.Maintainer"/></td>
-						<td><s:property value="#Lend.InventoryPosition"/></td>						
-						<td><s:property value="#Lend.PresentPosition"/></td>
-						
-						<td><s:property value="#Lend.UnitPrice"/></td>
-						<td><s:property value="#Lend.TotalPrice"/></td>						
-						<td><s:property value="#Lend.Batch"/></td>
-						
-						<td><s:property value="#Lend.Lender"/></td>
 					</tr>
 					</s:iterator>
-
 					</table>
 			</form>
 	        </div>
-        	<ul class="pagination">
-			    <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
-			     <% for(int i=0;i<10;i++){ %>
-			       <li><a href="EquManage?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
-			    <%}%>
-			    <li><a href="#">&raquo;</a></li>
-			</ul> 				
 	       </div>
-	</div>
-	</div>
-	</div>
+	
 	<!--//faq-->
 		<!---->
      

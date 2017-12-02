@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Retirement admin</title>
+<title>Lend</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -19,32 +19,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Mainly scripts -->
 <script src="js/jquery.metisMenu.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script>
-<style type="text/css">
-	table.hovertable {
-		font-family: verdana,arial,sans-serif;
-		font-size:11px;
-		color:#333333;
-		border-width: 1px;
-		border-color: #999999;
-		border-collapse: collapse;
-	}
-	table.hovertable th {
-		background-color:#c3dde0;
-		border-width: 1px;
-		padding: 8px;
-		border-style: solid;
-		border-color: #a9c6c9;
-	}
-	table.hovertable tr {
-		background-color:#d4e3e5;
-	}
-	table.hovertable td {
-		border-width: 1px;
-		padding: 8px;
-		border-style: solid;
-		border-color: #a9c6c9;
-}
-</style>
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
 <script src="js/custom.js"></script>
@@ -67,6 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 		</script>
+
+
+
 </head>
 <body>
 <div id="wrapper">
@@ -79,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>      
+               <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>   
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -122,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		              <li><s:a action="UserSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
+		              <li><s:a action="Profile"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
 		              </ul>
 		            </li>
@@ -201,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   </ul>
                     </li>
 					 <li>
-					    <s:a action="EquManage"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
+					    <s:a action="HomeSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
 					 
                     </li>
                     
@@ -212,13 +189,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li> <s:a action="Lendinfor"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                             <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
                             <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
                      <li>
-                        <s:a action="Retire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
+                        <s:a action="HomeRetire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
                     </li>
                     
                    
@@ -241,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Retirement  information</span>
+				<span>Blank</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -250,52 +227,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 
 			<div class="blank-page">
-			<form class="form" action="" method="post">
-			    <a>unread</a>
-			    <a>readed</a>
+			<form class="form" action="UpdateCs" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				 <table class="hovertable">
-					<tr>
-						<th>EquNumber</th>
-						<th>EquName</th>
-						
-						<th>EquDate</th>
-						<th>Applicant</th>
-						
-						<th>Sta</th>
-						<th>EquUnit</th>
-						
-						<th>Equclass</th>
-						<th>application</th>
-						
-						<th>InventoryPosition</th>
-						<th>UnitPrice</th>
-						
-						<th>ApplicationDate</th>
-						<th>Manage</th>
-						
-					</tr>
-					<s:iterator value="Re" var="re">
-					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="#re.EquNumber"/></td>
-						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>"><s:property value="#re.EquName"/></td></a>
-						
-						<td><s:property value="#re.EquDate"/></td>
-						<td><s:property value="#re.Applicant"/></td>
-						
-						<td><s:property value="#re.EquSta"/></td>
-						<td><s:property value="#re.EquUnit"/></td>
-						<td><s:property value="#re.EquClass"/></td>
-						
-						<td><s:property value="#re.application"/></td>
-						<td><s:property value="#re.InventoryPosition"/></td>
-						
-						<td><s:property value="#re.UnitPrice"/></td>
-						<td><s:property value="#re.ApplicationDate"/></td>
-						<td><a href="view?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>">View</a>
-					</tr>
-					</s:iterator>
-					</table>
+				
+				<br><label for="id_EquNumber">设备编号:</label><input type="text" name="EquNumber" value=<s:property value="Cp.EquNumber"/> /></br>
+				<br><label for="id_EquName">设备名字:</label><input type="text" name="EquName"     value=<s:property value="Cp.EquName"/>   required id="id_EquName"/></br>
+				<br><label for="id_EquQua">设备数量:</label><input type="text" name="EquQua"       value=<s:property value="Cp.EquQua"/>  /></br>
+				<br><label for="id_ModelSpe">设备批号:</label><input type="text" name="ModelSpe"   value=<s:property value="Cp.ModelSpe"/> required id="id_ModelSpe"/></br>
+				<br><label for="id_EquDate">入库时间:</label><input type="text" name="EquDate"     value=<s:property value="Cp.EquDate"/>  required id="id_EquDate"/></br>
+				<br><label for="id_EquClass">设备分类:</label><input type="text" name="EquClass"   value=<s:property value="Cp.EquClass"/> required id="id_EquClass"/></br>
+				
+				<br><input type="submit" value="提交" class="text-sub"></br>
 			</form>
 	        </div>
 	       </div>
