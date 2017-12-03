@@ -298,15 +298,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<form class="text-sub" action="AgreeLend"  method="post">
 				<input type="hidden" name=userid    value=<s:property value="user.userid"/> />
 				<input type="hidden" name=EquNumber value=<s:property value="Le.LendNumber"/> /> 
-				<input type="hidden" name=UnitLend value=<s:property value="Le.UnitLend"/> /> 
+				<input type="hidden" name=UnitLend  value=<s:property value="Le.UnitLend"/> /> 
 				<input type="submit" value="Yes">
 				</form>
 				</td>
 				<td>:</td>
 				<td>
-				<form class="text-sub" action="DisAgreeRetire" method="post">
+				<form class="text-sub" action="DisAgreeLend" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Le.EquNumber"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="Le.LendNumber"/> />
 				<input type="submit" value="No">
 				</form></td>
 				</tr>															

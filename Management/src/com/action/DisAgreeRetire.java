@@ -5,9 +5,10 @@ import java.util.Vector;
 import com.model.Cs;
 import com.model.Retirement;
 import com.model.User;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class DisAgreeRetire {
+public class DisAgreeRetire extends ActionSupport{
 	private int userid;
 	private User user;
 	

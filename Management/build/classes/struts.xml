@@ -88,22 +88,29 @@
     	</action>
     	
     	<action name="Agree" class="com.action.Agree" method="execute">
-            <result name="success">/AdminHandleRetire.jsp</result>
+            <result name="success">/AdminRetireResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
     	<action name="DisAgreeRetire" class="com.action.DisAgreeRetire" method="execute">
-            <result name="success">/AdminHandleRetire.jsp</result>
+            <result name="success">/AdminRetireResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
     	<action name="AdminRead" class="com.action.AdminRead" method="execute">
             <result name="success">/AdminRetireResult.jsp</result>
+            <result name="lend">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
     	<action name="AgreeLend" class="com.action.AgreeLend" method="execute">
-            <result name="success">/HomeAdmin.jsp</result>
+            <result name="success">/AdminLendResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	
+    	<action name="DisAgreeLend" class="com.action.DisAgreeLend" method="execute">
+            <result name="success">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     </package>

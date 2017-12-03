@@ -3,6 +3,7 @@ package com.action;
 import java.util.Vector;
 
 import com.model.Cs;
+import com.model.Lendin;
 import com.model.Retirement;
 import com.model.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,6 +14,16 @@ public class AdminRead extends ActionSupport{
 	private User user;
 	private int type;
 	private Vector<Retirement> Re;
+	private Vector<Lendin> lend;
+	
+	
+	
+	public Vector<Lendin> getLend() {
+		return lend;
+	}
+	public void setLend(Vector<Lendin> lend) {
+		this.lend=lend;
+	}
 	
 	public int getUserid() {
 		return userid;
@@ -43,8 +54,16 @@ public class AdminRead extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		Re=sql.selectRetirAdmin(type);
-		sql.close();
-		return "success";
+		
+		if(type<10) {
+			Re=sql.selectRetirAdmin(type);
+			sql.close();
+			return "success";
+		}
+		else {
+			lend=sql.SelectAdminLend(type-10);
+			sql.close();
+			return "lend";
+		}
 	}
 }

@@ -389,7 +389,7 @@ public class MySQL {
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
-				Cp.setMaintext(res.getString("Maintext"));
+				Cp.setMaintext(res.getString("maintext"));
 				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
 				Cp.setLendUnit(res.getString("LendUnit"));
@@ -406,6 +406,7 @@ public class MySQL {
 		}
 		return ret;
 	}
+	
 	public Vector<Retirement> selectRetir(String unit) {
 		Vector<Retirement> reh=new Vector<Retirement>();
 		try {
@@ -472,6 +473,37 @@ public class MySQL {
 			e.printStackTrace();
 		}
 		return reh;
+	}
+	
+	public Vector<Lendin> SelectAdminLend(int type) {
+		Vector<Lendin> ret=new Vector<Lendin>();
+		try {
+			stm = con.createStatement();
+			String sql="";
+			if(type==0)
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\"","×ª½è");
+			else if(type==1)
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\"","´ý");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Lendin Cp=new Lendin();
+				
+				Cp.setMaintext(res.getString("maintext"));
+				Cp.setEquName(res.getString("Equname"));
+				Cp.setLendNumber(res.getInt("LendNumber"));
+				Cp.setLendUnit(res.getString("LendUnit"));
+				Cp.setUnitLend(res.getString("unitlend"));
+				Cp.setSta(res.getString("Sta"));
+				Cp.setApplicant(res.getString("Applicant"));
+				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
+				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
+				Cp.setApprover(res.getString("Approver"));			
+				ret.add(Cp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 	
 	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, Date EquDate,String EquClass,String unit) {
@@ -568,6 +600,7 @@ public class MySQL {
 		}
 		return Re;
 	}
+	
 	public void updateLend1(String sta,int EquNumber,String unitLend) {
 		try {
 			stm=con.createStatement();

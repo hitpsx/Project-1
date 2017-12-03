@@ -253,8 +253,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="blank-page">
 			<form class="form" action="" method="post">
-				<a href="AdminRead?userid=<s:property value="user.userid"/>&type=1">Unread</a>
-			    <a href="AdminRead?userid=<s:property value="user.userid"/>&type=0">Readed</a>
+				<a href="AdminRead?userid=<s:property value="user.userid"/>&type=11">Unread</a>
+			    <a href="AdminRead?userid=<s:property value="user.userid"/>&type=10">Readed</a>
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
