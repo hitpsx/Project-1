@@ -352,7 +352,7 @@ public class MySQL {
 			String sql = "INSERT INTO lendin (LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta,ApplicationDate1,ApplicationDate2,Applicant,Approver) VALUES " +
 					String.format("(%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
 							, lend.getLendNumber(),lend.getEquName(), lend.getLendUnit()
-							, lend.getMaintext(), lend.getApplication(),lend.getunitlend(),lend.getSta()
+							, lend.getMaintext(), lend.getApplication(),lend.getUnitLend(),lend.getSta()
 							,lend.getApplicationDate1(),lend.getApplicationDate2(),lend.getApplicant(),lend.getApprover());
 			stm.executeUpdate(sql);
 			stm.close();
@@ -377,23 +377,28 @@ public class MySQL {
 		}
 	}
 	
-	public Vector<Lendin> getlendins(String sta,String unit) {
+	public Vector<Lendin> getlendins(String sta,String unit,int type) {
 		Vector<Lendin> ret=new Vector<Lendin>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s'",sta,unit);
+			String sql="";
+			if(type==0)
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and lendunit='%s'",sta,unit);
+			else
+				sql = String.format("SELECT * FROM lendin ");
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
 				Cp.setMaintext(res.getString("Maintext"));
 				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
-				Cp.setLendUnit(res.getString("Lendunit"));
-				Cp.setunitlend(res.getString("unitlend"));
+				Cp.setLendUnit(res.getString("LendUnit"));
+				Cp.setUnitLend(res.getString("unitlend"));
 				Cp.setSta(res.getString("Sta"));
 				Cp.setApplicant(res.getString("Applicant"));
 				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
 				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
+				Cp.setApprover(res.getString("Approver"));			
 				ret.add(Cp);
 			}
 		} catch (SQLException e) {
@@ -480,11 +485,11 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
-	public Lendin getlendin() {
+	public Lendin SelectLendById(int EquNumber) {
 		Lendin Cp=null;
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM lendin");
+			String sql = String.format("SELECT * FROM lendin where LendNumber = %d",EquNumber);
 			res = stm.executeQuery(sql);
 			if(res.next()) {
 				Cp=new Lendin();
@@ -492,8 +497,13 @@ public class MySQL {
 				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
 				Cp.setLendUnit(res.getString("Lendunit"));
-				Cp.setunitlend(res.getString("unitlend"));
+				Cp.setUnitLend(res.getString("unitlend"));
 				Cp.setSta(res.getString("Sta"));
+				Cp.setApplicant(res.getString("Applicant"));
+				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
+				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
+				Cp.setApprover(res.getString("Approver"));
+				Cp.setApplication(res.getString("Application"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -557,6 +567,24 @@ public class MySQL {
 			e.printStackTrace();
 		}
 		return Re;
+	}
+	public void updateLend1(String sta,int EquNumber,String unitLend) {
+		try {
+			stm=con.createStatement();
+			String sql=String.format("update cs set extra='%s' ,EquUnit = '%s'where EquNumber=%d",sta,unitLend,EquNumber);
+			stm.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void UpdateLend2(String sta,int EquNumber,String name) {
+		try {
+			stm=con.createStatement();
+			String sql=String.format("update lendin set Sta='%s' ,Approver = '%s'where LendNumber=%d",sta,name,EquNumber);
+			stm.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	public void close() {
 		try {

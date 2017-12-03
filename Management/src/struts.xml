@@ -11,6 +11,7 @@
         </action>
         <action name="Home" class="com.action.Home" method="execute">
             <result name="success">/Home.jsp</result>
+            <result name="admin">/HomeAdmin.jsp</result>
             <result name="error">/404.html</result>
     	</action>
         <action name="UserRegis" class="com.action.UserRegis" method="execute">
@@ -47,6 +48,7 @@
     	</action>
     	<action name="HomeLend" class="com.action.HomeLend" method="execute">
             <result name="success">/UserLendResult.jsp</result>
+            <result name="admin">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="HomeRetire" class="com.action.HomeRetire" method="execute">
@@ -81,6 +83,7 @@
     	
     	<action name="view" class="com.action.view" method="execute">
             <result name="success">/AdminViewRetire.jsp</result>
+            <result name="Lend">/AdminViewLend.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
@@ -96,6 +99,11 @@
     	
     	<action name="AdminRead" class="com.action.AdminRead" method="execute">
             <result name="success">/AdminRetireResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="AgreeLend" class="com.action.AgreeLend" method="execute">
+            <result name="success">/HomeAdmin.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     </package>

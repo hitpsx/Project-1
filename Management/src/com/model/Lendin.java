@@ -71,11 +71,11 @@ public class Lendin {
 		this.LendUnit=LendUnit;
 	}
 	
-	public String getunitlend() {
+	public String getUnitLend() {
 		return unitlend;
 	}
 	
-	public void setunitlend(String unitlend) {
+	public void setUnitLend(String unitlend) {
 		this.unitlend=unitlend;
 	}
 	

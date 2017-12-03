@@ -27,6 +27,10 @@ public class Home extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		sql.close();
-		return "success";
+		if(user.getType().equals("1"))
+			return "admin";
+		else if(user.getType().equals("0"))
+			return "success";
+		return "error";
 	}
 }

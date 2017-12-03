@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Select Result</title>
+<title>Admin view Retire Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -221,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 			<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 			<i class="fa fa-angle-right"></i>
-				<span>Select</span>
+				<span>view Application</span>
 				</h2>
 		    </div>
 	<!--//banner-->

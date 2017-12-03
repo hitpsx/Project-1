@@ -37,9 +37,18 @@ public class HomeLend extends ActionSupport{
 		public String execute() {
 			MySQL sql=new MySQL();
 			user=sql.userInfor(userid);
-			String unit=sql.userUnit(userid);
-			lend=sql.getlendins("½è³ö",unit);
-			sql.close();
-			return "success";
+			if(user.getType().equals("0")) {
+				String unit=sql.userUnit(userid);
+				lend=sql.getlendins("½è³ö",unit,0);
+				sql.close();
+				return "success";
+			}
+			else if(user.getType().equals("1"))
+			{
+				lend=sql.getlendins("","",1);
+				sql.close();
+				return "admin";
+			}
+			return "error";
 		}
 }
