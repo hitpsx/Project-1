@@ -164,11 +164,15 @@ public class MySQL {
 		}
 		return ret;
 	}
-	public Vector<Cs> selectEqu(int page) {
+	public Vector<Cs> selectEqu(int page,String unit,int type) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs limit %d,1",page);
+			String sql="";
+			if(type==1)
+				sql = String.format("SELECT * FROM cs limit %d,3",page*3);
+			else if(type==0)
+				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' limit %d,3",unit,page*3);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -267,11 +271,11 @@ public class MySQL {
 	}
 
 	
-	public Cs selectEquNumber(int EquNumber,String unit) {
+	public Cs selectEquNumber(int EquNumber) {
 		Cs Cp=null;
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs WHERE EquNumber = %d and EquUnit = '%s' ", EquNumber,unit);
+			String sql = String.format("SELECT * FROM cs WHERE EquNumber = %d ", EquNumber);
 			res = stm.executeQuery(sql);
 			if(res.next()) {
 				Cp=new Cs();
@@ -345,11 +349,11 @@ public class MySQL {
 	public void insertLend(Lendin lend) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO lendin (lendid,LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta,ApplicationDate,Applicant) VALUES " +
-					String.format("(%d,%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
-							,lend.getLendid(), lend.getLendNumber(),lend.getEquName(), lend.getLendUnit()
+			String sql = "INSERT INTO lendin (LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta,ApplicationDate1,ApplicationDate2,Applicant,Approver) VALUES " +
+					String.format("(%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
+							, lend.getLendNumber(),lend.getEquName(), lend.getLendUnit()
 							, lend.getMaintext(), lend.getApplication(),lend.getunitlend(),lend.getSta()
-							,lend.getApplicationDate(),lend.getApplicant());
+							,lend.getApplicationDate1(),lend.getApplicationDate2(),lend.getApplicant(),lend.getApprover());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -382,14 +386,14 @@ public class MySQL {
 			while(res.next()) {
 				Lendin Cp=new Lendin();
 				Cp.setMaintext(res.getString("Maintext"));
-				Cp.setLendid(res.getInt("lendid"));
 				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
 				Cp.setLendUnit(res.getString("Lendunit"));
 				Cp.setunitlend(res.getString("unitlend"));
 				Cp.setSta(res.getString("Sta"));
 				Cp.setApplicant(res.getString("Applicant"));
-				Cp.setApplicationDate(res.getString("ApplicationDate"));
+				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
+				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
 				ret.add(Cp);
 			}
 		} catch (SQLException e) {
@@ -485,7 +489,6 @@ public class MySQL {
 			if(res.next()) {
 				Cp=new Lendin();
 				Cp.setMaintext(res.getString("Maintext"));
-				Cp.setLendid(res.getInt("lendid"));
 				Cp.setEquName(res.getString("Equname"));
 				Cp.setLendNumber(res.getInt("LendNumber"));
 				Cp.setLendUnit(res.getString("Lendunit"));

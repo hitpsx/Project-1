@@ -42,8 +42,7 @@ public class RetirButton {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		System.out.println(EquNumber);
-		String unit=sql.userUnit(userid);
-		Cp=sql.selectEquNumber(EquNumber, unit);
+		Cp=sql.selectEquNumber(EquNumber);
 		sql.close();
 		return "success";
 	}

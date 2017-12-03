@@ -38,6 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				screenfull.toggle($('#container')[0]);
 			});
 			$( "#datepicker" ).datepicker();
+			$( "#datepicker1" ).datepicker();
 			
 		});
 		</script>
@@ -112,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  
 		    <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">			                           
+                <ul class="nav" id="side-menu">				                           
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Equipment Class</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -184,21 +185,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
                     <li>
                         <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">EquManage</span></s:a>
-                    </li>
-                             
+                    </li> 
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                             <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
                             <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
-                     <li>
+                    <li>
                         <s:a action="HomeRetire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
                     </li>
                     
-                   
+                    <li>
+                        <a href="graph?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>Graphs</a>
+                    </li>
+                    
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -218,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Blank</span>
+				<span>Lend Application</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -232,17 +235,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name=EquName value=<s:property value="Cp.EquName"/> />
 				<input type="hidden" name=LendNumber value=<s:property value="Cp.EquNumber"/> />
 				
-				<br><label for="id_LendEqu">设备名称:</label><s:property value="Cp.EquName"/></br>
-				<br><label for="id_Lendnumber">设备编号:</label><s:property value="Cp.EquNumber"/></br>
+				<br><label for="id_LendEqu">EquName:</label><s:property value="Cp.EquName"/></br>
+				<br><label for="id_Lendnumber">EquNumber:</label><s:property value="Cp.EquNumber"/></br>
 				
-				<br><label for="id_LendUnit">所借单位:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
-				<br><label for="id_main">申请主题:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
+				<br><label for="id_LendUnit">LendUnit:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
+				<br><label for="id_main">title:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
 				<br><label for="id_Applicant">Applicant:</label>
 				    <input type="text" name="Applicant" autofocus maxlength="254" required id="id_Applicant"/>
 				</br>
-				<br><label for="id_ApplicationDate">Date:</label>
-					<input type="text" id="datepicker" name="ApplicationDate" required id="id_ApplicationDate">
+				<br><label for="id_ApplicationDate">ApplicationDate:</label>
+					<input type="text" id="datepicker" name="ApplicationDate1" required id="id_ApplicationDate">
+					<input type="text" id="datepicker1" name="ApplicationDate2" required id="id_ApplicationDate">
 			    </br>
+			   
 				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="输入你的申请，这会提交给admin审核，通过后会给予信息提醒"></textarea></br>
 				<br><input type="submit" value="提交" class="text-sub"></br>
 			</form>

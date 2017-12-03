@@ -41,11 +41,20 @@ public class HomeSelect extends ActionSupport{
 	}
 	
 	public String execute() {
+		int type;
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		System.out.println(page);
-		Cp=sql.selectEqu(page);
-		sql.close();
+		if(user.getType().equals("0")) {
+			String unit=user.getUnit();
+			Cp=sql.selectEqu(page, unit, 0);
+			sql.close();
+			return "success";
+		}
+		else if(user.getType().equals("1")) {
+			Cp=sql.selectEqu(page,"",1);
+			sql.close();
+			return "admin";
+		}
 		return "success";
 	}
 }

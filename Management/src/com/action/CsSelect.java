@@ -44,7 +44,7 @@ public class CsSelect extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
-		Cp=sql.selectEquNumber(EquNumber, unit);
+		Cp=sql.selectEquNumber(EquNumber);
 		sql.close();
 		return "success";
 	}

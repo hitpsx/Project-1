@@ -1,7 +1,6 @@
 package com.model;
 
 public class Lendin {
-	private int Lendid;
 	private int LendNumber;
 	private String LendUnit;
 	private String EquName;
@@ -9,9 +8,19 @@ public class Lendin {
 	private String application;
 	private String unitlend;
 	private String Sta;
-	private String ApplicationDate;
+	private String ApplicationDate1;
+	private String ApplicationDate2;
 	private String Applicant;
+	private String Approver;
 	
+	public String getApprover() {
+        return Approver;
+    }
+
+    public void setApprover(String Approver) {
+        this.Approver = Approver;
+    }
+    
 	public  String getApplicant() {
 		return Applicant;
 	}
@@ -19,18 +28,17 @@ public class Lendin {
 		this.Applicant=Applicant;
 	}
 	
-	public  String getApplicationDate() {
-		return ApplicationDate;
+	public  String getApplicationDate1() {
+		return ApplicationDate1;
 	}
-	public void setApplicationDate(String ApplicationDate) {
-		this.ApplicationDate=ApplicationDate;
+	public void setApplicationDate1(String ApplicationDate1) {
+		this.ApplicationDate1=ApplicationDate1;
 	}
-	
-	public int getLendid() {
-		return Lendid;
+	public  String getApplicationDate2() {
+		return ApplicationDate2;
 	}
-	public void setLendid(int Lendid) {
-		this.Lendid=Lendid;
+	public void setApplicationDate2(String ApplicationDate2) {
+		this.ApplicationDate2=ApplicationDate2;
 	}
 	
 	public int getLendNumber() {
@@ -86,7 +94,6 @@ public class Lendin {
 		this.maintext=maintext;
 	}
 	public void set(
-			int Lendid,
 			int LendNumber,
 			String EquName,
 			String LendUnit,
@@ -94,9 +101,10 @@ public class Lendin {
 			String application,
 			String unitlend,
 			String Sta,
-			String ApplicationDate,
-			String Applicant) {
-		this.Lendid= Lendid;
+			String ApplicationDate1,
+			String ApplicationDate2,
+			String Applicant,
+			String Approver) {
 		this.LendNumber=LendNumber;
 		this.EquName=EquName;
 		this.LendUnit=LendUnit;
@@ -104,7 +112,9 @@ public class Lendin {
 		this.application= application;
 		this.unitlend=unitlend;
 		this.Sta=Sta;
-		this.ApplicationDate=ApplicationDate;
+		this.ApplicationDate1=ApplicationDate1;
+		this.ApplicationDate2=ApplicationDate2;
 		this.Applicant=Applicant;
+		this.Approver=Approver;
 	}
 }

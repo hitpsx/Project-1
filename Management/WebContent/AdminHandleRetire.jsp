@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Retirement</title>
+<title>Retirement admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -133,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        
      </div>
 	  
-		  <div class="navbar-default sidebar" role="navigation">
+		   <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">				                           
                     <li>
@@ -253,6 +253,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="blank-page">
 			<form class="form" action="" method="post">
+			    <a href="AdminRead?userid=<s:property value="user.userid"/>&type=1">unread</a>
+			    <a href="AdminRead?userid=<s:property value="user.userid"/>&type=0">readed</a>
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
@@ -272,12 +274,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>UnitPrice</th>
 						
 						<th>ApplicationDate</th>
+						<th>Manage</th>
 						
 					</tr>
 					<s:iterator value="Re" var="re">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
 						<td><s:property value="#re.EquNumber"/></td>
-						<td><s:property value="#re.EquName"/></td>
+						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>"><s:property value="#re.EquName"/></td></a>
 						
 						<td><s:property value="#re.EquDate"/></td>
 						<td><s:property value="#re.Applicant"/></td>
@@ -291,7 +294,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						<td><s:property value="#re.UnitPrice"/></td>
 						<td><s:property value="#re.ApplicationDate"/></td>
-						
+						<td><a href="view?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>">View</a>
 					</tr>
 					</s:iterator>
 					</table>

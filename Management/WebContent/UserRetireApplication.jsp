@@ -233,7 +233,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				    
 				<br><label for="id_ApplicationDate">Date:</label>
 					<input type="text" id="datepicker" name="ApplicationDate" required id="id_ApplicationDate">				
-				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请，管理员核实后会通知"></textarea>
+				<br><textarea rows="20" cols="50" name="application" required id="id_application" placeholder="在此输入报废申请"></textarea>
 				<br><input type="submit" value="提交">
 			</form>
 	        </div>

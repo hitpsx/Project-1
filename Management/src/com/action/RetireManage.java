@@ -63,13 +63,26 @@ public class RetireManage extends ActionSupport{
 		MySQL sql=new MySQL();
 		Retirement re=new Retirement();
 		user=sql.userInfor(userid);
-		String unit=sql.userUnit(userid);
-		sql.updateCsSta("待报废确认", LendNumber);
-		Cs cp=sql.selectEquNumber(LendNumber,unit);
-		re.set(cp.getEquNumber(),cp.getEquName(),cp.getEquDate(),ApplicationDate,Applicant," ","",unit,cp.getEquClass(),cp.getInventoryPosition(),cp.getUnitPrice()
-				,cp.getHandler(),cp.getEquSta(),application);
-		sql.insertRetire(re);
-		sql.close();
+		Cs cp=new Cs();
+		if(user.getType().equals("0")) {
+			String unit=sql.userUnit(userid);
+			sql.updateCsSta("待报废确认", LendNumber);
+		    cp=sql.selectEquNumber(LendNumber);
+			re.set(cp.getEquNumber(),cp.getEquName(),cp.getEquDate(),ApplicationDate,Applicant," ","",unit,cp.getEquClass(),cp.getInventoryPosition(),cp.getUnitPrice()
+					,cp.getHandler(),cp.getEquSta(),application);
+			sql.insertRetire(re);
+			sql.close();
+			return "success";
+		}
+		else if(user.getType().equals("1")) {
+			sql.updateCsSta("审批通过,已报废", LendNumber);
+			cp=sql.selectEquNumber(LendNumber);
+			re.set(cp.getEquNumber(),cp.getEquName(),cp.getEquDate(),ApplicationDate,Applicant,ApplicationDate,user.getUsername(),"admin",cp.getEquClass(),cp.getInventoryPosition(),cp.getUnitPrice()
+					,cp.getHandler(),cp.getEquSta(),application);
+			sql.insertRetire(re);
+			sql.close();
+			return "success";
+		}
 		return "success";
 	}
 }

@@ -12,7 +12,8 @@ public class LendManage extends ActionSupport{
 	private String LendUnit;
 	private String maintext;
 	private String application;
-	private String ApplicationDate;
+	private String ApplicationDate1;
+	private String ApplicationDate2;
 	private String Applicant;
 	
 	public  String getApplicant() {
@@ -22,12 +23,18 @@ public class LendManage extends ActionSupport{
 		this.Applicant=Applicant;
 	}
 	
-	public  String getApplicationDate() {
-		return ApplicationDate;
+	public  String getApplicationDate1() {
+		return ApplicationDate1;
 	}
-	public void setApplicationDate(String ApplicationDate) {
-		this.ApplicationDate=ApplicationDate;
-	}	
+	public void setApplicationDate1(String ApplicationDate1) {
+		this.ApplicationDate1=ApplicationDate1;
+	}
+	public  String getApplicationDate2() {
+		return ApplicationDate2;
+	}
+	public void setApplicationDate2(String ApplicationDate2) {
+		this.ApplicationDate2=ApplicationDate2;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -82,10 +89,9 @@ public class LendManage extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);	
 		Lendin lend=new Lendin();
-		int id=sql.Getlendid();
 		String unitlend=sql.userUnit(userid);
 		sql.updateCsSta("待确认借出",LendNumber);
-		lend.set(id,LendNumber,EquName,LendUnit,maintext,application,unitlend,"待确认借出",ApplicationDate,Applicant);
+		lend.set(LendNumber,EquName,LendUnit,maintext,application,unitlend,"待确认借出",ApplicationDate1,ApplicationDate2,Applicant,"");
 		sql.insertLend(lend);
 		sql.close();
 		return "success";
