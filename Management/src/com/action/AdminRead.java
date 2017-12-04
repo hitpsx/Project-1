@@ -15,9 +15,14 @@ public class AdminRead extends ActionSupport{
 	private int type;
 	private Vector<Retirement> Re;
 	private Vector<Lendin> lend;
+	private int page;
 	
-	
-	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	public Vector<Lendin> getLend() {
 		return lend;
 	}
@@ -56,12 +61,12 @@ public class AdminRead extends ActionSupport{
 		user=sql.userInfor(userid);
 		
 		if(type<10) {
-			Re=sql.selectRetirAdmin(type);
+			Re=sql.selectRetirAdmin(type,page);
 			sql.close();
 			return "success";
 		}
 		else {
-			lend=sql.SelectAdminLend(type-10);
+			lend=sql.SelectAdminLend(type-10,page);
 			sql.close();
 			return "lend";
 		}

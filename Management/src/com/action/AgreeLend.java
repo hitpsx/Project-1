@@ -15,9 +15,17 @@ public class AgreeLend extends ActionSupport{
 	private String UnitLend;
 	private int EquNumber;
 	private Vector<Lendin> lend;
+	private int page;
 	
 	
 	
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	public Vector<Lendin> getLend() {
 		return lend;
 	}
@@ -60,7 +68,7 @@ public class AgreeLend extends ActionSupport{
 		sql.updateCsSta("空闲",EquNumber);
 		sql.updateLend1("审批通过,已转借",EquNumber,UnitLend);
 		sql.UpdateLend2("审批通过,已转借",EquNumber, user.getUsername());
-		lend=sql.SelectAdminLend(0);
+		lend=sql.SelectAdminLend(0,page);
 		sql.close();
 		return "success";
 

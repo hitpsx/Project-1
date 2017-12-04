@@ -251,13 +251,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
+                             <li> <a href="HomeLend?userid=<s:property value="user.userid"/>&page=0"w><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></a></li>
                             <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
                     <li>
-                        <s:a action="HomeRetire"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></s:a>
+                        <a href="HomeRetire?userid=<s:property value="user.userid"/>&page=0"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></a>
                     </li>
                     
                     <li>
@@ -269,6 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <ul class="nav nav-second-level">
                             <li><a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Signin</a></li>
                             <li><a href="registration.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Singup</a></li>
+                            <li><a href="AdminInvite?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Invite Manage</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -12,7 +12,17 @@ public class DisAgreeLend extends ActionSupport{
 	
 	private int EquNumber;
 	private Vector<Lendin> lend;
-
+	private int page;
+	
+	
+	
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	
 	
 	public Vector<Lendin> getLend() {
@@ -47,7 +57,7 @@ public class DisAgreeLend extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		sql.UpdateLend2("审批通过,已转借",EquNumber, user.getUsername());
-		lend=sql.SelectAdminLend(1);
+		lend=sql.SelectAdminLend(1,page);
 		sql.close();
 		return "success";
 	}

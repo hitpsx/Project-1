@@ -11,10 +11,17 @@ import com.sql.MySQL;
 public class DisAgreeRetire extends ActionSupport{
 	private int userid;
 	private User user;
-	
+	int page;
 	private int EquNumber;
 	private Vector<Retirement> Re;
 	
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -47,7 +54,7 @@ public class DisAgreeRetire extends ActionSupport{
 		user=sql.userInfor(userid);
 		sql.AgreeRetire("审批未通过",EquNumber,user.getUsername());
 		sql.updateCsSta("审批未通过", EquNumber);
-		Re=sql.selectRetirAdmin(0);
+		Re=sql.selectRetirAdmin(0,page);
 		sql.close();
 		return "success";
 	}

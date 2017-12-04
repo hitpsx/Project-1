@@ -75,11 +75,6 @@
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="graph" class="com.action.graph" method="execute">
-            <result name="success">/graphs.jsp</result>
-            <result name="error">/404.html</result>
-    	</action>
-    	 
     	
     	<action name="view" class="com.action.view" method="execute">
             <result name="success">/AdminViewRetire.jsp</result>
@@ -111,6 +106,18 @@
     	
     	<action name="DisAgreeLend" class="com.action.DisAgreeLend" method="execute">
             <result name="success">/AdminLendResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="AdminInvite" class="com.action.AdminInvite" method="execute">
+            <result name="success">/InviteManage.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="AdminCreatInvite" class="com.action.AdminCreatInvite" method="execute">
+            <result name="success" type="chain">
+            <param name ="actionName">AdminInvite</param>
+            <param name="userid">${userid}</param></result>
             <result name="error">/404.html</result>
     	</action>
     </package>

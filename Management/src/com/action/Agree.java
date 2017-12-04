@@ -13,9 +13,15 @@ public class Agree extends ActionSupport{
 	private User user;
 	private int EquNumber;
 	private Vector<Retirement> Re;
+	int page;
 	
 	
-
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -48,7 +54,7 @@ public class Agree extends ActionSupport{
 		user=sql.userInfor(userid);
 		sql.AgreeRetire("审批通过,已报废",EquNumber,user.getUsername());
 		sql.updateCsSta("审批通过,已报废", EquNumber);
-		Re=sql.selectRetirAdmin(0);
+		Re=sql.selectRetirAdmin(0,page);
 		sql.close();
 		return "success";
 	}

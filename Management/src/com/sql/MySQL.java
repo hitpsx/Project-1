@@ -377,15 +377,15 @@ public class MySQL {
 		}
 	}
 	
-	public Vector<Lendin> getlendins(String sta,String unit,int type) {
+	public Vector<Lendin> getlendins(String sta,String unit,int type,int page) {
 		Vector<Lendin> ret=new Vector<Lendin>();
 		try {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and lendunit='%s'",sta,unit);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and lendunit='%s' limit %d,3",sta,unit,page*3);
 			else
-				sql = String.format("SELECT * FROM lendin ");
+				sql = String.format("SELECT * FROM lendin limit %d,3",page);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
@@ -407,11 +407,11 @@ public class MySQL {
 		return ret;
 	}
 	
-	public Vector<Retirement> selectRetir(String unit) {
+	public Vector<Retirement> selectRetir(String unit,int page) {
 		Vector<Retirement> reh=new Vector<Retirement>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM retire where EquUnit = '%s'",unit);
+			String sql = String.format("SELECT * FROM retire where EquUnit = '%s' limit %d,3",unit,page*3);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Retirement Re=new Retirement();
@@ -438,17 +438,17 @@ public class MySQL {
 		return reh;
 	}
 	
-	public Vector<Retirement> selectRetirAdmin(int type) {
+	public Vector<Retirement> selectRetirAdmin(int type,int page) {
 		Vector<Retirement> reh=new Vector<Retirement>();
 		try {
 			stm = con.createStatement();
 			String sql=null;
 			if(type==0)
-				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\"","审批");
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","审批",page*3);
 			else if(type==1)
-				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\"","待");
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","待",page*3);
 			else
-				sql = String.format("SELECT * FROM retire");
+				sql = String.format("SELECT * FROM retire limit %d,3",page*3);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Retirement Re=new Retirement();
@@ -475,15 +475,15 @@ public class MySQL {
 		return reh;
 	}
 	
-	public Vector<Lendin> SelectAdminLend(int type) {
+	public Vector<Lendin> SelectAdminLend(int type,int page) {
 		Vector<Lendin> ret=new Vector<Lendin>();
 		try {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\"","转借");
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","转借",page);
 			else if(type==1)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\"","待");
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","待",page);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
@@ -542,25 +542,7 @@ public class MySQL {
 		}
 		return Cp;
 	}
-	public test statistics(String unit) {
-		test Cp=null;
-		String color[]= {"os-Win-lbl","os-Mac-lbl","os-Other-lbl","os-test-lbl","os-test1-lbl"};
-		int i=0;
-		try {
-			stm = con.createStatement();
-			String sql = String.format("select EquClass,count(EquClass) from cs  group by EquClass order by EquClass");
-			res = stm.executeQuery(sql);
-			while(res.next()) {
-				Cp=new test();
-				Cp.setColor(color[i++]);
-				Cp.setName(res.getString("EquClass"));
-				Cp.setNumber(res.getInt("count(EquClass)"));
-			}
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return Cp;
-	}
+
 	public void AgreeRetire(String asd,int EquNumber,String name) {
 		try {
 			stm = con.createStatement();			
@@ -616,6 +598,56 @@ public class MySQL {
 			String sql=String.format("update lendin set Sta='%s' ,Approver = '%s'where LendNumber=%d",sta,name,EquNumber);
 			stm.executeUpdate(sql);
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public Vector<String> invitecode() {
+		Vector<String> ret=new Vector<String>();
+		try {
+			stm = con.createStatement();
+			String sql = String.format("SELECT * FROM invite where flag='%s'","有效");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				String Re="";
+				Re=res.getString("invitateid");
+				ret.add(Re);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	public int invitenumber(int type) {
+		int p=0;
+		try {
+			stm = con.createStatement();
+			String sql="";
+			if(type==0)
+				 sql = String.format("SELECT count(*) number FROM invite where flag='%s'","有效");
+			else if(type==1)
+				sql = String.format("SELECT count(*) number FROM invite where flag='%s'","无效");
+			else if(type==3)
+				sql = String.format("SELECT count(*) number FROM invite");
+			res = stm.executeQuery(sql);
+			if(res.next()) {
+				p=res.getInt("number");
+			}
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+	public void CreatNewInvite(String invite,int id) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO invite (id,invitateid, type, flag) VALUES " +
+					String.format("(%d,\"%s\",\"%s\",\"%s\");"
+							,id,invite,"0","有效" );
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -10,8 +10,14 @@ public class HomeRetire extends ActionSupport{
 	private int userid;
 	private User user;
 	private Vector<Retirement> Re;
+	int page;
 	
-
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -38,13 +44,13 @@ public class HomeRetire extends ActionSupport{
 		user=sql.userInfor(userid);
 		String unit=sql.userUnit(userid);
 		if(user.getType().equals("0")) {
-			Re=sql.selectRetir(unit);
+			Re=sql.selectRetir(unit,page);
 			sql.close();
 			return "success";
 		}
 		else if(user.getType().equals("1"))
 		{
-			Re=sql.selectRetirAdmin(3);
+			Re=sql.selectRetirAdmin(3,page);
 			sql.close();
 			return "admin";
 		}

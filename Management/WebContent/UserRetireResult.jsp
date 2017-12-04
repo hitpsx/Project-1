@@ -296,6 +296,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</s:iterator>
 					</table>
 			</form>
+			<ul class="pagination">
+			    <li><a href="HomeRetire?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
+			     <% for(int i=0;i<10;i++){ %>
+			       <li><a href="HomeRetire?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
+			    <%}%>
+			    <li><a href="HomeRetire?userid=<s:property value="user.userid"/>&page=9">&raquo;</a></li>
+			</ul> 		
 	        </div>
 	       </div>
 	

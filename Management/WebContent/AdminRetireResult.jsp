@@ -229,6 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <ul class="nav nav-second-level">
                             <li><a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Signin</a></li>
                             <li><a href="registration.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Singup</a></li>
+                            <li><a href="AdminInvite?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Invite Manage</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -299,6 +300,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</s:iterator>
 					</table>
 			</form>
+			<ul class="pagination">
+			    <li><a href="HomeRetire?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
+			     <% for(int i=0;i<10;i++){ %>
+			       <li><a href="HomeRetire?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
+			    <%}%>
+			    <li><a href="HomeRetire?userid=<s:property value="user.userid"/>&page=9">&raquo;</a></li>
+			</ul> 	
 	        </div>
 	       </div>
 	
