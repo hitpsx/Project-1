@@ -44,7 +44,7 @@ public class HomeLend extends ActionSupport{
 			user=sql.userInfor(userid);
 			if(user.getType().equals("0")) {
 				String unit=sql.userUnit(userid);
-				lend=sql.getlendins("½è³ö",unit,0,page);
+				lend=sql.getlendins("½è",unit,0,page);
 				sql.close();
 				return "success";
 			}

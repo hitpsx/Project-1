@@ -212,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                              <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
-                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
+                            <li><a href="HomeLendin?userid=<s:property value="user.userid"/>&page=0" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
@@ -261,7 +261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<tr>
 				        <th>EquID</th>
 						<th>Title</th><th>EquName</th>
-						<th>LendUnit</th>
+						<th>LendUnit</th><th>UnitLend</th>
 						<th>Applicant</th><th>ApplicationDate1</th>
 						<th>ApplicationDate2</th><th>Sta</th>
 						<th>Manage</th>
@@ -272,6 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Lend.maintext"/></td>
 						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.LendNumber"/>"><s:property value="#Lend.EquName"/></a></td>
 						<td><s:property value="#Lend.LendUnit"/></td>
+						<td><s:property value="#Lend.UnitLend"/></td>
 						<td><s:property value="#Lend.Applicant"/></td>
 						<td><s:property value="#Lend.ApplicationDate1"/></td>
 						<td><s:property value="#Lend.ApplicationDate2"/></td>

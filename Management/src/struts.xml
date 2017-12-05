@@ -71,7 +71,7 @@
     	</action>
     	
     	<action name="ComputerHome" class="com.action.ComputerHome" method="execute">
-            <result name="success">/UserSelectResult.jsp</result>
+            <result name="success">/ClassResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
@@ -118,6 +118,21 @@
             <result name="success" type="chain">
             <param name ="actionName">AdminInvite</param>
             <param name="userid">${userid}</param></result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	
+    	<action name="HomeLendin" class="com.action.HomeLendin" method="execute">
+            <result name="success">/UserLendinResult.jsp</result>
+            <result name="admin">/UserLendinResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="UserReturn" class="com.action.UserReturn" method="execute">
+             <result name="success" type="chain">
+            <param name ="actionName">HomeLendin</param>
+            <param name="userid">${userid}</param>
+            <param name="page">${page}</param></result>
             <result name="error">/404.html</result>
     	</action>
     </package>

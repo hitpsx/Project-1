@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                              <li> <s:a action="HomeLend"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-align-left nav_icon"></i> <span class="nav-label">Lend out</span></s:a></li>
-                            <li><a href="404.html" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
+                            <li><a href="HomeLendin?userid=<s:property value="user.userid"/>&page=0" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Lend in</a></li>
                         </ul>
                     </li>
                     
@@ -231,15 +231,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="blank-page">
 			<form class="form" action="UpdateCs" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
+				<table>
 				
-				<br><label for="id_EquNumber">设备编号:</label><input type="text" name="EquNumber" value=<s:property value="Cp.EquNumber"/> /></br>
-				<br><label for="id_EquName">设备名字:</label><input type="text" name="EquName"     value=<s:property value="Cp.EquName"/>   required id="id_EquName"/></br>
-				<br><label for="id_EquQua">设备数量:</label><input type="text" name="EquQua"       value=<s:property value="Cp.EquQua"/>  /></br>
-				<br><label for="id_ModelSpe">设备批号:</label><input type="text" name="ModelSpe"   value=<s:property value="Cp.ModelSpe"/> required id="id_ModelSpe"/></br>
-				<br><label for="id_EquDate">入库时间:</label><input type="text" name="EquDate"     value=<s:property value="Cp.EquDate"/>  required id="id_EquDate"/></br>
-				<br><label for="id_EquClass">设备分类:</label><input type="text" name="EquClass"   value=<s:property value="Cp.EquClass"/> required id="id_EquClass"/></br>
+				<tr>
+				<td>EquNumber:</td>
+				<td> :</td>
+				<td> <input type="text" name="EquNumber" value=<s:property value="Cp.EquNumber"/> /></td>
+				</tr>
 				
-				<br><input type="submit" value="提交" class="text-sub"></br>
+				<tr>
+				<td>EquName:</td>
+				<td> :</td>
+				<td> <input type="text" name="EquName"     value=<s:property value="Cp.EquName"/>   required id="id_EquName"/></td>
+				</tr>
+				
+				</table>
 			</form>
 	        </div>
 	       </div>

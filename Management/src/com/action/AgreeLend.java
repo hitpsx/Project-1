@@ -64,7 +64,6 @@ public class AgreeLend extends ActionSupport{
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		System.out.println(UnitLend);
 		sql.updateCsSta("空闲",EquNumber);
 		sql.updateLend1("审批通过,已转借",EquNumber,UnitLend);
 		sql.UpdateLend2("审批通过,已转借",EquNumber, user.getUsername());

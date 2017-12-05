@@ -172,7 +172,7 @@ public class MySQL {
 			if(type==1)
 				sql = String.format("SELECT * FROM cs limit %d,3",page*3);
 			else if(type==0)
-				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' limit %d,3",unit,page*3);
+				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' and EquSta regexp '%s' limit %d,3",unit,"ç©ºé—²|å¾…",page*3);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -219,13 +219,17 @@ public class MySQL {
 	
 	
 	
-	public Vector<Cs> selectyear(String year,String unit,String EquClass) {
+	public Vector<Cs> selectyear(String year,String unit,String EquClass,int type,int page) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
 			stm = con.createStatement();						
 			String year2=year+"-12-31";
 			year=year+"-01-01";
-			String sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquUnit = '%s' and EquClass = '%s'",year,year2,unit,EquClass);
+			String sql="";
+			if(type==0)
+				sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquUnit = '%s' and EquClass = '%s' limit %d,3",year,year2,unit,EquClass,page);
+			else if (type==1)
+				sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquClass = '%s' limit %d,3",year,year2,EquClass,page);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -384,8 +388,12 @@ public class MySQL {
 			String sql="";
 			if(type==0)
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and lendunit='%s' limit %d,3",sta,unit,page*3);
-			else
+			else if(type==1)
 				sql = String.format("SELECT * FROM lendin limit %d,3",page);
+			else if (type==2)
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s' limit %d,3",sta,unit,page*3);
+			else if (type==3)
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","è½¬å€Ÿ",page);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
@@ -444,9 +452,9 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql=null;
 			if(type==0)
-				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","ÉóÅú",page*3);
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","å®¡æ‰¹",page*3);
 			else if(type==1)
-				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","´ý",page*3);
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","å¾…",page*3);
 			else
 				sql = String.format("SELECT * FROM retire limit %d,3",page*3);
 			res = stm.executeQuery(sql);
@@ -481,9 +489,9 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","×ª½è",page);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","è½¬å€Ÿ",page);
 			else if(type==1)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","´ý",page);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","å¾…",page);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
@@ -586,7 +594,7 @@ public class MySQL {
 	public void updateLend1(String sta,int EquNumber,String unitLend) {
 		try {
 			stm=con.createStatement();
-			String sql=String.format("update cs set extra='%s' ,EquUnit = '%s'where EquNumber=%d",sta,unitLend,EquNumber);
+			String sql=String.format("update cs set extra='%s' ,EquUnit = '%s' where EquNumber=%d",sta,unitLend,EquNumber);
 			stm.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -601,11 +609,20 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
+	public void DeleteLendin(int EquNumber) {
+		try {
+			stm=con.createStatement();
+			String sql=String.format("delete from lendin where LendNumber=%d",EquNumber);
+			stm.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public Vector<String> invitecode() {
 		Vector<String> ret=new Vector<String>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM invite where flag='%s'","ÓÐÐ§");
+			String sql = String.format("SELECT * FROM invite where flag='%s'","æœ‰æ•ˆ");
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				String Re="";
@@ -623,9 +640,9 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				 sql = String.format("SELECT count(*) number FROM invite where flag='%s'","ÓÐÐ§");
+				 sql = String.format("SELECT count(*) number FROM invite where flag='%s'","æœ‰æ•ˆ");
 			else if(type==1)
-				sql = String.format("SELECT count(*) number FROM invite where flag='%s'","ÎÞÐ§");
+				sql = String.format("SELECT count(*) number FROM invite where flag='%s'","æ— æ•ˆ");
 			else if(type==3)
 				sql = String.format("SELECT count(*) number FROM invite");
 			res = stm.executeQuery(sql);
@@ -643,7 +660,7 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql = "INSERT INTO invite (id,invitateid, type, flag) VALUES " +
 					String.format("(%d,\"%s\",\"%s\",\"%s\");"
-							,id,invite,"0","ÓÐÐ§" );
+							,id,invite,"0","æœ‰æ•ˆ" );
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {

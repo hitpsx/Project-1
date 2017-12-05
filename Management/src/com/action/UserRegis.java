@@ -74,7 +74,9 @@ public class UserRegis extends ActionSupport {
 		MySQL sql = new MySQL();
 		int id=sql.Number();
 		User user=new User();
+		System.out.println("type1"+type);
 		type=sql.getType(type);
+		System.out.println("type2"+type);
 		picture="22";
 		user.set(username,id,password1, sex, unit, email,picture,type);
 		sql.insertUser(user);
