@@ -128,6 +128,11 @@
             <result name="error">/404.html</result>
     	</action>
     	
+    	<action name="EquInformation" class="com.action.EquInformation" method="execute">
+            <result name="success">/EquInformation.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
     	<action name="UserReturn" class="com.action.UserReturn" method="execute">
              <result name="success" type="chain">
             <param name ="actionName">HomeLendin</param>

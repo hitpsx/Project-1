@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE HTML>
 <html>
@@ -69,6 +69,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 </head>
 <body>
+<%
+     java.util.Date date=new java.util.Date(12,333,555,0,9);
+     pageContext.setAttribute("date",date);
+%>
 <div id="wrapper">
        <!----->
         <nav class="navbar-default navbar-static-top" role="navigation">
@@ -266,10 +270,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
 						<td><s:property value="#Le.LendNumber"/></td>
 						<td><s:property value="#Le.maintext"/></td>
-						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Le.LendNumber"/>"><s:property value="#Le.EquName"/></a></td>
+						<td><a href="EquInformation?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Le.LendNumber"/>"><s:property value="#Le.EquName"/></a></td>
 						<td><s:property value="#Le.UnitLend"/></td>
 						<td><s:property value="#Le.Applicant"/></td>
-						<td><s:property value="#Le.ApplicationDate1"/></td>
+						<td><s:property value="#Le.ApplicationDate1"/></td> 
 						<td><s:property value="#Le.ApplicationDate2"/></td>
 						<td><s:property value="#Le.Sta"/></td>
 					</tr>

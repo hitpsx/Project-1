@@ -9,7 +9,7 @@ public class LendManage extends ActionSupport{
 	private User user;
 	private String EquName;
 	private int LendNumber;
-	private String LendUnit;
+	private String unitlend;
 	private String maintext;
 	private String application;
 	private String ApplicationDate1;
@@ -54,11 +54,11 @@ public class LendManage extends ActionSupport{
 		this.user = user;
 	}
 	
-	public String getLendUnit() {
-		return LendUnit;
+	public String getUnitlend() {
+		return unitlend;
 	}
-	public void setLendUnit(String LendUnit) {
-		this.LendUnit=LendUnit;
+	public void setUnitlend(String unitlend) {
+		this.unitlend=unitlend;
 	}
 	public String getEquName() {
 		return EquName;
@@ -89,7 +89,8 @@ public class LendManage extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);	
 		Lendin lend=new Lendin();
-		String unitlend=sql.userUnit(userid);
+		String LendUnit=sql.userUnit(userid);
+		System.out.println(unitlend);
 		sql.updateCsSta("待确认借出",LendNumber);
 		lend.set(LendNumber,EquName,LendUnit,maintext,application,unitlend,"待确认借出",ApplicationDate1,ApplicationDate2,Applicant,"");
 		sql.insertLend(lend);

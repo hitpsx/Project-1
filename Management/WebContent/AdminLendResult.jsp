@@ -270,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
 						<td><s:property value="#Lend.LendNumber"/></td>
 						<td><s:property value="#Lend.maintext"/></td>
-						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.LendNumber"/>"><s:property value="#Lend.EquName"/></a></td>
+						<td><a href="EquInformation?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.LendNumber"/>"><s:property value="#Lend.EquName"/></a></td>
 						<td><s:property value="#Lend.LendUnit"/></td>
 						<td><s:property value="#Lend.UnitLend"/></td>
 						<td><s:property value="#Lend.Applicant"/></td>

@@ -281,7 +281,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<s:iterator value="Re" var="re">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
 						<td><s:property value="#re.EquNumber"/></td>
-						<td><a href="CsSelect?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>"><s:property value="#re.EquName"/></td></a>
+						<td><a href="EquInformation?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>"><s:property value="#re.EquName"/></a></td>
 						
 						<td><s:property value="#re.EquDate"/></td>
 						<td><s:property value="#re.Applicant"/></td>

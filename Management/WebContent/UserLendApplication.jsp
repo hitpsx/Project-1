@@ -237,8 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<br><label for="id_LendEqu">EquName:</label><s:property value="Cp.EquName"/></br>
 				<br><label for="id_Lendnumber">EquNumber:</label><s:property value="Cp.EquNumber"/></br>
-				
-				<br><label for="id_LendUnit">LendUnit:</label> <select name=LendUnit><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
+				<br><label for="id_unitlend">UnitLend:</label> <select name="unitlend"><option value = "CS">cs</option><option value = "Big Data">BigData</option><option value = "Welding">Welding</option><option value = "AI">AI</option></select></br>
 				<br><label for="id_main">title:</label><input type="text" name="maintext" autofocus maxlength="254" required id="id_main"/></br>
 				<br><label for="id_Applicant">Applicant:</label>
 				    <input type="text" name="Applicant" autofocus maxlength="254" required id="id_Applicant"/>
