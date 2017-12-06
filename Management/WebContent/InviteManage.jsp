@@ -253,7 +253,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<tr>
 						<th>invita</th><th>sta</th>
 					</tr>
-					<s:iterator value="Re" var="Lend">
+					<s:iterator value="Se" var="Lend">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
 						<td><s:property value="#Lend"/></td>
 						<td>used</td>

@@ -4,117 +4,147 @@
 <struts>
     <include file="struts-default.xml"/>
     <package name="com.action" extends="struts-default">
-        <action name="UserLogin" class="com.action.UserLogin" method="execute">
+       <!-- 用户登录以及注册 -->
+        <action name="UserLogin" class="com.action.UserFunction" method="UserLogin">
             <result name="success">/Home.jsp</result>
             <result name="admin">/HomeAdmin.jsp</result>
-            <result name="error">/LoginError.jsp</result>
+            <result name="error">/LoginError.html</result>
         </action>
-        <action name="Home" class="com.action.Home" method="execute">
+        <action name="UserRegis" class="com.action.UserFunction" method="UserRegis">
+            <result name="success">/login.html</result>
+            <result name="error">/init.jsp</result>
+        </action>
+       <action name="Home" class="com.action.UserFunction" method="Home">
             <result name="success">/Home.jsp</result>
             <result name="admin">/HomeAdmin.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-        <action name="UserRegis" class="com.action.UserRegis" method="execute">
-            <result name="success">/index.html</result>
-            <result name="error">/init.jsp</result>
-        </action>
-        <action name="Profile" class="com.action.Profile" method="execute">
+        <action name="Profile" class="com.action.UserFunction" method="Profile">
             <result name="success">/profile.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
-    	<action name="SelectHome" class="com.action.SelectHome" method="execute">
-            <result name="success">/HomeEquManage.jsp</result>
-            <result name="error">/init.jsp</result>
-    	</action>
-    	 <action name="CsSelect" class="com.action.CsSelect" method="execute">
-            <result name="success">/SearchResult.jsp</result>
-            <result name="error">/init.jsp</result>
-    	</action>
-    	<action name="LendButton" class="com.action.LendButton" method="execute">
-            <result name="success">/UserLendApplication.jsp</result>
-            <result name="error">/init.jsp</result>
-    	</action>
-    	<action name="LendManage" class="com.action.LendManage" method="execute">
-            <result name="success">/Home.jsp</result>
-            <result name="error">/404.html</result>
-    	</action>
-    	<action name="RetirButton" class="com.action.RetirButton" method="execute">
-            <result name="success">/UserRetireApplication.jsp</result>
-            <result name="error">/404.html</result>
-    	</action>
-    	<action name="RetireManage" class="com.action.RetireManage" method="execute">
-            <result name="success">/Home.jsp</result>
-            <result name="error">/404.html</result>
-    	</action>
-    	<action name="HomeLend" class="com.action.HomeLend" method="execute">
+    	
+        <!-- 用户借出管理 -->
+        <action name="HomeLend" class="com.action.LendFunction" method="HomeLend">
             <result name="success">/UserLendResult.jsp</result>
             <result name="admin">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="HomeRetire" class="com.action.HomeRetire" method="execute">
-            <result name="success">/UserRetireResult.jsp</result>
-            <result name="admin">/AdminRetireResult.jsp</result>
+    	<action name="HomeLendin" class="com.action.LendFunction" method="HomeLendin">
+            <result name="success">/UserLendinResult.jsp</result>
+            <result name="admin">/UserLendinResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="HomeSelect" class="com.action.HomeSelect" method="execute">
-            <result name="success">/UserSelectResult.jsp</result>
-            <result name="admin">/UserSelectResult.jsp</result>
+    	<action name="LendButton" class="com.action.LendFunction" method="LendButton">
+            <result name="success">/UserLendApplication.jsp</result>
+            <result name="error">/init.jsp</result>
+    	</action>
+    	<action name="LendManage" class="com.action.LendFunction" method="LendManage">
+            <result name="success">/Home.jsp</result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="CsUpdate" class="com.action.CsUpdate" method="execute">
-            <result name="success">/UserUpdateCs.jsp</result>
+    	<action name="UserReturn" class="com.action.LendFunction" method="UserReturn">
+             <result name="success" type="chain">
+            <param name ="actionName">HomeLendin</param>
+            <param name="userid">${userid}</param>
+            <param name="page">${page}</param></result>
             <result name="error">/404.html</result>
     	</action>
-    	<action name="UpdateCs" class="com.action.UpdateCs" method="execute">
+    	
+    	
+    	<!--用户报废 -->
+    	
+    	<action name="RetirButton" class="com.action.UserRetireFunction" method="RetirButton">
+            <result name="success">/UserRetireApplication.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="RetireManage" class="com.action.UserRetireFunction" method="RetireManage">
             <result name="success">/Home.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="ComputerHome" class="com.action.ComputerHome" method="execute">
+    	<action name="HomeRetire" class="com.action.UserRetireFunction" method="HomeRetire">
+            <result name="success">/UserRetireResult.jsp</result>
+            <result name="admin">/AdminRetireResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+        
+    	<!-- 查询类 -->
+    
+    	<action name="EquInformation" class="com.action.SelectFunction" method="EquInformation">
+            <result name="success">/EquInformation.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="SelectHome" class="com.action.SelectFunction" method="SelectHome">
+            <result name="success">/HomeEquManage.jsp</result>
+            <result name="error">/init.jsp</result>
+    	</action>
+    	 <action name="CsSelect" class="com.action.SelectFunction" method="CsSelect">
+            <result name="success">/SearchResult.jsp</result>
+            <result name="error">/init.jsp</result>
+    	</action>
+    
+    	
+    	<action name="HomeSelect" class="com.action.SelectFunction" method="HomeSelect">
+            <result name="success">/UserSelectResult.jsp</result>
+            <result name="admin">/UserSelectResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	<action name="CsUpdate" class="com.action.SelectFunction" method="CsUpdate">
+            <result name="success">/UserUpdateCs.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	    	
+    	
+    	<action name="ComputerHome" class="com.action.SelectFunction" method="ComputerHome">
             <result name="success">/ClassResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
+    	<!-- 管理员 -->
     	
-    	<action name="view" class="com.action.view" method="execute">
+    	<action name="view" class="com.action.Admin" method="view">
             <result name="success">/AdminViewRetire.jsp</result>
             <result name="Lend">/AdminViewLend.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="Agree" class="com.action.Agree" method="execute">
+    	<action name="Agree" class="com.action.Admin" method="Agree">
             <result name="success">/AdminRetireResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="DisAgreeRetire" class="com.action.DisAgreeRetire" method="execute">
+    	<action name="DisAgreeRetire" class="com.action.Admin" method="DisAgreeRetire">
             <result name="success">/AdminRetireResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="AdminRead" class="com.action.AdminRead" method="execute">
+    	<action name="AdminRead" class="com.action.Admin" method="AdminRead">
             <result name="success">/AdminRetireResult.jsp</result>
             <result name="lend">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="AgreeLend" class="com.action.AgreeLend" method="execute">
+    	<action name="AgreeLend" class="com.action.Admin" method="AgreeLend">
             <result name="success">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
     	
-    	<action name="DisAgreeLend" class="com.action.DisAgreeLend" method="execute">
+    	<action name="DisAgreeLend" class="com.action.Admin" method="DisAgreeLend">
             <result name="success">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="AdminInvite" class="com.action.AdminInvite" method="execute">
+    	<action name="AdminInvite" class="com.action.Admin" method="AdminInvite">
             <result name="success">/InviteManage.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="AdminCreatInvite" class="com.action.AdminCreatInvite" method="execute">
+    	<action name="AdminCreatInvite" class="com.action.Admin" method="AdminCreatInvite">
             <result name="success" type="chain">
             <param name ="actionName">AdminInvite</param>
             <param name="userid">${userid}</param></result>
@@ -122,24 +152,12 @@
     	</action>
     	
     	
-    	<action name="HomeLendin" class="com.action.HomeLendin" method="execute">
-            <result name="success">/UserLendinResult.jsp</result>
-            <result name="admin">/UserLendinResult.jsp</result>
+        <action name="UpdateCs" class="com.action.UpdateCs" method="UpdateCs">
+            <result name="success">/Home.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	
-    	<action name="EquInformation" class="com.action.EquInformation" method="execute">
-            <result name="success">/EquInformation.jsp</result>
-            <result name="error">/404.html</result>
-    	</action>
     	
-    	<action name="UserReturn" class="com.action.UserReturn" method="execute">
-             <result name="success" type="chain">
-            <param name ="actionName">HomeLendin</param>
-            <param name="userid">${userid}</param>
-            <param name="page">${page}</param></result>
-            <result name="error">/404.html</result>
-    	</action>
     </package>
 </struts>
 

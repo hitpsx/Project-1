@@ -445,11 +445,11 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s' limit %d,3",sta,unit,page*3);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and  lendunit='%s' limit %d,3",sta,unit,page*3);
 			else if(type==1)
 				sql = String.format("SELECT * FROM lendin limit %d,3",page);
 			else if (type==2)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and lendunit='%s' limit %d,3",sta,unit,page*3);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s' limit %d,3",sta,unit,page*3);
 			else if (type==3)
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","转借",page);
 			res = stm.executeQuery(sql);

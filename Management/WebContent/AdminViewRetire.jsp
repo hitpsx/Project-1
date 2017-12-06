@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Minimal</a></h1>       
+                <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>       
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  h=checkTime(h)  
 				  m=checkTime(m)  
 				  s=checkTime(s)  
-				  document.getElementById('time').innerHTML=monthh[month]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
+				  document.getElementById('time').innerHTML=monthh[month-1]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
 				  t=setTimeout('startTime()',500)  
 				 }  
 					  
@@ -244,43 +244,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
      <div class="col-md-8 profile-text">
 				
-				<h6><s:property value="Re.EquName"/></h6>
+				<h6><s:property value="Ret.EquName"/></h6>
 				<table>
 				<tr>
 				<td>EquNumber</td>
 				<td> :</td>
-				<td> <s:property value="Re.EquNumber"/></td>
+				<td> <s:property value="Ret.EquNumber"/></td>
 				</tr>
 
 
 				<tr>
 				<td>EquName</td>
 				<td>:</td>
-				<td><s:property value="Re.EquName"/></td>
+				<td><s:property value="Ret.EquName"/></td>
 				</tr>
 				<tr>
 				<td>Applicant</td>
 				<td>:</td>
-				<td><s:property value="Re.Applicant"/></td>
+				<td><s:property value="Ret.Applicant"/></td>
 				</tr>
 			    
 			    <tr>
 				<td>ApplicationDate</td>
 				<td>:</td>
-				<td><s:property value="Re.ApplicationDate"/></td>
+				<td><s:property value="Ret.ApplicationDate"/></td>
 				</tr>
 			    																     
 				<tr>
 				<td>Application</td>
 				<td>:</td>
-				<td><s:property value="Re.Application"/></td>
+				<td><s:property value="Ret.Application"/></td>
 				</tr>																	
 				
 				<tr>
 				<td>
 				<form class="text-sub" action="Agree"  method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Re.EquNumber"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="Ret.EquNumber"/> />
 				<input type="submit" value="Yes">
 				</form>
 				</td>
@@ -288,7 +288,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>
 				<form class="text-sub" action="DisAgreeRetire" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<input type="hidden" name=EquNumber value=<s:property value="Re.EquNumber"/> />
+				<input type="hidden" name=EquNumber value=<s:property value="Ret.EquNumber"/> />
 				<input type="submit" value="No">
 				</form></td>
 				</tr>															

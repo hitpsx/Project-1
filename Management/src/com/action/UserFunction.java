@@ -1,16 +1,13 @@
 package com.action;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import com.opensymphony.xwork2.ActionSupport;
-
 import com.model.User;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class UserRegis extends ActionSupport {
+public class UserFunction extends ActionSupport{
 	private String username;
+	private String password;
+	private User user;
 	private String password1;
 	private String password2;
 	private String email;
@@ -20,6 +17,16 @@ public class UserRegis extends ActionSupport {
 	private String type;
 	private String photo;
 	
+	private int userid;
+
+	
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
 	public String getPhoto() {
 		return photo;
 	}
@@ -37,12 +44,6 @@ public class UserRegis extends ActionSupport {
 	}
 	public void setPicture(String picture) {
 		this.picture=picture;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
 	}
 	public String getPassword1() {
 		return password1;
@@ -77,17 +78,65 @@ public class UserRegis extends ActionSupport {
 		this.unit = unit;
 	}
 	
-	public String execute() {
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public String UserRegis() {
 		MySQL sql = new MySQL();
 		int id=sql.Number();
 		User user=new User();
 		type=sql.getType(type);
-		System.out.println(photo);
 		picture="22";
-		//user.set(username,id,password1, sex, unit, email,picture,type);
-		//sql.insertUser(user);
+		user.set(username,id,password1, sex, unit, email,picture,type);
+		sql.insertUser(user);
 		sql.close();
 		return "success";
 		
+	}
+	
+	public String UserLogin() {
+		MySQL sql=new MySQL();
+		user=sql.Account(username, password);
+		sql.close();;
+		if(user==null)
+			return "error";
+		else if(user.getType().equals("1"))
+			return "admin";
+		else
+			return "success";
+	}
+	
+	public String Home() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		sql.close();
+		if(user.getType().equals("1"))
+			return "admin";
+		else if(user.getType().equals("0"))
+			return "success";
+		return "error";
+	}
+	
+	public String Profile() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		sql.close();
+		return "success";
 	}
 }

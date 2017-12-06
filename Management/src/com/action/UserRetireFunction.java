@@ -1,12 +1,20 @@
- package com.action;
+package com.action;
+
+import java.util.Vector;
 
 import com.model.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
 
-public class RetireManage extends ActionSupport{
+public class UserRetireFunction extends ActionSupport{
 	private int userid;
 	private User user;
+	private Vector<Retirement> Re;
+	int page;
+	
+	private Cs Cp;
+	private int EquNumber;
+
 	private String EquName;
 	private int LendNumber;
 	private String application;
@@ -26,24 +34,14 @@ public class RetireManage extends ActionSupport{
 	public void setApplicationDate(String ApplicationDate) {
 		this.ApplicationDate=ApplicationDate;
 	}	
-	public int getUserid() {
-		return userid;
-	}
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+
 	public int getLendNumber() {
 		return LendNumber;
 	}
 	public void setLendNumber(int LendNumber) {
 		this.LendNumber=LendNumber;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+
 	public String getEquName() {
 		return EquName;
 	}
@@ -58,8 +56,73 @@ public class RetireManage extends ActionSupport{
 	public void setApplication(String application) {
 		this.application=application;
 	}
+	public int getEquNumber() {
+		return EquNumber;
+	}
+	public void setEquNumber(int EquNumber) {
+		this.EquNumber = EquNumber;
+	}
 	
-	public String execute() {
+	public Cs getCp() {
+		return Cp;
+	}
+	public void setCp(Cs Cp) {
+		this.Cp = Cp;
+	}
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Vector<Retirement> getRe() {
+		return Re;
+	}
+	public void setCp(Vector<Retirement> Re) {
+		this.Re= Re;
+		
+	}
+	public String HomeRetire() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		String unit=sql.userUnit(userid);
+		if(user.getType().equals("0")) {
+			Re=sql.selectRetir(unit,page);
+			sql.close();
+			return "success";
+		}
+		else if(user.getType().equals("1"))
+		{
+			Re=sql.selectRetirAdmin(3,page);
+			sql.close();
+			return "admin";
+		}
+		return "success";
+	}
+	
+	public String RetirButton() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		System.out.println(EquNumber);
+		Cp=sql.selectEquNumber(EquNumber);
+		sql.close();
+		return "success";
+	}
+	public String RetireManage() {
 		MySQL sql=new MySQL();
 		Retirement re=new Retirement();
 		user=sql.userInfor(userid);

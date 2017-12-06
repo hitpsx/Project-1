@@ -242,7 +242,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src=<s:property value="user.Picture"/> alt="">
 			</div>
      <div class="col-md-8 profile-text">
-				<s:iterator value="Cp" var="cs">
+				<s:iterator value="Cpt" var="cs">
 				
 				<h6><s:property value="#cs.EquName"/></h6>
 				<table>
