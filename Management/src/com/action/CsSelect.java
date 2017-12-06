@@ -7,10 +7,25 @@ import java.util.Vector;
 
 public class CsSelect extends ActionSupport{
 	private int userid;
-	private int EquNumber;
-	private Cs Cp;
+	private String Aim;
+	private Vector<Cs> Cp;
 	private User user;
+	private int page;
 	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page=page;
+	}
+	
+	public Vector<Cs> getCp() {
+		return Cp;
+	}
+	public void setCp(Vector<Cs> Cp) {
+		this.Cp = Cp;
+		
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -25,26 +40,27 @@ public class CsSelect extends ActionSupport{
 		this.user = user;
 	}
 	
-	public int getEquNumber() {
-		return EquNumber;
+	public String getAim() {
+		return Aim;
 	}
-	public void setEquNumber(int EquNumber) {
-		this.EquNumber = EquNumber;
-	}
-	
-	public Cs getCp() {
-		return Cp;
-	}
-	public void setCp(Cs Cp) {
-		this.Cp = Cp;
+	public void setAim(String Aim) {
+		this.Aim = Aim;
 	}
 	
 
 	public String execute() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		Cp=sql.selectEquNumber(EquNumber);
-		sql.close();
-		return "success";
+		if(user.getType().equals("0")) {
+			Cp=sql.selectCsAll(Aim,user.getUnit(),page,0);
+			sql.close();
+			return "success";
+		}
+		else if(user.getType().equals("1")) {
+			Cp=sql.selectCsAll(Aim,user.getUnit(),page,0);
+			sql.close();
+			return "success";
+		}
+	    return "error";
 	}
 }

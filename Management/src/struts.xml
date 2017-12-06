@@ -27,7 +27,7 @@
             <result name="error">/init.jsp</result>
     	</action>
     	 <action name="CsSelect" class="com.action.CsSelect" method="execute">
-            <result name="success">/EquInformation.jsp</result>
+            <result name="success">/SearchResult.jsp</result>
             <result name="error">/init.jsp</result>
     	</action>
     	<action name="LendButton" class="com.action.LendButton" method="execute">

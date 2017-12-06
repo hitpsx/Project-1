@@ -14,6 +14,7 @@ public class ComputerHome extends ActionSupport{
 	private Vector<Cs> Cp;
 	private String EquClass;
 	private int page;
+	private String Aim;
 	
 	
 	public int getPage() {
@@ -55,11 +56,11 @@ public class ComputerHome extends ActionSupport{
 	public void setCp(Vector<Cs> Cp) {
 		this.Cp = Cp;
 	}
-	
+
 	public String execute() {
-		System.out.println(year);
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
+		System.out.print(Aim);
 		if(user.getType().equals("0")) {
 			String unit=sql.userUnit(userid);
 			Cp=sql.selectyear(year, unit,EquClass,0,page);

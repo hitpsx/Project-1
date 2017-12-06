@@ -342,11 +342,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</form>
 	        </div>
         	<ul class="pagination">
-			    <li><a href="HomeSelect?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
+			    <li><a href="CsSelect?userid=<s:property value="user.userid"/>&page=0&Aim=<s:property value="Aim"/>">&laquo;</a></li>
 			     <% for(int i=0;i<10;i++){ %>
-			       <li><a href="HomeSelect?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>
+			       <li><a href="CsSelect?userid=<s:property value="user.userid"/>&page=<%=i%>&Aim=<s:property value="Aim"/>"><%=i%></a></li>
 			    <%}%>
-			    <li><a href="#">&raquo;</a></li>
+			    <li><a href="CsSelect?userid=<s:property value="user.userid"/>&page=9&Aim=<s:property value="Aim"/>">&raquo;</a></li>
 			</ul> 				
 	       </div>
 	</div>

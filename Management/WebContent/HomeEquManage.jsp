@@ -224,13 +224,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="gallery">
 	 <form class="form" action="CsSelect" method="post">
                 <div class="input-group input-group-in">
-
-                    <input type="text" name="EquName" class="form-control2 input-search" placeholder="Search...">
-                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />                       
-                    <span class="input-group-btn">
-                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                </div><!-- Input Group -->
+		                    <input type="text" name="Aim" class="form-control2 input-search" placeholder="Search...">
+		                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
+		                    <input type="hidden" name=page value=<s:property value="0"/> />
+		                    <span class="input-group-btn">
+		                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+		                    </span>
+		        </div><!-- Input Group -->
       </form>
      </div>
 
