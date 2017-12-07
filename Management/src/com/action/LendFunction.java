@@ -7,7 +7,10 @@ import com.model.Lendin;
 import com.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.math.*;
 public class LendFunction extends ActionSupport{
 	private int userid;
 	private User user;
@@ -175,7 +178,32 @@ public class LendFunction extends ActionSupport{
 		String LendUnit=sql.userUnit(userid);
 		System.out.println(unitlend);
 		sql.updateCsSta("待确认借出",LendNumber);
-		lend.set(LendNumber,EquName,LendUnit,maintext,application,unitlend,"待确认借出",ApplicationDate1,ApplicationDate2,Applicant,"");
+		
+		String b="";
+	 	String p[]=ApplicationDate1.split("/");
+	 	b=p[2]+"-"+p[0]+"-"+p[1];
+	 	ApplicationDate1=b;
+	 	
+	 	b="";
+	 	String p2[]=ApplicationDate2.split("/");
+	 	b=p2[2]+"-"+p2[0]+"-"+p2[1];
+	 	ApplicationDate2=b;
+	 	
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
+		Date date=new Date();
+
+
+	    Date date2=null;
+	    try {  
+	        date2=format.parse(ApplicationDate2);  
+	     } catch (ParseException e) {  
+	    	e.printStackTrace();  
+	     }
+		long difference =  Math.abs((date.getTime()-date2.getTime())/86400000);
+		String Countdown=String.valueOf(difference)+"天";
+		       
+		    
+		lend.set(LendNumber,EquName,LendUnit,maintext,application,unitlend,"待确认借出",ApplicationDate1,ApplicationDate2,Applicant,"",Countdown);
 		sql.insertLend(lend);
 		sql.close();
 		return "success";

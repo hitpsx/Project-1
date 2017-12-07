@@ -5,7 +5,6 @@ import java.util.Vector;
 import com.model.*;
 
 
-
 public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
 	private final String url = "jdbc:mysql://localhost:3306/project";
@@ -141,29 +140,7 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
-	public Vector<Cs> selectEquNames(String EquName,String unit) {
-		Vector<Cs> ret=new Vector<Cs>();
-		try {
-			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM cs WHERE EquName = '%s' and EquUnit = '%s' ", EquName,unit);
-			res = stm.executeQuery(sql);
-			while(res.next()) {
-				Cs Cp=new Cs();
-				Cp.setEquNumber(res.getInt("EquNumber"));
-				Cp.setEquName(res.getString("EquName"));
-				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
-				Cp.setEquSta(res.getString("EquSta"));
-				Cp.setEquClass(res.getString("Equclass"));
-				Cp.setEquUnit(res.getString("EquUnit"));
-				ret.add(Cp);
-			}
-			stm.close();
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return ret;
-	}
+
 	public Vector<Cs> selectEqu(int page,String unit,int type) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
@@ -411,11 +388,11 @@ public class MySQL {
 	public void insertLend(Lendin lend) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO lendin (LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta,ApplicationDate1,ApplicationDate2,Applicant,Approver) VALUES " +
-					String.format("(%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
+			String sql = "INSERT INTO lendin (LendNumber,Equname, LendUnit, maintext, application,unitlend,Sta,ApplicationDate1,ApplicationDate2,Applicant,Approver,Countdown) VALUES " +
+					String.format("(%d,\"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");"
 							, lend.getLendNumber(),lend.getEquName(), lend.getLendUnit()
 							, lend.getMaintext(), lend.getApplication(),lend.getUnitLend(),lend.getSta()
-							,lend.getApplicationDate1(),lend.getApplicationDate2(),lend.getApplicant(),lend.getApprover());
+							,lend.getApplicationDate1(),lend.getApplicationDate2(),lend.getApplicant(),lend.getApprover(),lend.getCountdown());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -465,6 +442,7 @@ public class MySQL {
 				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
 				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
 				Cp.setApprover(res.getString("Approver"));			
+				Cp.setCountdown(res.getString("Countdown"));
 				ret.add(Cp);
 			}
 		} catch (SQLException e) {
@@ -563,7 +541,8 @@ public class MySQL {
 				Cp.setApplicant(res.getString("Applicant"));
 				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
 				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
-				Cp.setApprover(res.getString("Approver"));			
+				Cp.setApprover(res.getString("Approver"));		
+				Cp.setCountdown(res.getString("Countdown"));
 				ret.add(Cp);
 			}
 		} catch (SQLException e) {
@@ -602,6 +581,7 @@ public class MySQL {
 				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
 				Cp.setApprover(res.getString("Approver"));
 				Cp.setApplication(res.getString("Application"));
+				Cp.setCountdown(res.getString("Countdown"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -609,10 +589,10 @@ public class MySQL {
 		return Cp;
 	}
 
-	public void AgreeRetire(String asd,int EquNumber,String name) {
+	public void AgreeRetire(String asd,int EquNumber,String date,String name) {
 		try {
 			stm = con.createStatement();			
-			String sql=String.format("update retire set EquSta='%s' ,Approver = '%s' where EquNumber=%d",asd,name,EquNumber);
+			String sql=String.format("update retire set EquSta='%s' ,Approver = '%s',RetireDate ='%s' where EquNumber=%d",asd,name,date,EquNumber);
 			stm.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -641,7 +621,7 @@ public class MySQL {
 				Re.setUnitPrice(res.getString("UnitPrice"));
 				Re.setHandler(res.getString("Handler"));
 				Re.setEquSta(res.getString("EquSta"));
-				Re.setApplicationDate(res.getString("ApplicationDate"));;
+				Re.setApplicationDate((res.getString("ApplicationDate")));;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

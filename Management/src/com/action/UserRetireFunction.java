@@ -127,6 +127,14 @@ public class UserRetireFunction extends ActionSupport{
 		Retirement re=new Retirement();
 		user=sql.userInfor(userid);
 		Cs cp=new Cs();
+		
+		String b="";
+	 	String p[]=ApplicationDate.split("/");
+	 	for(int i=p.length-1;i>0;i--)
+	 		b+=p[i]+"-";
+	 	b+=p[0];
+	 	ApplicationDate=b;
+	 		 	
 		if(user.getType().equals("0")) {
 			String unit=sql.userUnit(userid);
 			sql.updateCsSta("´ý±¨·ÏÈ·ÈÏ", LendNumber);
@@ -146,6 +154,6 @@ public class UserRetireFunction extends ActionSupport{
 			sql.close();
 			return "success";
 		}
-		return "success";
+		return "error";
 	}
 }

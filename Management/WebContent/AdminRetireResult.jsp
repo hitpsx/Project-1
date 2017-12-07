@@ -275,8 +275,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>UnitPrice</th>
 						
 						<th>ApplicationDate</th>
+					    <th>RetireDate</th>
 						<th>Manage</th>
-						
+
 					</tr>
 					<s:iterator value="Re" var="re">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
@@ -295,6 +296,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						<td><s:property value="#re.UnitPrice"/></td>
 						<td><s:property value="#re.ApplicationDate"/></td>
+						<td><s:property value="#re.RetireDate"/></td>
 						<td><a href="view?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#re.EquNumber"/>&type=0">View</a>
 					</tr>
 					</s:iterator>

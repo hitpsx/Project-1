@@ -295,6 +295,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>																	
 				
 				<tr>
+				<td>Countdown</td>
+				<td>:</td>
+				<td><s:property value="#Le.Countdown"/></td>
+				</tr>
+				
+				<tr>
 				<td>
 				<form class="text-sub" action="AgreeLend"  method="post">
 				<input type="hidden" name=userid    value=<s:property value="user.userid"/> />

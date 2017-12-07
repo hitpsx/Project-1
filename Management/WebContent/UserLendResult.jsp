@@ -265,6 +265,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>UnitLend</th>
 						<th>Applicant</th><th>ApplicationDate1</th>
 						<th>ApplicationDate2</th><th>Sta</th>
+						<th>Countdown</th>
 					</tr>
 					<s:iterator value="lend" var="Le">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
@@ -276,6 +277,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Le.ApplicationDate1"/></td> 
 						<td><s:property value="#Le.ApplicationDate2"/></td>
 						<td><s:property value="#Le.Sta"/></td>
+						<td><s:property value="#Lend.Countdown"/></td>
 					</tr>
 					</s:iterator>
 					</table>

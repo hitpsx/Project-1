@@ -2,11 +2,12 @@ package com.action;
 
 import java.util.Random;
 import java.util.Vector;
-
+import java.util.Date;
 import com.model.Lendin;
 import com.model.Retirement;
 import com.model.User;
 import com.sql.MySQL;
+import java.text.SimpleDateFormat;
 
 public class Admin {
 
@@ -173,7 +174,10 @@ public class Admin {
 	public String Agree() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		sql.AgreeRetire("审批通过,已报废",EquNumber,user.getUsername());
+		String a;
+	 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		a=df.format(new Date());
+		sql.AgreeRetire("审批通过,已报废",EquNumber,a,user.getUsername());
 		sql.updateCsSta("审批通过,已报废", EquNumber);
 		Re=sql.selectRetirAdmin(0,page);
 		sql.close();
@@ -202,7 +206,7 @@ public class Admin {
 	public String DisAgreeRetire() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		sql.AgreeRetire("审批未通过",EquNumber,user.getUsername());
+		sql.AgreeRetire("审批未通过",EquNumber,"",user.getUsername());
 		sql.updateCsSta("审批未通过", EquNumber);
 		Re=sql.selectRetirAdmin(0,page);
 		sql.close();

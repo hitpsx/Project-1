@@ -12,7 +12,15 @@ public class Lendin {
 	private String ApplicationDate2;
 	private String Applicant;
 	private String Approver;
+	private String Countdown;
 	
+	public String getCountdown() {
+        return Countdown;
+    }
+
+    public void setCountdown(String Countdown) {
+        this.Countdown = Countdown;
+    }
 	public String getApprover() {
         return Approver;
     }
@@ -104,7 +112,8 @@ public class Lendin {
 			String ApplicationDate1,
 			String ApplicationDate2,
 			String Applicant,
-			String Approver) {
+			String Approver,
+			String Countdown) {
 		this.LendNumber=LendNumber;
 		this.EquName=EquName;
 		this.LendUnit=LendUnit;
@@ -116,5 +125,6 @@ public class Lendin {
 		this.ApplicationDate2=ApplicationDate2;
 		this.Applicant=Applicant;
 		this.Approver=Approver;
+		this.Countdown=Countdown;
 	}
 }

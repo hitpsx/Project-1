@@ -264,6 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>LendUnit</th><th>UnitLend</th>
 						<th>Applicant</th><th>ApplicationDate1</th>
 						<th>ApplicationDate2</th><th>Sta</th>
+						<th>Countdown</th>
 						<th>Manage</th>
 					</tr>
 					<s:iterator value="lend" var="Lend">
@@ -277,6 +278,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Lend.ApplicationDate1"/></td>
 						<td><s:property value="#Lend.ApplicationDate2"/></td>
 						<td><s:property value="#Lend.Sta"/></td>
+						<td><s:property value="#Lend.Countdown"/></td>
 					    <td><a href="view?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.LendNumber"/>&type=1">View</a>
 
 					</tr>
