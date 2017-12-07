@@ -134,7 +134,7 @@ public class SelectFunction {
 		sql.close();
 		return "success";
 	}
-	public String ComeputerHome() {
+	public String ComputerHome() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		System.out.print(Aim);

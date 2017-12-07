@@ -102,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  h=checkTime(h)  
 				  m=checkTime(m)  
 				  s=checkTime(s)  
-				  document.getElementById('time').innerHTML=monthh[month]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
+				  document.getElementById('time').innerHTML=monthh[month-1]+" "+date+"th "+week[day]+"  "+h+":"+m+":"+s+" "  
 				  t=setTimeout('startTime()',500)  
 				 }  
 					  
@@ -277,7 +277,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Le.ApplicationDate1"/></td> 
 						<td><s:property value="#Le.ApplicationDate2"/></td>
 						<td><s:property value="#Le.Sta"/></td>
-						<td><s:property value="#Lend.Countdown"/></td>
+						<td><s:property value="#Le.Countdown"/></td>
 					</tr>
 					</s:iterator>
 					</table>

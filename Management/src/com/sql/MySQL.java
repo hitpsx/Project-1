@@ -11,6 +11,10 @@ public class MySQL {
 	private final String user = "root";
 	private final String password = "woaini123";
 	
+	/*private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_equfour";
+	private final String user = "x0z1w1nymo";
+	private final String password = "kmyl430khwjw5lwk53wlykj3i0iiw051zyz34m25";
+	*/
 	private Connection con = null;
 	private Statement stm = null;
 	private ResultSet res = null;
@@ -147,9 +151,9 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==1)
-				sql = String.format("SELECT * FROM cs limit %d,3",page*3);
+				sql = String.format("SELECT * FROM cs limit %d,5",page*5);
 			else if(type==0)
-				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' and EquSta regexp '%s' limit %d,3",unit,"空闲|待",page*3);
+				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' and EquSta regexp '%s' limit %d,5",unit,"空闲|待",page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -204,9 +208,9 @@ public class MySQL {
 			year=year+"-01-01";
 			String sql="";
 			if(type==0)
-				sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquUnit = '%s' and EquClass = '%s' limit %d,3",year,year2,unit,EquClass,page*3);
+				sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquUnit = '%s' and EquClass = '%s' limit %d,5",year,year2,unit,EquClass,page*5);
 			else if (type==1)
-				sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquClass = '%s' limit %d,3",year,year2,EquClass,page*3);
+				sql = String.format("select * from  cs where EquDate between '%s' and '%s' and EquClass = '%s' limit %d,5",year,year2,EquClass,page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -260,12 +264,12 @@ public class MySQL {
 				sql=String.format("SELECT * FROM cs where concat(EquNumber, EquName, EquQua, ModelSpe, EquDate, EquSta, EquClass, "
 						+ "EquUnit, EquPic, Manufacturer, Supplier, Specifications, OrderDate, Inspector, Quality,"
 						+ " MaintenanceDate, Maintainer, InventoryPosition, PresentPosition, UnitPrice, TotalPrice,"
-						+ " Batch, OrderQuantity, ArrivalQuantity, Handler, Lender, extra) like  \"%%%s%%\"and  EquUnit ='%s' limit %d,3",aim,unit,page*3);
+						+ " Batch, OrderQuantity, ArrivalQuantity, Handler, Lender, extra) like  \"%%%s%%\"and  EquUnit ='%s' limit %d,5",aim,unit,page*5);
 			else if(type==1)
 				sql=String.format("SELECT * FROM cs where concat(EquNumber, EquName, EquQua, ModelSpe, EquDate, EquSta, EquClass, "
 						+ "EquUnit, EquPic, Manufacturer, Supplier, Specifications, OrderDate, Inspector, Quality,"
 						+ " MaintenanceDate, Maintainer, InventoryPosition, PresentPosition, UnitPrice, TotalPrice,"
-						+ " Batch, OrderQuantity, ArrivalQuantity, Handler, Lender, extra) like  \"%%%s%%\" limit %d,3",aim,page*3);
+						+ " Batch, OrderQuantity, ArrivalQuantity, Handler, Lender, extra) like  \"%%%s%%\" limit %d,5",aim,page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -422,13 +426,13 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and  lendunit='%s' limit %d,3",sta,unit,page*3);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and  lendunit='%s' limit %d,5",sta,unit,page*5);
 			else if(type==1)
 				sql = String.format("SELECT * FROM lendin limit %d,3",page);
 			else if (type==2)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s' limit %d,3",sta,unit,page*3);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s' limit %d,5",sta,unit,page*5);
 			else if (type==3)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","转借",page);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,5","转借",page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();
@@ -455,7 +459,7 @@ public class MySQL {
 		Vector<Retirement> reh=new Vector<Retirement>();
 		try {
 			stm = con.createStatement();
-			String sql = String.format("SELECT * FROM retire where EquUnit = '%s' limit %d,3",unit,page*3);
+			String sql = String.format("SELECT * FROM retire where EquUnit = '%s' limit %d,5",unit,page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Retirement Re=new Retirement();
@@ -488,9 +492,9 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql=null;
 			if(type==0)
-				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","审批",page*3);
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,5","审批",page*5);
 			else if(type==1)
-				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,3","待",page*3);
+				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,5","待",page*5);
 			else
 				sql = String.format("SELECT * FROM retire limit %d,3",page*3);
 			res = stm.executeQuery(sql);
@@ -525,9 +529,9 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","转借",page);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,5","转借",page*5);
 			else if(type==1)
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,3","待",page);
+				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,5","待",page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();

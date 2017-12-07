@@ -130,9 +130,7 @@ public class UserRetireFunction extends ActionSupport{
 		
 		String b="";
 	 	String p[]=ApplicationDate.split("/");
-	 	for(int i=p.length-1;i>0;i--)
-	 		b+=p[i]+"-";
-	 	b+=p[0];
+	 	b=p[2]+"-"+p[0]+"-"+p[1];
 	 	ApplicationDate=b;
 	 		 	
 		if(user.getType().equals("0")) {

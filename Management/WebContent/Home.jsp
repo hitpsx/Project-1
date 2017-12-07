@@ -6,8 +6,6 @@
 <title>Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
@@ -240,10 +238,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="HomeRetire?userid=<s:property value="user.userid"/>&page=0"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></a>
                     </li>
                     
-                    <li>
+                    <!-- <li>
                         <a href="graph?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>Graphs</a>
                     </li>
-                    
+                     -->
+                     
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -262,8 +261,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    <div class="banner">
 				<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
-				<i class="fa fa-angle-right"></i>
-				<span>Dashboard</span>
 				</h2>
 		    </div>
 		<!--//banner-->
