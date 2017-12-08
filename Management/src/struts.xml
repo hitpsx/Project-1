@@ -8,17 +8,21 @@
         <action name="UserLogin" class="com.action.UserFunction" method="UserLogin">
             <result name="success">/Home.jsp</result>
             <result name="admin">/HomeAdmin.jsp</result>
+            <result name="SuperAdmin">/HomeAdmin.jsp</result>
             <result name="error">/LoginError.html</result>
         </action>
+        
         <action name="UserRegis" class="com.action.UserFunction" method="UserRegis">
             <result name="success">/login.html</result>
             <result name="error">/init.jsp</result>
         </action>
+        
        <action name="Home" class="com.action.UserFunction" method="Home">
             <result name="success">/Home.jsp</result>
             <result name="admin">/HomeAdmin.jsp</result>
             <result name="error">/404.html</result>
-    	</action>
+       </action>
+    	
         <action name="Profile" class="com.action.UserFunction" method="Profile">
             <result name="success">/profile.jsp</result>
             <result name="error">/init.jsp</result>
@@ -28,6 +32,7 @@
         <action name="HomeLend" class="com.action.LendFunction" method="HomeLend">
             <result name="success">/UserLendResult.jsp</result>
             <result name="admin">/AdminLendResult.jsp</result>
+            <result name="SuperAdmin">/AdminLendResult.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	<action name="HomeLendin" class="com.action.LendFunction" method="HomeLendin">

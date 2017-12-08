@@ -105,7 +105,12 @@ public class UserRetireFunction extends ActionSupport{
 			sql.close();
 			return "success";
 		}
-		else if(user.getType().equals("1"))
+		else if(user.getType().equals("1")) {
+			Re=sql.selectRetir(unit,page);
+			sql.close();
+			return "admin";
+		}
+		else if(user.getType().equals("2"))
 		{
 			Re=sql.selectRetirAdmin(3,page);
 			sql.close();
@@ -117,7 +122,6 @@ public class UserRetireFunction extends ActionSupport{
 	public String RetirButton() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		System.out.println(EquNumber);
 		Cp=sql.selectEquNumber(EquNumber);
 		sql.close();
 		return "success";
@@ -143,10 +147,10 @@ public class UserRetireFunction extends ActionSupport{
 			sql.close();
 			return "success";
 		}
-		else if(user.getType().equals("1")) {
+		else if(user.getType().equals("2") || user.getType().equals("1")) {
 			sql.updateCsSta("审批通过,已报废", LendNumber);
 			cp=sql.selectEquNumber(LendNumber);
-			re.set(cp.getEquNumber(),cp.getEquName(),cp.getEquDate(),ApplicationDate,Applicant,ApplicationDate,user.getUsername(),"admin",cp.getEquClass(),cp.getInventoryPosition(),cp.getUnitPrice()
+			re.set(cp.getEquNumber(),cp.getEquName(),cp.getEquDate(),ApplicationDate,Applicant,ApplicationDate,user.getUsername(),user.getUnit(),cp.getEquClass(),cp.getInventoryPosition(),cp.getUnitPrice()
 					,cp.getHandler(),cp.getEquSta(),application);
 			sql.insertRetire(re);
 			sql.close();

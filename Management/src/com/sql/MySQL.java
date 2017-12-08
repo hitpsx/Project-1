@@ -79,6 +79,9 @@ public class MySQL {
 				user.setPassword(res.getString("Password"));
 				user.setType(res.getString("type"));
 				user.setPicture(res.getString("Picture"));
+				user.setIDcard(res.getString("IDcard"));
+				user.setEntryTime(res.getString("EntryTime"));
+				user.setPhone(res.getString("phone"));
 			}
 			stm.close();
 		} catch (SQLException e) {
@@ -134,9 +137,11 @@ public class MySQL {
 	public void insertUser(User user) {
 		try {
 			stm = con.createStatement();
-			String sql = "INSERT INTO user (username, password, sex, unit, email, userid, Picture, type) VALUES " +
-					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d,\"%s\",\"%s\");",
-							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), user.getEmail(),user.getUserid(), user.getPicture(),user.getType());
+			String sql = "INSERT INTO user (username, password, sex, unit, email, userid, Picture, type,EntryTime,IDcard,phone) VALUES " +
+					String.format("(\"%s\", \"%s\",\"%s\", '%s',\"%s\",%d,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");",
+							user.getUsername(), user.getPassword(), user.getSex(), user.getUnit(), 
+							user.getEmail(),user.getUserid(), user.getPicture(),user.getType()
+							,user.getEntryTime(),user.getIDcard(),user.getPhone());
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -425,13 +430,13 @@ public class MySQL {
 		try {
 			stm = con.createStatement();
 			String sql="";
-			if(type==0)
+			if(type==0) //查询本单位目前的借出申请
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and  lendunit='%s' limit %d,5",sta,unit,page*5);
-			else if(type==1)
-				sql = String.format("SELECT * FROM lendin limit %d,3",page);
-			else if (type==2)
+			else if(type==1) //查询所有未审批的借出申请
+				sql = String.format("SELECT * FROM lendin limit %d,5",page*5);
+			else if (type==2)//查询已借到的设备
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and unitlend='%s' limit %d,5",sta,unit,page*5);
-			else if (type==3)
+			else if (type==3)//查询所有已经转借的设备
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,5","转借",page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {

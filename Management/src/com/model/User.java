@@ -9,9 +9,30 @@ public class User {
 	private int userid;
 	private String Picture;
 	private String type;
+	private String EntryTime;
+	private String Phone;
+	private String IDcard;
 	
 	
+	public String getEntryTime() {
+		return EntryTime;
+	}
+	public void setEntryTime(String EntryTime) {
+		this.EntryTime=EntryTime;
+	}
 	
+	public String getIDcard() {
+		return IDcard;
+	}
+	public void setIDcard(String IDcard) {
+		this.IDcard=IDcard;
+	}
+	public String getPhone() {
+		return Phone;
+	}
+	public void setPhone(String Phone) {
+		this.Phone=Phone;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -73,7 +94,10 @@ public class User {
 			String unit,
 			String email,
 			String Picture,
-			String type) {
+			String type,
+			String EntryTime,
+			String IDcard,
+			String Phone) {
 		this.username= username;
 		this.userid=userid;
 		this.password = password;
@@ -82,5 +106,8 @@ public class User {
 		this.email = email;
 		this.Picture=Picture;
 		this.type=type;
+		this.EntryTime=EntryTime;
+		this.IDcard=IDcard;
+		this.Phone=Phone;
 	}
 }

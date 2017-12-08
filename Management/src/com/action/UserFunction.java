@@ -3,6 +3,9 @@ package com.action;
 import com.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sql.MySQL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UserFunction extends ActionSupport{
 	private String username;
@@ -16,7 +19,30 @@ public class UserFunction extends ActionSupport{
 	private String picture;
 	private String type;
 	private String photo;
+	private String EntryTime;
+	private String Phone;
+	private String IDcard;
 	
+	
+	public String getEntryTime() {
+		return EntryTime;
+	}
+	public void setEntryTime(String EntryTime) {
+		this.EntryTime=EntryTime;
+	}
+	
+	public String getIDcard() {
+		return IDcard;
+	}
+	public void setIDcard(String IDcard) {
+		this.IDcard=IDcard;
+	}
+	public String getPhone() {
+		return Phone;
+	}
+	public void setPhone(String Phone) {
+		this.Phone=Phone;
+	}
 	private int userid;
 
 	
@@ -103,7 +129,11 @@ public class UserFunction extends ActionSupport{
 		User user=new User();
 		type=sql.getType(type);
 		picture="22";
-		user.set(username,id,password1, sex, unit, email,picture,type);
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
+		Date date=new Date();
+		EntryTime=format.format(date);
+		user.set(username,id,password1, sex, unit, email,picture,type,EntryTime,IDcard,Phone);
 		sql.insertUser(user);
 		sql.close();
 		return "success";
@@ -116,19 +146,23 @@ public class UserFunction extends ActionSupport{
 		sql.close();;
 		if(user==null)
 			return "error";
+		else if(user.getType().equals("0")) 
+			return "success";
 		else if(user.getType().equals("1"))
 			return "admin";
-		else
-			return "success";
+		else if(user.getType().equals("2"))
+			return "SuperAdmin";
+		return "error";
 	}
 	
 	public String Home() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		sql.close();
-		if(user.getType().equals("1"))
+		
+		if(user.getType().equals("2") || user.getType().equals("1"))  //超级管理员
 			return "admin";
-		else if(user.getType().equals("0"))
+		else if(user.getType().equals("0")) //成员用户
 			return "success";
 		return "error";
 	}

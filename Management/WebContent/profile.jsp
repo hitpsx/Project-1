@@ -205,7 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Signin</a></li>
+                            <li><a href="login.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Signin</a></li>
                             <li><a href="registration.html" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Singup</a></li>
                         </ul>
                     </li>
@@ -261,10 +261,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td><s:property value="user.email"/></td>
 				</tr>
 				
+				<tr><td>Phone</td>  
+				<td> :</td>  
+				<td><s:property value="user.phone"/></td>
+				</tr>
+				
+				<tr><td>EntryTime</td>  
+				<td> :</td>  
+				<td><s:property value="user.EntryTime"/></td>
+				</tr>
+			
+				
 				<tr><td>Permission</td>  
 				<td> :</td>  
 				<td><s:property value="user.type"/></td>
 				</tr>
+				
+				
 				</table>
 			</div>
 			<div class="clearfix"></div>

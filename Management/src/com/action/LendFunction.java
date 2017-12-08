@@ -129,17 +129,27 @@ public class LendFunction extends ActionSupport{
 	public String HomeLend() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
+		//普通用户
 		if(user.getType().equals("0")) {
 			String unit=sql.userUnit(userid);
 			lend=sql.getlendins("借",unit,0,page);
 			sql.close();
 			return "success";
 		}
+		//部门管理员
 		else if(user.getType().equals("1"))
+		{
+			String unit=sql.userUnit(userid);
+			lend=sql.getlendins("借",unit,0,page);
+			sql.close();
+			return "admin";
+		}
+		//超级管理员
+		else if(user.getType().equals("2"))
 		{
 			lend=sql.getlendins("","",1,page);
 			sql.close();
-			return "admin";
+			return "SuperAdmin";
 		}
 		return "error";
 	}
@@ -147,13 +157,20 @@ public class LendFunction extends ActionSupport{
 	public String HomeLendin() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
+		System.out.println(user.getType());
 		if(user.getType().equals("0")) {
 			String unit=sql.userUnit(userid);
 			lend=sql.getlendins("借",unit,2,page);
 			sql.close();
 			return "success";
 		}
-		else if(user.getType().equals("1"))
+		else if(user.getType().equals("1")) {
+			String unit=sql.userUnit(userid);
+			lend=sql.getlendins("借",unit,2,page);
+			sql.close();
+			return "admin";
+		}
+		else if(user.getType().equals("2"))
 		{
 			lend=sql.getlendins("","",3,page);
 			sql.close();
