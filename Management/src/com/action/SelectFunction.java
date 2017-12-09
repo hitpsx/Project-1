@@ -83,13 +83,13 @@ public class SelectFunction {
 	public String  HomeSelect() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		if(user.getType().equals("0")) {
+		if(user.getType().equals("0") || user.getType().equals("1")) {
 			String unit=user.getUnit();
 			Cp=sql.selectEqu(page, unit, 0);
 			sql.close();
 			return "success";
 		}
-		else if(user.getType().equals("1")) {
+		else if(user.getType().equals("2")) {
 			Cp=sql.selectEqu(page,"",1);
 			sql.close();
 			return "admin";
@@ -99,13 +99,13 @@ public class SelectFunction {
 	public String CsSelect() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		if(user.getType().equals("0")) {
-			Cp=sql.selectCsAll(Aim,user.getUnit(),page,0);
+		if(user.getType().equals("0") || user.getType().equals("1")) {
+			Cp=sql.selectCsAll(Aim,user.getUnit(),0,page);
 			sql.close();
 			return "success";
 		}
-		else if(user.getType().equals("1")) {
-			Cp=sql.selectCsAll(Aim,user.getUnit(),page,0);
+		else if(user.getType().equals("2")) {
+			Cp=sql.selectCsAll(Aim,"",1,page);
 			sql.close();
 			return "success";
 		}

@@ -6,6 +6,8 @@ import com.sql.MySQL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
+
 
 public class UserFunction extends ActionSupport{
 	private String username;
@@ -22,8 +24,22 @@ public class UserFunction extends ActionSupport{
 	private String EntryTime;
 	private String Phone;
 	private String IDcard;
+	private Vector<User> Us;
+	private int deleteuser;
 	
 	
+	public int getDeleteuser() {
+		return deleteuser;
+	}
+	public void setDeleteuser(int deleteuser) {
+		this.deleteuser=deleteuser;
+	}
+	public Vector<User> getUs() {
+		return Us;
+	}
+	public void setUs(Vector<User> Us) {
+		this.Us=Us;
+	}
 	public String getEntryTime() {
 		return EntryTime;
 	}
@@ -171,6 +187,43 @@ public class UserFunction extends ActionSupport{
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		sql.close();
+		return "success";
+	}
+	public String UserManage() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		if(user.getType().equals("1"))
+		{
+			Us=sql.selectUser(user.getUnit(), 0);
+			sql.close();
+			return "success";
+		}
+		else if(user.getType().equals("2"))
+		{
+			Us=sql.selectUser("", 1);
+			sql.close();
+			return "success";
+		}
+		
+		return "error";
+	}
+	public String DeleteUser() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		User user2=sql.userInfor(deleteuser);
+		if(user2.getType().equals("0") && user.getType().equals("1"))
+		{
+	        sql.DeleteUser(user2.getUserid());
+	        Us=sql.selectUser(user.getUnit(), 0);
+	        return "success";
+		}
+		else if(user.getType().equals("2"))
+		{
+			sql.DeleteUser(user2.getUserid());
+			Us=sql.selectUser("", 1);
+	        return "success";
+		}
+		userid=user.getUserid();
 		return "success";
 	}
 }

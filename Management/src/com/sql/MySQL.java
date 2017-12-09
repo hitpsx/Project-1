@@ -133,7 +133,48 @@ public class MySQL {
 		}
 		return unit;
 	}
-	
+	public Vector<User> selectUser(String unit,int type) {
+		Vector<User> ret=new Vector<User>();
+		try {
+			stm = con.createStatement();						
+			String sql="";
+			if(type==0) //部门管理员
+				sql = String.format("select * from user where unit = '%s'",unit);
+			else if (type==1) //超级管理员
+				sql = String.format("select * from  user");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				
+				User user = new User();
+				user.setUsername(res.getString("Username"));
+				user.setUserid(res.getInt("Userid"));
+				user.setSex(res.getString("Sex"));
+				user.setUnit(res.getString("Unit"));
+				user.setEmail(res.getString("Email"));
+				user.setPassword(res.getString("Password"));
+				user.setType(res.getString("type"));
+				user.setPicture(res.getString("Picture"));
+				user.setIDcard(res.getString("IDcard"));
+				user.setEntryTime(res.getString("EntryTime"));
+				user.setPhone(res.getString("phone"));
+			
+				ret.add(user);
+			}
+			stm.close();
+		  }catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return ret;
+	}
+	public void DeleteUser(int userid) {
+		try {
+			stm = con.createStatement();						
+			String sql= String.format("delete from user where userid=%d",userid);
+			stm.executeUpdate(sql);
+		  }catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
 	public void insertUser(User user) {
 		try {
 			stm = con.createStatement();

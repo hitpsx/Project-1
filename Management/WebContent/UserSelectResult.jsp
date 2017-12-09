@@ -252,7 +252,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  	<div class="blank">
 		 	<form class="form" action="CsSelect" method="post">
 		                <div class="input-group input-group-in">
-		                    <input type="text" name="Aim" class="form-control2 input-search" placeholder="Search...">
+		                    <input type="text" name="Aim" class="form-control2" placeholder="Search...">
 		                    <input type="hidden" name=userid value=<s:property value="user.userid"/> />
 		                    <input type="hidden" name=page value=<s:property value="0"/> />
 		                    <span class="input-group-btn">

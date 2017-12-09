@@ -25,9 +25,20 @@
     	
         <action name="Profile" class="com.action.UserFunction" method="Profile">
             <result name="success">/profile.jsp</result>
-            <result name="error">/init.jsp</result>
+            <result name="error">/404.html</result>
     	</action>
     	
+    	<action name="UserManage" class="com.action.UserFunction" method="UserManage">
+    	 	<result name="success">/UserManage.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>  	
+
+    	<action name="DeleteUser" class="com.action.UserFunction" method="DeleteUser">
+    	 	<result name="success">/UserManage.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    		
         <!-- 用户借出管理 -->
         <action name="HomeLend" class="com.action.LendFunction" method="HomeLend">
             <result name="success">/UserLendResult.jsp</result>

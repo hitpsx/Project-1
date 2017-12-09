@@ -277,8 +277,8 @@
 							    <div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Applicatdate</label>
 									<div class="col-sm-8">
-										<input type="text"  class="form-control2"  id="datepicker"  name="ApplicationDate1">
-										<input type="text"  class="form-control2"  id="datepicker1"  name="ApplicationDate2">
+										<input type="text"  class="form-control3"  id="datepicker"  name="ApplicationDate1">
+										<input type="text"  class="form-control3"  id="datepicker1"  name="ApplicationDate2">
 									</div>
 								</div>
 								

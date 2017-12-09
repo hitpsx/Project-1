@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Invite Management</title>
+<title>User Management</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -234,30 +234,41 @@
 		    	<h2>
 				<a href="Home?userid=<s:property value="user.userid"/>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Invite Management</span>
+				<span>User Management</span>
 				</h2>
 		    </div>
 		<!--//banner-->
  	 <!--faq-->
  	<div class="blank">
 			<div class="blank-page">
-			<form class="form" action="Home" method="post">
+			<form class="form" action="" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
-				<label for="id_LendEqu">Total: </label><s:property value="total"/>
-				<label for="id_Lendnumber">Used:   </label><s:property value="used"/>
-				<label for="id_Applicant">Valid:   </label><s:property value="unused"/>
+
 				<table class="hovertable">
 					<tr>
-						<th>invita</th><th>sta</th>
+						<th>username</th><th>userid</th>
+						<th>email</th>
+						<th>unit</th><th>sex</th>
+						<th>IDcard</th><th>phone</th>
+						<th>EntryTime</th><th>Premisson</th>
+						<th>Manage</th>
 					</tr>
-					<s:iterator value="Se" var="Lend">
+					<s:iterator value="Us" var="people">
 					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-						<td><s:property value="#Lend"/></td>
-						<td>used</td>
+						<td><s:property value="#people.username"/></td>
+						<td><s:property value="#people.userid"/></td>
+						<td><s:property value="#people.email"/></td>
+						<td><s:property value="#people.unit"/></td>
+						<td><s:property value="#people.sex"/></td>
+						<td><s:property value="#people.IDcard"/>
+						<td><s:property value="#people.phone"/>
+						
+						<td><s:property value="#people.EntryTime"/></td>
+						<td><s:property value="#people.type"/></td>
+						<td><a href="DeleteUser?deleteuser=<s:property value="#people.userid"/>&userid=<s:property value="user.userid"/>">Delete</a></td>
 					</tr>
 					</s:iterator>
 				</table>
-			   <a href="AdminCreatInvite?userid=<s:property value="user.userid"/>">Creat new invite code</a>
 			</form>
 	        </div>
 	       </div>
