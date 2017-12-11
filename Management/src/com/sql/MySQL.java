@@ -225,16 +225,11 @@ public class MySQL {
 				Cp.setInventoryPosition(res.getString("InventoryPosition"));
 				Cp.setPresentPosition(res.getString("PresentPosition"));
 				Cp.setUnitPrice(res.getString("UnitPrice"));
-				Cp.setTotalPrice(res.getString("TotalPrice"));
-				Cp.setBatch(res.getString("Batch"));
 				
 				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
-				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
 				Cp.setHandler(res.getString("Handler"));
-				Cp.setLender(res.getString("Lender"));
 				Cp.setExtra(res.getString("extra"));
 				
-				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
 				ret.add(Cp);
 			}
 			stm.close();
@@ -282,16 +277,13 @@ public class MySQL {
 				Cp.setInventoryPosition(res.getString("InventoryPosition"));
 				Cp.setPresentPosition(res.getString("PresentPosition"));
 				Cp.setUnitPrice(res.getString("UnitPrice"));
-				Cp.setTotalPrice(res.getString("TotalPrice"));
-				Cp.setBatch(res.getString("Batch"));
 				
 				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
-				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
+
 				Cp.setHandler(res.getString("Handler"));
-				Cp.setLender(res.getString("Lender"));
+
 				Cp.setExtra(res.getString("extra"));
-				
-				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
+
 				ret.add(Cp);
 			}
 			stm.close();
@@ -308,14 +300,14 @@ public class MySQL {
 			String sql="";
 			if(type==0)
 				sql=String.format("SELECT * FROM cs where concat(EquNumber, EquName, EquQua, ModelSpe, EquDate, EquSta, EquClass, "
-						+ "EquUnit, EquPic, Manufacturer, Supplier, Specifications, OrderDate, Inspector, Quality,"
-						+ " MaintenanceDate, Maintainer, InventoryPosition, PresentPosition, UnitPrice, TotalPrice,"
-						+ " Batch, OrderQuantity, ArrivalQuantity, Handler, Lender, extra) like  \"%%%s%%\"and  EquUnit ='%s' limit %d,5",aim,unit,page*5);
+						+ "EquUnit, Manufacturer, Supplier, Specifications, OrderDate, Inspector, Quality,"
+						+ "  Maintainer, InventoryPosition, PresentPosition, UnitPrice,"
+						+ " OrderQuantity, Handler,extra) like  \"%%%s%%\"and  EquUnit ='%s' limit %d,5",aim,unit,page*5);
 			else if(type==1)
 				sql=String.format("SELECT * FROM cs where concat(EquNumber, EquName, EquQua, ModelSpe, EquDate, EquSta, EquClass, "
-						+ "EquUnit, EquPic, Manufacturer, Supplier, Specifications, OrderDate, Inspector, Quality,"
-						+ " MaintenanceDate, Maintainer, InventoryPosition, PresentPosition, UnitPrice, TotalPrice,"
-						+ " Batch, OrderQuantity, ArrivalQuantity, Handler, Lender, extra) like  \"%%%s%%\" limit %d,5",aim,page*5);
+						+ "EquUnit, Manufacturer, Supplier, Specifications, OrderDate, Inspector, Quality,"
+						+ " Maintainer, InventoryPosition, PresentPosition, UnitPrice,"
+						+ " OrderQuantity, Handler, extra) like  \"%%%s%%\" limit %d,5",aim,page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -341,16 +333,13 @@ public class MySQL {
 				Cp.setInventoryPosition(res.getString("InventoryPosition"));
 				Cp.setPresentPosition(res.getString("PresentPosition"));
 				Cp.setUnitPrice(res.getString("UnitPrice"));
-				Cp.setTotalPrice(res.getString("TotalPrice"));
-				Cp.setBatch(res.getString("Batch"));
-				
+
 				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
-				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
+
 				Cp.setHandler(res.getString("Handler"));
-				Cp.setLender(res.getString("Lender"));
+
 				Cp.setExtra(res.getString("extra"));
 				
-				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
 				ret.add(Cp);
 			}
 			stm.close();
@@ -391,16 +380,14 @@ public class MySQL {
 				Cp.setInventoryPosition(res.getString("InventoryPosition"));
 				Cp.setPresentPosition(res.getString("PresentPosition"));
 				Cp.setUnitPrice(res.getString("UnitPrice"));
-				Cp.setTotalPrice(res.getString("TotalPrice"));
-				Cp.setBatch(res.getString("Batch"));
 				
 				Cp.setOrderQuantity(res.getInt("OrderQuantity"));
-				Cp.setArrivalQuantity(res.getInt("ArrivalQuantity"));
+
 				Cp.setHandler(res.getString("Handler"));
-				Cp.setLender(res.getString("Lender"));
+
 				Cp.setExtra(res.getString("extra"));
 				
-				Cp.setMaintenanceDate(res.getDate("MaintenanceDate"));
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -601,11 +588,12 @@ public class MySQL {
 		return ret;
 	}
 	
-	public void UpdateCs(int EquNumber,String EquName,String EquQua,String ModelSpe, Date EquDate,String EquClass,String unit) {
+	public void UpdateCs(int EquNumber,String ModelSpe,Date EquDate,String Manufacturer,String Supplier,Date OrderDate,String Inspector,String InventoryPosition,String PresentPosition,String UnitPrice,String Handler) {
 		try {
 			stm = con.createStatement();
-			String sql = String.format("update cs set EquName='%s' , EquQua ='%s'  , ModelSpe='%s', EquDate='%s',EquClass ='%s'where EquNumber=%d and EquUnit ='%s' ",EquName,EquQua,ModelSpe,EquDate,EquClass,EquNumber,unit);
-			//res = stm.executeQuery(sql);
+			String sql = String.format("update cs set ModelSpe='%s',EquDate='%s',Manufacturer='%s',Supplier='%s',"
+					+ "OrderDate='%s',Inspector='%s',InventoryPosition='%s',PresentPosition='%s',"
+					+ "UnitPrice='%s',Handler='%s' where EquNumber=%d",ModelSpe,EquDate,Manufacturer,Supplier,OrderDate,Inspector,InventoryPosition,PresentPosition,UnitPrice,Handler,EquNumber);
 			stm.executeUpdate(sql);
 			stm.close();
 		} catch (SQLException e) {
@@ -629,7 +617,7 @@ public class MySQL {
 				Cp.setApplicant(res.getString("Applicant"));
 				Cp.setApplicationDate1(res.getString("ApplicationDate1"));
 				Cp.setApplicationDate2(res.getString("ApplicationDate2"));
-				Cp.setApprover(res.getString("Approver"));
+				Cp.setApprover(res.getString("Approver")); 
 				Cp.setApplication(res.getString("Application"));
 				Cp.setCountdown(res.getString("Countdown"));
 			}

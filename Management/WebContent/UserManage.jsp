@@ -22,27 +22,39 @@
 	table.hovertable {
 		font-family: verdana,arial,sans-serif;
 		font-size:11px;
-		color:#333333;
+		color:#ffffff;
 		border-width: 1px;
 		border-color: #999999;
 		border-collapse: collapse;
 	}
 	table.hovertable th {
-		background-color:#c3dde0;
+		background-color:#5182bb;
 		border-width: 1px;
 		padding: 8px;
 		border-style: solid;
-		border-color: #a9c6c9;
+		border-color: #5182bb;
+		font-size:11px;
+		color:#FFFFFF;
 	}
 	table.hovertable tr {
-		background-color:#d4e3e5;
+		background-color:#ffffff;
+		border-width:1px;
+		border-style:solid;
+		border-color:#5182bb;
+		font-size:11px;
+		color:#ffffff;
 	}
 	table.hovertable td {
-		border-width: 1px;
+		border-width: 0px;
 		padding: 8px;
 		border-style: solid;
-		border-color: #a9c6c9;
+		border-color: #5182bb;
+		color:#333333;
 }
+	.blank1{float:right; width:35%; height:23px}
+	.blank2{float:right; width:150px; height:23px}
+	.unread{float:right; width:75px; height:23px}
+	.readed{float:right; width:75px; height:23px}
 </style>
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
@@ -254,7 +266,7 @@
 						<th>Manage</th>
 					</tr>
 					<s:iterator value="Us" var="people">
-					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+						<tr onmouseover="this.style.backgroundColor='#fdf5e6';" onmouseout="this.style.backgroundColor='#ffffff';">
 						<td><s:property value="#people.username"/></td>
 						<td><s:property value="#people.userid"/></td>
 						<td><s:property value="#people.email"/></td>

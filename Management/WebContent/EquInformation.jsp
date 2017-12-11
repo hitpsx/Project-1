@@ -6,8 +6,6 @@
 <title>Select Result</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />-->
@@ -57,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Minimal</a></h1>       
+                <h1> <a class="navbar-brand" href="Home?userid=<s:property value="user.userid"/>">Home</a></h1>       
 			   </div>
 			 <div class=" border-bottom">
 			  <div class="full-left">
@@ -321,12 +319,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>:</td>
 				<td><s:property value="#cs.Quality"/></td>
 				</tr>															
-																		
-				<tr>
-				<td>MaintenanceDate</td>
-				<td>:</td>
-				<td><s:property value="#cs.MaintenanceDate"/></td>
-				</tr>														
+																																
 																								
 				<tr>
 				<td>Maintainer</td>
@@ -351,18 +344,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<td>:</td>
 				<td><s:property value="#cs.UnitPrice"/></td>
 				</tr>														
-																		
-				<tr>
-				<td>TotalPrice</td>
-				<td>:</td>
-				<td><s:property value="#cs.TotalPrice"/></td>		
-				</tr>																
 				
 				<tr>
-				<td>Batch</td>
+				<td>Handler</td>
 				<td>:</td>
-				<td><s:property value="#cs.Batch"/></td>	
-				</tr>																			
+				<td><s:property value="#cs.Handler"/></td>
+				</tr>																											
 																	
 				</table>
 		</s:iterator>

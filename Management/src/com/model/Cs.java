@@ -19,17 +19,12 @@ public class Cs {
     private Date OrderDate;
     private String Inspector;
     private String Quality;
-    private Date MaintenanceDate;
     private String Maintainer;
     private String InventoryPosition;
     private String PresentPosition;
     private String UnitPrice;
-    private String TotalPrice;
-    private String Batch;
     private int OrderQuantity;
-    private int ArrivalQuantity;
     private String Handler;
-    private String Lender;
     private String extra;
 
     public String getExtra() {
@@ -152,13 +147,7 @@ public class Cs {
         this.Quality = Quality;
     }
 
-    public Date getMaintenanceDate() {
-        return MaintenanceDate;
-    }
 
-    public void setMaintenanceDate(Date MaintenanceDate) {
-        this.MaintenanceDate = MaintenanceDate;
-    }
 
     public String getMaintainer() {
         return Maintainer;
@@ -191,21 +180,7 @@ public class Cs {
     public void setUnitPrice(String UnitPrice) {
         this.UnitPrice = UnitPrice;
     }
-    public String getTotalPrice() {
-        return TotalPrice;
-    }
 
-    public void setTotalPrice(String TotalPrice) {
-        this.TotalPrice = TotalPrice;
-    }
-
-    public String getBatch() {
-        return Batch;
-    }
-
-    public void setBatch(String Batch) {
-        this.Batch = Batch;
-    }
 
     public int getOrderQuantity() {
         return OrderQuantity;
@@ -215,13 +190,7 @@ public class Cs {
         this.OrderQuantity = OrderQuantity;
     }
 
-    public int getArrivalQuantity() {
-        return ArrivalQuantity;
-    }
 
-    public void setArrivalQuantity(int ArrivalQuantity) {
-        this.ArrivalQuantity = ArrivalQuantity;
-    }
 
     public String getHandler() {
         return Handler;
@@ -231,13 +200,7 @@ public class Cs {
         this.Handler = Handler;
     }
 
-    public String getLender() {
-        return Lender;
-    }
 
-    public void setLender(String Lender) {
-        this.Lender = Lender;
-    }
 
     public void set(int EquNumber, String EquName, String EquQua,
         String ModelSpe, Date EquDate, String EquSta, String EquClass,
@@ -261,16 +224,11 @@ public class Cs {
         this.OrderDate = OrderDate;
         this.Inspector = Inspector;
         this.Quality = Quality;
-        this.MaintenanceDate = MaintenanceDate;
         this.Maintainer = Maintainer;
         this.InventoryPosition = InventoryPosition;
         this.PresentPosition = PresentPosition;
         this.UnitPrice = UnitPrice;
-        this.TotalPrice = TotalPrice;
-        this.Batch = Batch;
         this.OrderQuantity = OrderQuantity;
-        this.ArrivalQuantity = ArrivalQuantity;
         this.Handler = Handler;
-        this.Lender = Lender;
     }
 }

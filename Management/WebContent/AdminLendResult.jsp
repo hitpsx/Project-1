@@ -23,27 +23,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	table.hovertable {
 		font-family: verdana,arial,sans-serif;
 		font-size:11px;
-		color:#333333;
+		color:#ffffff;
 		border-width: 1px;
 		border-color: #999999;
 		border-collapse: collapse;
 	}
 	table.hovertable th {
-		background-color:#c3dde0;
+		background-color:#5182bb;
 		border-width: 1px;
 		padding: 8px;
 		border-style: solid;
-		border-color: #a9c6c9;
+		border-color: #5182bb;
+		font-size:11px;
+		color:#FFFFFF;
 	}
 	table.hovertable tr {
-		background-color:#d4e3e5;
+		background-color:#ffffff;
+		border-width:1px;
+		border-style:solid;
+		border-color:#5182bb;
+		font-size:11px;
+		color:#ffffff;
 	}
 	table.hovertable td {
-		border-width: 1px;
+		border-width: 0px;
 		padding: 8px;
 		border-style: solid;
-		border-color: #a9c6c9;
+		border-color: #5182bb;
+		color:#333333;
 }
+	.blank1{float:right; width:35%; height:23px}
+	.blank2{float:right; width:150px; height:23px}
+	.unread{float:right; width:75px; height:23px}
+	.readed{float:right; width:75px; height:23px}
 </style>
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
@@ -254,8 +266,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="blank-page">
 			<form class="form" action="" method="post">
-				<a href="AdminRead?userid=<s:property value="user.userid"/>&type=11">Unread</a>
-			    <a href="AdminRead?userid=<s:property value="user.userid"/>&type=10">Readed</a>
+				<div class="blank1"></div>
+				<div class="readed"><a href="AdminRead?userid=<s:property value="user.userid"/>&type=10"><b>Readed</b></a></div>
+				<div class="blank2" ></div>
+				<div class="unread"><a href="AdminRead?userid=<s:property value="user.userid"/>&type=11"><b>Unread</b></a></div>
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				 <table class="hovertable">
 					<tr>
@@ -268,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>Manage</th>
 					</tr>
 					<s:iterator value="lend" var="Lend">
-					<tr onmouseover="this.style.backgroundColor='#F0F8FF';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+					<tr onmouseover="this.style.backgroundColor='#fdf5e6';" onmouseout="this.style.backgroundColor='#ffffff';">
 						<td><s:property value="#Lend.LendNumber"/></td>
 						<td><s:property value="#Lend.maintext"/></td>
 						<td><a href="EquInformation?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.LendNumber"/>"><s:property value="#Lend.EquName"/></a></td>
@@ -279,7 +293,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Lend.ApplicationDate2"/></td>
 						<td><s:property value="#Lend.Sta"/></td>
 						<td><s:property value="#Lend.Countdown"/></td>
-					    <td><a href="view?userid=<s:property value="user.userid"/>&EquNumber=<s:property value="#Lend.LendNumber"/>&type=1">View</a>
+					    <td><s:a href="view?userid=%{user.userid}&EquNumber=%{#Lend.LendNumber}&type=%{1}">View</s:a></td>
 
 					</tr>
 					</s:iterator>

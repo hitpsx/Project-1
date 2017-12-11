@@ -38,10 +38,6 @@ public class Admin {
 	public void setLe(Lendin Le) {
 		this.Le=Le;
 	}
-	public int gettype() {
-		return type;
-	}
-	
 	public Retirement getRet() {
 		return Ret;
 	}

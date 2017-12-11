@@ -238,10 +238,10 @@
                         <a href="HomeRetire?userid=<s:property value="user.userid"/>&page=0"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Retirement</span></a>
                     </li>
                     
-                    <!-- <li>
+                     <li>
                         <a href="graph?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>Graphs</a>
                     </li>
-                     -->
+                    
                      
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>

@@ -226,4 +226,10 @@ public class UserFunction extends ActionSupport{
 		userid=user.getUserid();
 		return "success";
 	}
+	
+	public String graph() {
+		MySQL sql=new MySQL();
+		user=sql.userInfor(userid);
+		return "success";
+	}
 }
