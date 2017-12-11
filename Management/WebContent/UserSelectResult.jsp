@@ -306,7 +306,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>UnitPrice</th>
 						
 						<th>Handle</th>
-						
+						<th>extra</th>
 					</tr>
 					<s:iterator value="Cp" var="Lend">
 						<tr onmouseover="this.style.backgroundColor='#fdf5e6';" onmouseout="this.style.backgroundColor='#ffffff';">
@@ -342,6 +342,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><s:property value="#Lend.UnitPrice"/></td>
 						
 						<td><s:property value="#Lend.Handler"/></td>
+						<td><s:property value="#Lend.extra"/></td>
 					</tr>
 					</s:iterator>
 

@@ -194,13 +194,13 @@ public class UserFunction extends ActionSupport{
 		user=sql.userInfor(userid);
 		if(user.getType().equals("1"))
 		{
-			Us=sql.selectUser(user.getUnit(), 0);
+			Us=sql.selectUser(user.getUnit(),0);
 			sql.close();
 			return "success";
 		}
 		else if(user.getType().equals("2"))
 		{
-			Us=sql.selectUser("", 1);
+			Us=sql.selectUser("",1);
 			sql.close();
 			return "success";
 		}

@@ -156,16 +156,58 @@ public class Admin {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		
-		if(type<10) {
-			Re=sql.selectRetirAdmin(type,page);
-			sql.close();
-			return "success";
+		if(type==0) {
+			if(user.getType().equals("1") || user.getType().equals("0")) {
+				Re=sql.selectRetirAdmin(2,page,user.getUnit());
+				sql.close();
+				return "success";
+			}
+			else if(user.getType().equals("2")){
+				Re=sql.selectRetirAdmin(0,page,"");
+				sql.close();
+				return "success";
+			}
 		}
-		else {
-			lend=sql.SelectAdminLend(type-10,page);
-			sql.close();
-			return "lend";
+		else if(type==1)
+		{
+			if(user.getType().equals("1") || user.getType().equals("0")) {
+				Re=sql.selectRetirAdmin(3,page,user.getUnit());
+				sql.close();
+				return "success";
+			}
+			else if(user.getType().equals("2")){
+				Re=sql.selectRetirAdmin(1,page,"");
+				sql.close();
+				return "success";
+			}
 		}
+		else if(type==10){
+			if(user.getType().equals("1") || user.getType().equals("0")) {
+				lend=sql.SelectAdminLend(2,page,user.getUnit());
+				sql.close();
+				return "lend";
+			}
+			else if(user.getType().equals("2")) {
+				lend=sql.SelectAdminLend(0,page,"");
+				sql.close();
+				return "lend";
+			}
+		}
+		else if (type==11) {
+			if(user.getType().equals("1") || user.getType().equals("0")) {
+				lend=sql.SelectAdminLend(3,page,user.getUnit());
+				sql.close();
+				return "lend";
+			}
+			else if(user.getType().equals("2")) {
+				lend=sql.SelectAdminLend(1,page,"");
+				sql.close();
+				return "lend";
+			}
+		}
+		else
+			return "error";
+		return "error";
 	}
 	public String Agree() {
 		MySQL sql=new MySQL();
@@ -175,7 +217,10 @@ public class Admin {
 		a=df.format(new Date());
 		sql.AgreeRetire("审批通过,已报废",EquNumber,a,user.getUsername());
 		sql.updateCsSta("审批通过,已报废", EquNumber);
-		Re=sql.selectRetirAdmin(0,page);
+		if(user.getType().equals("1"))
+			Re=sql.selectRetirAdmin(2,page,user.getUnit());
+		else
+			Re=sql.selectRetirAdmin(0, page, "");
 		sql.close();
 		return "success";
 	}
@@ -186,7 +231,10 @@ public class Admin {
 		sql.updateCsSta("空闲",EquNumber);
 		sql.updateLend1("审批通过,已转借",EquNumber,UnitLend);
 		sql.UpdateLend2("审批通过,已转借",EquNumber, user.getUsername());
-		lend=sql.SelectAdminLend(0,page);
+		if(user.getType().equals("1"))
+			lend=sql.SelectAdminLend(2,page,user.getUnit());
+		else
+			lend=sql.SelectAdminLend(0, page, "");
 		sql.close();
 		return "success";
 
@@ -195,7 +243,10 @@ public class Admin {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		sql.UpdateLend2("审批通过,已转借",EquNumber, user.getUsername());
-		lend=sql.SelectAdminLend(1,page);
+		if(user.getType().equals("1"))
+			lend=sql.SelectAdminLend(3,page,user.getUnit());
+		else
+			lend=sql.SelectAdminLend(1, page, "");
 		sql.close();
 		return "success";
 	}
@@ -204,7 +255,10 @@ public class Admin {
 		user=sql.userInfor(userid);
 		sql.AgreeRetire("审批未通过",EquNumber,"",user.getUsername());
 		sql.updateCsSta("审批未通过", EquNumber);
-		Re=sql.selectRetirAdmin(0,page);
+		if(user.getType().equals("1"))
+			Re=sql.selectRetirAdmin(2,page,user.getUnit());
+		else
+			Re=sql.selectRetirAdmin(0, page, "");
 		sql.close();
 		return "success";
 	}

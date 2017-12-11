@@ -139,7 +139,7 @@ public class MySQL {
 			stm = con.createStatement();						
 			String sql="";
 			if(type==0) //部门管理员
-				sql = String.format("select * from user where unit = '%s'",unit);
+				sql = String.format("select * from user where unit = '%s' and type ='0'",unit);
 			else if (type==1) //超级管理员
 				sql = String.format("select * from  user");
 			res = stm.executeQuery(sql);
@@ -519,7 +519,7 @@ public class MySQL {
 		return reh;
 	}
 	
-	public Vector<Retirement> selectRetirAdmin(int type,int page) {
+	public Vector<Retirement> selectRetirAdmin(int type,int page,String unit) {
 		Vector<Retirement> reh=new Vector<Retirement>();
 		try {
 			stm = con.createStatement();
@@ -528,6 +528,10 @@ public class MySQL {
 				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,5","审批",page*5);
 			else if(type==1)
 				sql = String.format("SELECT * FROM retire where EquSta like \"%%%s%%\" limit %d,5","待",page*5);
+			else if(type==2)
+				sql = String.format("SELECT * FROM retire where EquUnit = '%s' and EquSta like \"%%%s%%\" limit %d,5",unit,"审批",page*5);
+			else if(type==3)
+				sql = String.format("SELECT * FROM retire where EquUnit = '%s' and EquSta like \"%%%s%%\" limit %d,5",unit,"待",page*5);
 			else
 				sql = String.format("SELECT * FROM retire limit %d,3",page*3);
 			res = stm.executeQuery(sql);
@@ -556,7 +560,7 @@ public class MySQL {
 		return reh;
 	}
 	
-	public Vector<Lendin> SelectAdminLend(int type,int page) {
+	public Vector<Lendin> SelectAdminLend(int type,int page,String unit) {
 		Vector<Lendin> ret=new Vector<Lendin>();
 		try {
 			stm = con.createStatement();
@@ -565,6 +569,10 @@ public class MySQL {
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,5","转借",page*5);
 			else if(type==1)
 				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" limit %d,5","待",page*5);
+			else if(type==2)
+				sql = String.format("SELECT * FROM lendin where  Lendunit = '%s' and Sta like \"%%%s%%\" limit %d,5",unit,"转借",page*5);
+			else if(type==3)
+				sql = String.format("SELECT * FROM lendin where  Lendunit = '%s' and Sta like \"%%%s%%\" limit %d,5",unit,"待",page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Lendin Cp=new Lendin();

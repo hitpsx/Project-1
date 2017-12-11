@@ -112,7 +112,7 @@ public class UserRetireFunction extends ActionSupport{
 		}
 		else if(user.getType().equals("2"))
 		{
-			Re=sql.selectRetirAdmin(3,page);
+			Re=sql.selectRetirAdmin(4,page,"");
 			sql.close();
 			return "admin";
 		}
