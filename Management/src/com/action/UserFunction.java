@@ -168,6 +168,8 @@ public class UserFunction extends ActionSupport{
 			return "admin";
 		else if(user.getType().equals("2"))
 			return "SuperAdmin";
+		else if(user.getType().equals("3"))
+			return "Repair";
 		return "error";
 	}
 	
@@ -180,6 +182,8 @@ public class UserFunction extends ActionSupport{
 			return "admin";
 		else if(user.getType().equals("0")) //成员用户
 			return "success";
+		else if(user.getType().equals("3"))
+			return "Repair";
 		return "error";
 	}
 	

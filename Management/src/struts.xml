@@ -9,6 +9,7 @@
             <result name="success">/Home.jsp</result>
             <result name="admin">/HomeAdmin.jsp</result>
             <result name="SuperAdmin">/HomeAdmin.jsp</result>
+            <result name="Repair">/HomeRepair.jsp</result>
             <result name="error">/LoginError.html</result>
         </action>
         
@@ -180,7 +181,34 @@
             <result name="error">/404.html</result>
     	</action>
     	
+    	<!-- 用户报修 -->
+    	<action name="HomeRepair" class="com.action.UserRepair" method="HomeRepair">
+            <result name="success">/UserRepairResult.jsp</result>
+            <result name="admin">/AdminRepairResult.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	<action name="RepairButton" class="com.action.UserRepair" method="RepairButton">
+            <result name="success">/UserRepairApplication.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
     	
+    	<action name="RepairManage" class="com.action.UserRepair" method="RepairManage">
+            <result name="success">/Home.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="Solve" class="com.action.UserRepair" method="Solve">
+           <result name="success">/AdminRepairResult.jsp</result>
+           <result name="error">/404.html</result>
+    	</action>
+    	<action name="SolveOver" class="com.action.UserRepair" method="SolveOver">
+             <result name="success">/AdminRepairOver.jsp</result>
+             <result name="error">/404.html</result>
+    	</action>
+    	<action name="SolveDelete" class="com.action.UserRepair" method="SolveDelete">
+             <result name="success">/AdminRepairOver.jsp</result>
+             <result name="error">/404.html</result>
+    	</action>
     </package>
 </struts>
 

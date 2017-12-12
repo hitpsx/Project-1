@@ -182,7 +182,6 @@ public class LendFunction extends ActionSupport{
 	public String LendButton() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		String unit=sql.userUnit(userid);
 		Cp=sql.selectEquNumber(EquNumber);
 		sql.close();
 		return "success";

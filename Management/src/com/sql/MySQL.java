@@ -190,7 +190,21 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void InserRepair(Repair Re) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO repair (EquNumber, EquUnit, Application, applicant, Applicantdate, phone, location, EquClass, Sta, conductor, EquName,OverDate,title) VALUES " +
+					String.format("(%d, \"%s\",\"%s\", \"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\");",
+							   Re.getEquNumber(),Re.getEquUnit(),Re.getApplication(),Re.getApplicant(),Re.getApplicationDate(),Re.getPhone()
+							   ,Re.getLocation(),Re.getEquClass(),Re.getSta(),Re.getConductor(),Re.getEquName(),Re.getOverDate(),Re.getTitle());
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public Vector<Cs> selectEqu(int page,String unit,int type) {
 		Vector<Cs> ret=new Vector<Cs>();
 		try {
@@ -749,6 +763,59 @@ public class MySQL {
 			stm.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public Vector<Repair> selectRepair(int type) {
+		Vector<Repair>  reh=new Vector<Repair> ();
+		try {
+			stm = con.createStatement();
+		    String sql="";
+		    if(type==0)
+		    	sql = String.format("SELECT * FROM repair where Sta like \"%%%s%%\"","待");
+		    else if(type==1)
+		    	sql = String.format("SELECT * FROM repair where Sta like \"%%%s%%\"","已解决");
+			res = stm.executeQuery(sql);
+			while(res.next()) {
+				Repair Re=new Repair();
+				
+				Re.setTitle(res.getString("title"));
+				Re.setEquName(res.getString("EquName"));
+				Re.setEquNumber(res.getInt("EquNumber"));
+				Re.setApplicant(res.getString("Applicant"));
+				Re.setApplication(res.getString("Application"));
+				Re.setApplicationDate(res.getString("Applicantdate"));
+				Re.setLocation(res.getString("location"));
+				Re.setPhone(res.getString("phone"));
+				Re.setOverDate(res.getString("OverDate"));
+				Re.setEquUnit(res.getString("EquUnit"));
+				Re.setConductor(res.getString("conductor"));                       
+				Re.setEquClass(res.getString("EquClass"));
+				Re.setSta(res.getString("Sta"));
+				Re.setOverDate(res.getString("OverDate"));
+				reh.add(Re);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reh;
+	}
+	public void UpdateRepair(int EquNumber,String name,String data) {
+		try {
+			stm=con.createStatement();
+			String sql=String.format("update repair set Sta='%s',OverDate='%s',conductor='%s'where EquNumber=%d","已解决",data,name,EquNumber);
+			stm.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void DeleteRepair(int EquNumber) {
+		try {
+			stm=con.createStatement();
+			String sql=String.format("delete from repair where EquNumber=%d",EquNumber);
+			stm.executeUpdate(sql);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
