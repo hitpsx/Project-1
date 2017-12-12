@@ -30,7 +30,7 @@ public class Admin {
 	
 	private Retirement Ret;
 	private Lendin Le;
-	
+
 	
 	public Lendin getLe () {
 		return Le;
@@ -148,8 +148,9 @@ public class Admin {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		Se=sql.invitecode();
-		used=sql.invitenumber(0);
-		unused=sql.invitenumber(1);
+		unused=sql.invitenumber(0);
+		used=sql.invitenumber(1);
+		total=unused+used;
 		return "success";
 	}
 	public String AdminRead() {

@@ -18,6 +18,7 @@
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
 <script src="js/custom.js"></script>
+
 <script src="js/screenfull.js"></script>
 		<script>
 		$(function () {
@@ -391,10 +392,10 @@
 						<div class="weather-top-left">
 							<div class="degree">
 							<figure class="icons">
-								<canvas id="snow" width="64" height="64">
+								<canvas id="partly-cloudy-day" width="64" height="64">
 								</canvas>
 							</figure>
-							<span>37°</span>
+							<span>-17°</span>
 							<div class="clearfix"></div>
 							</div>
 				       <script>
@@ -411,10 +412,10 @@
 
 							  icons.play();
 						</script>
-							<p>FRIDAY
+							<p>Wednesday
 								<label>13</label>
 								<sup>th</sup>
-								AUG
+							     Dec
 							</p>
 						</div>
 						<div class="weather-top-right">
@@ -443,10 +444,10 @@
 
 							  icons.play();
 						</script>
-				<h6>20°</h6>
+				<h6>-14°</h6>
 				<div class="bottom-head">
-					<p>August 16</p>
-					<p>Monday</p>
+					<p>December 14</p>
+					<p>Thursday</p>
 				</div>
 			</div>
 			</div>
@@ -471,46 +472,17 @@
 
 							  icons.play();
 						</script>
-			<h6>37°</h6>
+			<h6>-17°</h6>
 			<div class="bottom-head">
-					<p>August 17</p>
-					<p>Tuesday</p>
+					<p>December 15</p>
+					<p>Friday</p>
 				</div>
 			</div>
 			</div>
 			<div class="weather-bottom1">
 				<div class="weather-head">
-				<h4>Rainy</h4>
+				<h4>Cloudy</h4>
 				<figure class="icons">
-					<canvas id="sleet" width="58" height="58">
-					</canvas>
-				</figure>
-				<script>
-							 var icons = new Skycons({"color": "#999"}),
-								  list  = [
-									"clear-night", "clear-day",
-									"partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-									"fog"
-								  ],
-								  i;
-
-							  for(i = list.length; i--; )
-								icons.set(list[i], list[i]);
-
-							  icons.play();
-						</script>
-		
-				<h6>7°</h6>
-				<div class="bottom-head">
-					<p>August 18</p>
-					<p>Wednesday</p>
-				</div>
-			</div>
-			</div>
-			<div class="weather-bottom1 ">
-				<div class="weather-head">
-			<h4>Snowy</h4>
-			<figure class="icons">
 					<canvas id="snow" width="58" height="58">
 					</canvas>
 				</figure>
@@ -528,10 +500,39 @@
 
 							  icons.play();
 						</script>
-			<h6>-10°</h6>
+		
+				<h6>-20°</h6>
+				<div class="bottom-head">
+					<p>December 16</p>
+					<p>Saturday</p>
+				</div>
+			</div>
+			</div>
+			<div class="weather-bottom1 ">
+				<div class="weather-head">
+			<h4>Snowy</h4>
+			<figure class="icons">
+					<canvas id="wind" width="58" height="58">
+					</canvas>
+				</figure>
+				<script>
+							 var icons = new Skycons({"color": "#999"}),
+								  list  = [
+									"clear-night", "clear-day",
+									"partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+									"fog"
+								  ],
+								  i;
+
+							  for(i = list.length; i--; )
+								icons.set(list[i], list[i]);
+
+							  icons.play();
+						</script>
+			<h6>-15°</h6>
 			<div class="bottom-head">
-					<p>August 16</p>
-					<p>Thursday</p>
+					<p>December 17</p>
+					<p>Sunday</p>
 				</div>
 				</div>
 			</div>

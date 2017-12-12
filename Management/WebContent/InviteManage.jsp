@@ -256,8 +256,8 @@
 			<form class="form" action="Home" method="post">
 				<input type="hidden" name=userid value=<s:property value="user.userid"/> />
 				<label for="id_LendEqu">Total: </label><s:property value="total"/>
-				<label for="id_Lendnumber">Used:   </label><s:property value="used"/>
-				<label for="id_Applicant">Valid:   </label><s:property value="unused"/>
+				<label for="id_Lendnumber">Effective:   </label><s:property value="unused"/>
+				<label for="id_Applicant">Invalid:   </label><s:property value="used"/>
 				<table class="hovertable">
 					<tr>
 						<th>invita</th><th>sta</th>

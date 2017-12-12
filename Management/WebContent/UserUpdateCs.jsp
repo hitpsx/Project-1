@@ -327,9 +327,9 @@
 								 
 								<div class="row">
 									<div class="col-sm-8 col-sm-offset-2">
-									    <button class="btn-primary btn">Ok</button>
+									    <button class="btn-primary btn">Change</button>
 										<!-- <s:a href="CsUpdate?userid==%{user.id}&EquNumber=%{EquNumber}"><input type="button" value="OK" class="btn-primary btn"></s:a>-->
-										<s:a href="Home?userid=%{user.id}"><input type="button" value="Cancel" class="btn-default btn"></s:a>
+										<s:a href="Home?userid=%{user.id}"><input type="button" value="Ok" class="btn-default btn"></s:a>
 										<s:a href="CsUpdate?userid==%{user.id}&EquNumber=%{EquNumber}"><input type="button" value="reset" class="btn-inverse btn"></s:a>
 										
 									</div>

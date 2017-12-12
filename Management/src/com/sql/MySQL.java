@@ -11,9 +11,9 @@ public class MySQL {
 	private final String user = "root";
 	private final String password = "woaini123";
 	
-	/*private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_equfour";
-	private final String user = "x0z1w1nymo";
-	private final String password = "kmyl430khwjw5lwk53wlykj3i0iiw051zyz34m25";
+	/*private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
+	private final String user = "mxllm0zj55";
+	private final String password = "z3im552ylhzxxkix3khyxiw5i125wlzk512ij4lm";
 	*/
 	private Connection con = null;
 	private Statement stm = null;
