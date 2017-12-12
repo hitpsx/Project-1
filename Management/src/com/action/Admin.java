@@ -243,7 +243,8 @@ public class Admin {
 	public String DisAgreeLend() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		sql.UpdateLend2("审批通过,已转借",EquNumber, user.getUsername());
+		sql.UpdateLend2("审批未通过",EquNumber, user.getUsername());
+		sql.updateCsSta("空闲", EquNumber);
 		if(user.getType().equals("1"))
 			lend=sql.SelectAdminLend(3,page,user.getUnit());
 		else

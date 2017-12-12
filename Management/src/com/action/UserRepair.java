@@ -148,9 +148,13 @@ public class UserRepair {
 	public String HomeRepair() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		Rp=sql.selectRepair(0);
+		
 		if(user.getType().equals("3"))
+		{
+			Rp=sql.selectRepair(2,"");
 			return "admin";
+		}
+		Rp=sql.selectRepair(0,user.getUnit());
 		return "success";
 	}
 	public String RepairButton() {
@@ -173,8 +177,9 @@ public class UserRepair {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
 		userid=user.getUserid();
+		sql.updateCsSta("“—Œ¨–ﬁ", EquNumber);
 		sql.UpdateRepair(EquNumber, user.getUsername(), OverDate);
-		Rp=sql.selectRepair(0);
+		Rp=sql.selectRepair(2,"");
 		return "success";
 	}
 	public String SolveOver() {
@@ -182,14 +187,15 @@ public class UserRepair {
 		user=sql.userInfor(userid);
 		userid=user.getUserid();
 		sql.updateCsSta("ø’œ–", EquNumber);
-		Rp=sql.selectRepair(1);
+		Rp=sql.selectRepair(1,"");
 		return "success";
 	}
 	public String SolveDelete() {
-		MySQL sql=new MySQL();
+		MySQL sql=new MySQL();		
 		user=sql.userInfor(userid);
+		sql.updateCsSta("ø’œ–", EquNumber);
 		sql.DeleteRepair(EquNumber);
-		Rp=sql.selectRepair(1);
+		Rp=sql.selectRepair(1,"");
 		return "success";
 	}
 }

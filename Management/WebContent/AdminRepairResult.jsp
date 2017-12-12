@@ -147,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
  						<a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">EquManage</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="HomeRepair?userid=<s:property value="user.username"/>" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Manage</a></li>
+                            <li><a href="HomeRepair?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>Manage</a></li>
                             <li><a href="SolveOver?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i>solved</a></li>
                         </ul>                    </li> 
                                                                                                                

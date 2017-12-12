@@ -214,7 +214,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                     <li>
-                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">EquManage</span></s:a>
+                    	<a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Management</span><span class="fa arrow"></span></a>
+                    	 <ul class="nav nav-second-level">
+                            <li><s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Find</span></s:a></li>
+                            <li><a href="HomeRepair?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Repair</a></li>
+                        </ul>
                     </li> 
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
@@ -270,8 +274,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>Unit</th><th>Class</th>
 						<th>Applicant</th><th>ApplicationDate</th>
 						<th>location</th><th>Sta</th>
-						<th>phone</th><th>
-						<th>conductor</th><th>OverDate</th>
+						<th>phone</th><th>conductor</th><th>OverDate</th>
 					</tr>
 					<s:iterator value="Rp" var="Lend">
 					<tr onmouseover="this.style.backgroundColor='#fdf5e6';" onmouseout="this.style.backgroundColor='#ffffff';">

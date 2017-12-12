@@ -137,14 +137,13 @@ public class SelectFunction {
 	public String ComputerHome() {
 		MySQL sql=new MySQL();
 		user=sql.userInfor(userid);
-		System.out.print(Aim);
 		if(user.getType().equals("0")) {
 			String unit=sql.userUnit(userid);
 			Cp=sql.selectyear(year, unit,EquClass,0,page);
 			sql.close();
 			return "success";
 		}
-		else if(user.getType().equals("1")){
+		else if(user.getType().equals("1") || user.getType().equals("2")){
 			Cp=sql.selectyear(year,"",EquClass,1,page);
 			sql.close();
 			return "success";

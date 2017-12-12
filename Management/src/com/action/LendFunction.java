@@ -132,7 +132,7 @@ public class LendFunction extends ActionSupport{
 		//∆’Õ®”√ªß
 		if(user.getType().equals("0")) {
 			String unit=sql.userUnit(userid);
-			lend=sql.getlendins("ΩË",unit,0,page);
+			lend=sql.getlendins("",unit,0,page);
 			sql.close();
 			return "success";
 		}
@@ -140,7 +140,7 @@ public class LendFunction extends ActionSupport{
 		else if(user.getType().equals("1"))
 		{
 			String unit=sql.userUnit(userid);
-			lend=sql.getlendins("ΩË",unit,0,page);
+			lend=sql.getlendins("",unit,0,page);
 			sql.close();
 			return "admin";
 		}

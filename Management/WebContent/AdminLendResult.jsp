@@ -56,6 +56,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	.blank2{float:right; width:150px; height:23px}
 	.unread{float:right; width:75px; height:23px}
 	.readed{float:right; width:75px; height:23px}
+	.pagination_1 {display: inline-block;padding-left: 18%;margin: 20px 0;border-radius: 4px;}
+	.pagination_1>li {display: inline;}
+	.pagination_1>li {display: inline;}
+	* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+	* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+	li {display: list-item;text-align: -webkit-match-parent;}
+	.pagination_1>li>a, .pagination_1>li>span {
+    position: relative;float: left;padding: 6px 12px;margin-left: -1px;line-height: 1.42857143;
+    color: #337ab7;text-decoration: none;background-color: #fff;border: 1px solid #ddd;}
+	
 </style>
 <!-- Custom and plugin javascript -->
 <link href="css/custom.css" rel="stylesheet">
@@ -218,7 +228,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     
                     <li>
-                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">EquManage</span></s:a>
+                    	<a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Management</span><span class="fa arrow"></span></a>
+                    	 <ul class="nav nav-second-level">
+                            <li><s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Find</span></s:a></li>
+                            <li><a href="HomeRepair?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Repair</a></li>
+                        </ul>
                     </li> 
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
@@ -299,7 +313,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</s:iterator>
 					</table>
 			</form>
-			<ul class="pagination">
+			<ul class="pagination_1">
 			    <li><a href="HomeLend?userid=<s:property value="user.userid"/>&page=0">&laquo;</a></li>
 			     <% for(int i=0;i<10;i++){ %>
 			       <li><a href="HomeLend?userid=<s:property value="user.userid"/>&page=<%=i%>"><%=i%></a></li>

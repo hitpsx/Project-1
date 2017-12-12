@@ -7,14 +7,14 @@ import com.model.*;
 
 public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
-	private final String url = "jdbc:mysql://localhost:3306/project";
+	/*private final String url = "jdbc:mysql://localhost:3306/project";
 	private final String user = "root";
 	private final String password = "woaini123";
-	
-	/*private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
+	*/
+	private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
 	private final String user = "mxllm0zj55";
 	private final String password = "z3im552ylhzxxkix3khyxiw5i125wlzk512ij4lm";
-	*/
+	
 	private Connection con = null;
 	private Statement stm = null;
 	private ResultSet res = null;
@@ -213,7 +213,7 @@ public class MySQL {
 			if(type==1)
 				sql = String.format("SELECT * FROM cs limit %d,5",page*5);
 			else if(type==0)
-				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' and EquSta regexp '%s' limit %d,5",unit,"空闲|待",page*5);
+				sql=  String.format("SELECT * FROM cs where EquUnit = '%s' and EquSta regexp '%s' limit %d,5",unit,"空闲",page*5);
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Cs Cp=new Cs();
@@ -223,7 +223,7 @@ public class MySQL {
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
 				Cp.setEquDate(res.getDate("EquDate"));
-				
+								
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("EquClass"));
 				Cp.setEquUnit(res.getString("EquUnit"));
@@ -473,7 +473,7 @@ public class MySQL {
 			stm = con.createStatement();
 			String sql="";
 			if(type==0) //查询本单位目前的借出申请
-				sql = String.format("SELECT * FROM lendin where Sta like \"%%%s%%\" and  lendunit='%s' limit %d,5",sta,unit,page*5);
+				sql = String.format("SELECT * FROM lendin where Sta regexp '%s' and  lendunit='%s' limit %d,5","借|未",unit,page*5);
 			else if(type==1) //查询所有未审批的借出申请
 				sql = String.format("SELECT * FROM lendin limit %d,5",page*5);
 			else if (type==2)//查询已借到的设备
@@ -766,15 +766,17 @@ public class MySQL {
 			e.printStackTrace();
 		}
 	}
-	public Vector<Repair> selectRepair(int type) {
+	public Vector<Repair> selectRepair(int type,String unit) {
 		Vector<Repair>  reh=new Vector<Repair> ();
 		try {
 			stm = con.createStatement();
 		    String sql="";
 		    if(type==0)
-		    	sql = String.format("SELECT * FROM repair where Sta like \"%%%s%%\"","待");
+		    	sql = String.format("SELECT * FROM repair where EquUnit= '%s' and Sta like \"%%%s%%\"",unit,"待");
 		    else if(type==1)
-		    	sql = String.format("SELECT * FROM repair where Sta like \"%%%s%%\"","已解决");
+		    	sql = String.format("SELECT * FROM repair where Sta like \"%%%s%%\"","已维");
+		    else if(type==2)
+		    	sql = String.format("SELECT * FROM repair where Sta like \"%%%s%%\"","待");
 			res = stm.executeQuery(sql);
 			while(res.next()) {
 				Repair Re=new Repair();
@@ -803,7 +805,7 @@ public class MySQL {
 	public void UpdateRepair(int EquNumber,String name,String data) {
 		try {
 			stm=con.createStatement();
-			String sql=String.format("update repair set Sta='%s',OverDate='%s',conductor='%s'where EquNumber=%d","已解决",data,name,EquNumber);
+			String sql=String.format("update repair set Sta='%s',OverDate='%s',conductor='%s'where EquNumber=%d","已维修",data,name,EquNumber);
 			stm.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();

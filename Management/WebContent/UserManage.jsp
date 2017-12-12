@@ -206,13 +206,18 @@
 
 					   </ul>
                     </li>
-					 <li>
-					    <s:a action="HomeSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Equipment Manage</span></s:a>
+					<li>
+					    <s:a action="HomeSelect"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Select</span></s:a>
+					 
                     </li>
                     
                     <li>
-                        <s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Select</span></s:a>
-                    </li>
+                    	<a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Management</span><span class="fa arrow"></span></a>
+                    	 <ul class="nav nav-second-level">
+                            <li><s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Find</span></s:a></li>
+                            <li><a href="HomeRepair?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Repair</a></li>
+                        </ul>
+                    </li> 
                              
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Lend Management</span><span class="fa arrow"></span></a>
