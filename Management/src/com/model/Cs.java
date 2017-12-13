@@ -9,14 +9,14 @@ public class Cs {
     private String EquName;
     private String EquQua;
     private String ModelSpe;
-    private Date EquDate;
+    private String EquDate;
     private String EquSta;
     private String EquClass;
     private String EquUnit;
     private String Manufacturer;
     private String Supplier;
     private String Specifications;
-    private Date OrderDate;
+    private String OrderDate;
     private String Inspector;
     private String Quality;
     private String Maintainer;
@@ -75,11 +75,11 @@ public class Cs {
         this.EquName = EquName;
     }
 
-    public Date getEquDate() {
+    public String getEquDate() {
         return EquDate;
     }
 
-    public void setEquDate(Date EquDate) {
+    public void setEquDate(String EquDate) {
         this.EquDate = EquDate;
     }
 
@@ -123,11 +123,11 @@ public class Cs {
         this.Specifications = Specifications;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return OrderDate;
     }
 
-    public void setOrderDate(Date OrderDate) {
+    public void setOrderDate(String OrderDate) {
         this.OrderDate = OrderDate;
     }
 
@@ -203,13 +203,12 @@ public class Cs {
 
 
     public void set(int EquNumber, String EquName, String EquQua,
-        String ModelSpe, Date EquDate, String EquSta, String EquClass,
+        String ModelSpe, String EquDate, String EquSta, String EquClass,
         String EquUnit, String Manufacturer, String Supplier,
-        String Specifications, Date OrderDate, String Inspector,
-        String Quality, Date MaintenanceDate, String Maintainer,
+        String Specifications, String OrderDate, String Inspector,
+        String Quality,String Maintainer,
         String InventoryPosition, String PresentPosition, String UnitPrice,
-        String TotalPrice, String Batch, int OrderQuantity,
-        int ArrivalQuantity, String Handler, String Lender) {
+        int OrderQuantity,String Handler,String extra) {
         this.EquNumber = EquNumber;
         this.EquName = EquName;
         this.EquQua = EquQua;
@@ -230,5 +229,6 @@ public class Cs {
         this.UnitPrice = UnitPrice;
         this.OrderQuantity = OrderQuantity;
         this.Handler = Handler;
+        this.extra=extra;
     }
 }

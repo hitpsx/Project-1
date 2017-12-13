@@ -21,6 +21,7 @@
        <action name="Home" class="com.action.UserFunction" method="Home">
             <result name="success">/Home.jsp</result>
             <result name="admin">/HomeAdmin.jsp</result>
+            <result name="Repair">/HomeRepair.jsp</result>
             <result name="error">/404.html</result>
        </action>
     	
@@ -171,13 +172,27 @@
             <param name="userid">${userid}</param></result>
             <result name="error">/404.html</result>
     	</action>
-    	
+    	<action name="AdminCreatInvite" class="com.action.Admin" method="AdminCreatInvite">
+            <result name="success" type="chain">
+            <param name ="actionName">AdminInvite</param>
+            <param name="userid">${userid}</param></result>
+            <result name="error">/404.html</result>
+    	</action>
     	
         <action name="UpdateCs" class="com.action.UpdateCs" method="execute">
             <result name="success" type="chain">
             <param name ="actionName">CsUpdate</param>
             <param name="userid">${userid}</param></result>
             <param name="EquNumber">${EquNumber}</param>
+            <result name="error">/404.html</result> 
+    	</action>  
+    	
+    	<action name="HomeAdd" class="com.action.Admin" method="HomeAdd">
+            <result name="success">/Add.jsp</result>
+            <result name="error">/404.html</result>
+    	</action>
+    	<action name="AddCs" class="com.action.Admin" method="AddCs">
+            <result name="success">/HomeAdmin.jsp</result>
             <result name="error">/404.html</result>
     	</action>
     	

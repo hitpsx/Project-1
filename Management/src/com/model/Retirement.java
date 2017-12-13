@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Retirement {
 	int EquNumber;
 	String EquName;
-	Date EquDate;
+	String EquDate;
 	String ApplicationDate;
 	String Applicant;
 	
@@ -36,11 +36,11 @@ public class Retirement {
         this.EquName = EquName;
     }
     
-    public Date getEquDate() {
+    public String getEquDate() {
         return EquDate;
     }
 
-    public void setEquDate(Date EquDate) {
+    public void setEquDate(String EquDate) {
         this.EquDate = EquDate;
     }
     
@@ -129,7 +129,7 @@ public class Retirement {
 	
     public void set(int EquNumber,
 					String EquName,
-					Date EquDate,
+					String EquDate,
 					String ApplicationDate,
 					String Applicant,
 					

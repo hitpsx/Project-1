@@ -158,7 +158,7 @@
 		              </ul>
 		            </li>
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="images/wo.jpg"></a>
+		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><s:property value="user.username"/><i class="caret"></i></span><img src="<s:property value="user.picture"/>"></a>
 		              <ul class="dropdown-menu " role="menu">
 		              <li><s:a action="Profile"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-user"></i>Profile</s:a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Calender</a></li>
@@ -248,6 +248,7 @@
                     	 <ul class="nav nav-second-level">
                             <li><s:a action="SelectHome"><s:param name="userid"> <s:property value="user.userid"/> </s:param><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Find</span></s:a></li>
                             <li><a href="HomeRepair?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Repair</a></li>
+                            <li><a href="HomeAdd?userid=<s:property value="user.userid"/>" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Add</a></li>
                         </ul>
                     </li> 
                     <li>

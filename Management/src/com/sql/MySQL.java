@@ -7,14 +7,14 @@ import com.model.*;
 
 public class MySQL {
 	private final String driver = "com.mysql.jdbc.Driver";
-	/*private final String url = "jdbc:mysql://localhost:3306/project";
+	private final String url = "jdbc:mysql://localhost:3306/project";
 	private final String user = "root";
 	private final String password = "woaini123";
-	*/
-	private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
+	
+	/*private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
 	private final String user = "mxllm0zj55";
 	private final String password = "z3im552ylhzxxkix3khyxiw5i125wlzk512ij4lm";
-	
+	*/
 	private Connection con = null;
 	private Statement stm = null;
 	private ResultSet res = null;
@@ -222,7 +222,7 @@ public class MySQL {
 				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquDate(res.getString("EquDate"));
 								
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("EquClass"));
@@ -231,7 +231,7 @@ public class MySQL {
 				Cp.setSupplier(res.getString("Supplier"));
 				
 				Cp.setSpecifications(res.getString("Specifications"));
-				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setOrderDate(res.getString("OrderDate"));
 				Cp.setInspector(res.getString("Inspector"));
 				Cp.setQuality(res.getString("Quality"));
 				Cp.setMaintainer(res.getString("Maintainer"));
@@ -274,7 +274,7 @@ public class MySQL {
 				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquDate(res.getString("EquDate"));
 				
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("EquClass"));
@@ -283,7 +283,7 @@ public class MySQL {
 				Cp.setSupplier(res.getString("Supplier"));
 				
 				Cp.setSpecifications(res.getString("Specifications"));
-				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setOrderDate(res.getString("OrderDate"));
 				Cp.setInspector(res.getString("Inspector"));
 				Cp.setQuality(res.getString("Quality"));
 				Cp.setMaintainer(res.getString("Maintainer"));
@@ -330,7 +330,7 @@ public class MySQL {
 				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquDate(res.getString("EquDate"));
 				
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("EquClass"));
@@ -339,7 +339,7 @@ public class MySQL {
 				Cp.setSupplier(res.getString("Supplier"));
 				
 				Cp.setSpecifications(res.getString("Specifications"));
-				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setOrderDate(res.getString("OrderDate"));
 				Cp.setInspector(res.getString("Inspector"));
 				Cp.setQuality(res.getString("Quality"));
 				Cp.setMaintainer(res.getString("Maintainer"));
@@ -377,7 +377,7 @@ public class MySQL {
 				Cp.setEquQua(res.getString("EquQua"));
 				Cp.setEquName(res.getString("EquName"));
 				Cp.setModelSpe(res.getString("ModelSpe"));
-				Cp.setEquDate(res.getDate("EquDate"));
+				Cp.setEquDate(res.getString("EquDate"));
 				
 				Cp.setEquSta(res.getString("EquSta"));
 				Cp.setEquClass(res.getString("EquClass"));
@@ -386,7 +386,7 @@ public class MySQL {
 				Cp.setSupplier(res.getString("Supplier"));
 				
 				Cp.setSpecifications(res.getString("Specifications"));
-				Cp.setOrderDate(res.getDate("OrderDate"));
+				Cp.setOrderDate(res.getString("OrderDate"));
 				Cp.setInspector(res.getString("Inspector"));
 				Cp.setQuality(res.getString("Quality"));
 				Cp.setMaintainer(res.getString("Maintainer"));
@@ -513,7 +513,7 @@ public class MySQL {
 				
 				Re.setEquNumber(res.getInt("EquNumber"));
 				Re.setEquName(res.getString("EquName"));
-				Re.setEquDate(res.getDate("EquDate"));
+				Re.setEquDate(res.getString("EquDate"));
 				Re.setApplication(res.getString("Application"));
 				Re.setApplicant(res.getString("Applicant"));
 				Re.setRetireDate(res.getString("RetireDate"));
@@ -554,7 +554,7 @@ public class MySQL {
 				
 				Re.setEquNumber(res.getInt("EquNumber"));
 				Re.setEquName(res.getString("EquName"));
-				Re.setEquDate(res.getDate("EquDate"));
+				Re.setEquDate(res.getString("EquDate"));
 				Re.setApplication(res.getString("Application"));
 				Re.setApplicant(res.getString("Applicant"));
 				Re.setRetireDate(res.getString("RetireDate"));
@@ -670,7 +670,7 @@ public class MySQL {
 				
 				Re.setEquNumber(res.getInt("EquNumber"));
 				Re.setEquName(res.getString("EquName"));
-				Re.setEquDate(res.getDate("EquDate"));
+				Re.setEquDate(res.getString("EquDate"));
 				Re.setApplication(res.getString("Application"));
 				Re.setApplicant(res.getString("Applicant"));
 				Re.setRetireDate(res.getString("RetireDate"));
@@ -713,6 +713,22 @@ public class MySQL {
 			String sql=String.format("delete from lendin where LendNumber=%d",EquNumber);
 			stm.executeUpdate(sql);
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void AddCs(Cs ch) {
+		try {
+			stm = con.createStatement();
+			String sql = "INSERT INTO cs (EquNumber, EquName, EquQua, ModelSpe, EquDate, EquSta, EquClass, EquUnit, EquPic, Manufacturer, Supplier, Specifications,"
+					+ "OrderDate, Inspector, Quality, Maintainer, InventoryPosition, PresentPosition, UnitPrice, OrderQuantity, Handler, extra) VALUES " +
+					String.format("(%d,\"%s\",%d,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\""
+							+ ",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\");"
+							,ch.getEquNumber(),ch.getEquName(),1,"IS-201","2017-01-01","空闲","Micro-Computer",ch.getEquUnit(),"null","华硕","华硕旗舰店","台/箱",
+							"2015-06-03","张三","合格","李四","计算机301库房","理学楼203","7299",1,"王五","null");
+			stm.executeUpdate(sql);
+			stm.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
