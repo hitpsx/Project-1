@@ -6,15 +6,15 @@ import com.model.*;
 
 
 public class MySQL {
-	private final String driver = "com.mysql.jdbc.Driver";
-	private final String url = "jdbc:mysql://localhost:3306/project";
+    private final String driver = "com.mysql.jdbc.Driver";
+	/*private final String url = "jdbc:mysql://localhost:3306/project";
 	private final String user = "root";
 	private final String password = "woaini123";
-	
-	/*private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
+	*/
+	private final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_hitpsx";
 	private final String user = "mxllm0zj55";
 	private final String password = "z3im552ylhzxxkix3khyxiw5i125wlzk512ij4lm";
-	*/
+	
 	private Connection con = null;
 	private Statement stm = null;
 	private ResultSet res = null;

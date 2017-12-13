@@ -12,10 +12,8 @@ http://vladimirkudinov.com
 ######################################################## */
 
 /* Resets */
-.graph-container,
-.graph-container div,
-.graph-container a,
-.graph-container span {
+.graph-container, .graph-container div, .graph-container a,
+	.graph-container span {
 	margin: 0;
 	padding: 0;
 }
@@ -31,10 +29,9 @@ http://vladimirkudinov.com
 	width: 100%;
 	height: 528px;
 	padding: 20px;
-	
 }
 
-.graph-container > div {
+.graph-container>div {
 	position: absolute;
 	width: inherit;
 	height: inherit;
@@ -50,7 +47,6 @@ http://vladimirkudinov.com
 /* Text Styles */
 #tooltip, .graph-info a {
 	height: 25px;
-	
 	font-size: 12px;
 	line-height: 13px;
 	color: #999;
@@ -59,7 +55,6 @@ http://vladimirkudinov.com
 .tickLabel {
 	font-size: 1.2em;
 	color: #999;
-	
 }
 
 /* Tooltip */
@@ -96,48 +91,60 @@ http://vladimirkudinov.com
 }
 
 /* Colors For each Link */
-.graph-info .visitors { border-bottom: 2px solid #67398C; }
-.graph-info .returning { border-bottom: 2px solid #77b7c5; }
+.graph-info .visitors {
+	border-bottom: 2px solid #67398C;
+}
 
-.graph-info .visitors:before { background: #67398C; }
-.graph-info .returning:before { background: #67398C; }
+.graph-info .returning {
+	border-bottom: 2px solid #77b7c5;
+}
 
+.graph-info .visitors:before {
+	background: #67398C;
+}
+
+.graph-info .returning:before {
+	background: #67398C;
+}
 
 /* Hide the First and Last Y Label */
-.yAxis .tickLabel:first-child,
-.yAxis .tickLabel:last-child { display: none; }
+.yAxis .tickLabel:first-child, .yAxis .tickLabel:last-child {
+	display: none;
+}
 
 /* Clear Floats */
-.graph-info:before, .graph-info:after,
-.graph-container:before, .graph-container:after {
+.graph-info:before, .graph-info:after, .graph-container:before,
+	.graph-container:after {
 	content: '';
 	display: block;
 	clear: both;
 }
-.graph-container h3{
-	font-size:1.5em;
-	color:#FFF;
-	margin-bottom:1em;
+
+.graph-container h3 {
+	font-size: 1.5em;
+	color: #FFF;
+	margin-bottom: 1em;
 }
 
 /*--media Quries for 1024px-laptops-*/
-@media(max-width: 1024px) {
-.graph-container {
-    height: 499px;	
-}
+@media ( max-width : 1024px) {
+	.graph-container {
+		height: 499px;
+	}
 }
 /*--media Quries for 768px-laptops-*/
-@media (max-width:768px) {
-.graph-container {
-    height: 430px;
-    margin: 1em;
-    width: 94%;
-}	
+@media ( max-width :768px) {
+	.graph-container {
+		height: 430px;
+		margin: 1em;
+		width: 94%;
+	}
 }
-@media (max-width:320px) {
-.graph-container {
-    height: 370px;
-    margin: 1em;
-    width: 94%;
-}	
+
+@media ( max-width :320px) {
+	.graph-container {
+		height: 370px;
+		margin: 1em;
+		width: 94%;
+	}
 }
